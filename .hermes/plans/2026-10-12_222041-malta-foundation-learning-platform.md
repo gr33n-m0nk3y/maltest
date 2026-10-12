@@ -77,7 +77,7 @@ Expected extracted bank: **≈465 items** — keyed: ~350 (book) + 30 (practice 
 
 **P0 — Inventory (DONE).** All 5 PDFs verified extractable via pymupdf; the 382-pager identified as the 350-Q keyed SJT book (chapter themes = situational taxonomy). No OCR pass needed. Tooling: `build/inventory.py`, `build/probe_*.py`.
 
-**P1 — Extraction pipeline.** `build/extract.py` → keyed bank: 350-Q book (dedupe duplicated text lines; map ligature glyphs 0xE000/0xE001→`f` + token fixup dict for collapsed double-f; parse per-question answer blocks) + 30-Q paper + 5 worked + 4 Malta examples + unkeyed 2023 pool + glossary. Situational topic tags = the book's chapter themes. `build/validate.py` schema/count/key-format checks. *Verify: counts ≈ P0; 3 scenarios verbatim vs PDFs; every keyed item has a parseable key.*
+**P1 — Extraction pipeline (DONE).** `build/extract.py` → `app/data/questions.json`: **391 keyed questions** (book 352 + 30-Q 30 + Malta 4 + worked 5), validated by `build/validate.py` (0 errors). Book parser handles char-level overlay dedupe, ligature fixup, lost-letter options, running-header stripping. **2023 paper (75, unkeyed) deferred** to a later pass — its fragmented multi-part rating format needs dedicated parsing and it's provisional-keyed anyway.
 
 **P2 — Clinical core.** `data/topics.json` (39 topics, groups) + AI-drafted essentials notes per topic (`data/notes/<slug>.json`) + clinical question pipeline (per-topic in-depth bank via OpenRouter, user-reviewed). *Verify: 39 topics present; every topic has a note + ≥5 drafted in-depth SBA questions after review cycle.*
 
