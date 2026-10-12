@@ -6,31 +6,40 @@
 <title>Learn — Malta Foundation Training 1</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-.topic-group { margin-bottom: 8px; }
-.topic-group h3 { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 6px; }
-.topic-chip {
-  display: inline-block; padding: 6px 12px; margin: 3px; border: 1px solid var(--border);
-  border-radius: 8px; background: var(--card2); cursor: pointer; font-size: 13px;
-}
+.searchbar { width: 100%; padding: 10px 14px; margin-bottom: 16px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--card2); color: var(--fg); font-size: 14px; }
+.topic-group { margin-bottom: 6px; }
+.topic-group h3 { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin: 14px 0 6px; }
+.topic-chip { display: inline-block; padding: 6px 12px; margin: 3px; border: 1px solid var(--border);
+  border-radius: 8px; background: var(--card2); cursor: pointer; font-size: 13px; }
 .topic-chip:hover { border-color: var(--accent); }
 .topic-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-.note h2 { margin-top: 0; }
-.note h4 { color: var(--accent); margin: 16px 0 6px; font-size: 14px; }
+.note h2 { margin: 0 0 4px; }
+.note .overview { color: var(--fg); background: var(--card2); border-left: 3px solid var(--accent);
+  padding: 10px 14px; border-radius: 6px; font-size: 14px; margin: 12px 0 4px; }
+.note h4 { color: var(--accent); margin: 20px 0 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.4px; }
 .note ul { margin: 0; padding-left: 20px; }
-.note li { margin-bottom: 6px; font-size: 14px; }
+.note li { margin-bottom: 7px; font-size: 14px; }
 .note table { width: 100%; border-collapse: collapse; margin-top: 6px; }
-.note table th, .note table td { padding: 6px 10px; border-bottom: 1px solid var(--border); text-align: left; font-size: 13px; }
-.note table th { color: var(--muted); }
+.note table th, .note table td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: left; font-size: 13px; vertical-align: top; }
+.note table th { color: var(--muted); font-weight: 600; }
+.note table td:first-child { font-weight: 600; white-space: nowrap; }
+.scen { border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; background: var(--card2); }
+.scen .q { font-size: 14px; margin-bottom: 4px; }
+.scen .a { font-size: 13px; color: var(--accent2); }
+.scen .a::before { content: "\2192 "; }
 .blueprint li { margin-bottom: 6px; font-size: 14px; }
+.practice-link { display: inline-block; margin-top: 14px; padding: 8px 14px; border-radius: 8px;
+  background: var(--accent); color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; }
 </style>
 </head>
 <body>
 <header class="nav">
   <span class="brand">Malta F1 Prep</span>
   <a href="index.html" class="active">Learn</a>
+  <a href="clinical.html">Clinical</a>
   <a href="self-test.html">Self-Test</a>
   <a href="situational.html">Situational</a>
-  <a href="clinical.html">Clinical</a>
   <a href="mock.html">Mock Exam</a>
   <a href="generate.html">Generate</a>
 </header>
@@ -44,12 +53,13 @@
       <li><strong>60 questions in 140 minutes.</strong> Answer as an FY1 doctor — what you <em>should</em> do.</li>
       <li><strong>Section A — Situational Judgement:</strong> Q1-25 Ranking (rank 5 options, near-miss marks, no tied ranks); Q26-40 MCQ choose 3 of 8.</li>
       <li><strong>Section B — Situational Clinical:</strong> Q41-50 MCQ choose 3 of 8; Q51-60 True/False (2 marks each).</li>
-      <li><strong>No negative marking</strong> — attempt everything. Over-selecting (more than 3 in a 3-of-8, duplicate ranks, both T and F) disqualifies that question.</li>
+      <li><strong>No negative marking</strong> — attempt everything. Over-selecting disqualifies that question.</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>Topics</h2>
+    <input class="searchbar" id="search" type="text" placeholder="Search topics…">
     <div id="topics"></div>
   </div>
 
@@ -58,39 +68,57 @@
 <script>
 (async () => {
   const topics = await (await fetch("data/topics.json")).json();
-  const groups = {};
-  topics.forEach((t) => { (groups[t.group] = groups[t.group] || []).push(t); });
   const topicsEl = document.getElementById("topics");
-  let html = "";
-  for (const [g, ts] of Object.entries(groups)) {
-    html += `<div class="topic-group"><h3>${g}</h3>`;
-    ts.forEach((t) => { html += `<span class="topic-chip" data-slug="${t.slug}">${t.name}</span>`; });
-    html += `</div>`;
-  }
-  topicsEl.innerHTML = html;
-
   const noteEl = document.getElementById("note");
   let notes = {};
   try { notes = await (await fetch("data/notes.json")).json(); } catch {}
+
+  function renderChips(filter) {
+    const groups = {};
+    topics.filter((t) => !filter || t.name.toLowerCase().includes(filter) || t.group.toLowerCase().includes(filter))
+      .forEach((t) => { (groups[t.group] = groups[t.group] || []).push(t); });
+    let html = "";
+    for (const [g, ts] of Object.entries(groups)) {
+      html += `<div class="topic-group"><h3>${g}</h3>`;
+      ts.forEach((t) => { html += `<span class="topic-chip" data-slug="${t.slug}">${t.name}</span>`; });
+      html += `</div>`;
+    }
+    topicsEl.innerHTML = html || `<p class="sub">No topics match.</p>`;
+  }
+  renderChips("");
+
+  document.getElementById("search").addEventListener("input", (e) => renderChips(e.target.value.trim().toLowerCase()));
 
   topicsEl.addEventListener("click", (e) => {
     const chip = e.target.closest(".topic-chip");
     if (!chip) return;
     document.querySelectorAll(".topic-chip").forEach((c) => c.classList.remove("active"));
     chip.classList.add("active");
-    const n = notes[chip.dataset.slug];
+    const slug = chip.dataset.slug;
+    const n = notes[slug];
     if (!n) {
       noteEl.style.display = "";
-      noteEl.innerHTML = `<h2>${chip.textContent}</h2><p class="sub">Note not yet drafted. Use the <a href="generate.html">Generate</a> tab to create one.</p>`;
+      noteEl.innerHTML = `<h2>${chip.textContent}</h2><p class="sub">Note not yet drafted.</p>`;
       return;
     }
     let h = `<h2>${n.name}</h2><span class="badge topic">${n.group}</span>`;
-    if (n.essentials) { h += `<h4>Essentials</h4><ul>${n.essentials.map((x) => `<li>${x}</li>`).join("")}</ul>`; }
-    if (n.keyValues) {
-      h += `<h4>Key values</h4><table><tr><th>Value</th><th>Reference</th></tr>${n.keyValues.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join("")}</table>`;
+    if (n.overview) h += `<div class="overview">${n.overview}</div>`;
+    if (n.essentials) h += `<h4>Essentials</h4><ul>${n.essentials.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+    if (n.drugs && n.drugs.length) {
+      h += `<h4>Drugs &amp; interventions</h4><table><tr><th>Drug</th><th>When it's used</th><th>Key points</th></tr>` +
+        n.drugs.map((d) => `<tr><td>${d.name}</td><td>${d.when}</td><td>${d.notes}</td></tr>`).join("") + `</table>`;
     }
-    if (n.redFlags) { h += `<h4>Red flags</h4><ul>${n.redFlags.map((x) => `<li>${x}</li>`).join("")}</ul>`; }
-    if (n.management) { h += `<h4>First-line management</h4><ul>${n.management.map((x) => `<li>${x}</li>`).join("")}</ul>`; }
+    if (n.clinicalScenarios && n.clinicalScenarios.length) {
+      h += `<h4>Clinical scenarios</h4>` +
+        n.clinicalScenarios.map((s) => `<div class="scen"><div class="q">${s.scenario}</div><div class="a">${s.answer}</div></div>`).join("");
+    }
+    if (n.keyValues) {
+      h += `<h4>Key values</h4><table><tr><th>Value</th><th>Reference</th></tr>` +
+        n.keyValues.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join("") + `</table>`;
+    }
+    if (n.redFlags) h += `<h4>Red flags</h4><ul>${n.redFlags.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+    if (n.management) h += `<h4>First-line management</h4><ul>${n.management.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+    if (n.pitfalls) h += `<h4>Exam pearls &amp; pitfalls</h4><ul>${n.pitfalls.map((x) => `<li>${x}</li>`).join("")}</ul>`;
     h += `<p class="sub" style="margin-top:14px">AI-drafted — verify against your own sources.</p>`;
     noteEl.style.display = "";
     noteEl.innerHTML = h;
