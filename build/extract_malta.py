@@ -10,11 +10,21 @@ BARE = re.compile(r"^([a-h])[\.\)]\s*$")
 INSTR_RANK = re.compile(r"Rank in order")
 INSTR_MCQ = re.compile(r"Choose the three")
 INSTR_TF = re.compile(r"Which of the following actions would be appropriate")
+# real section boundaries — finalize the current block here
+STOP = re.compile(r"^(Glossary:|Correct answers|ANSWER SCRIPTS|TEST INSTRUCTIONS)")
+# running page header (repeats on every page) — skip, never append to options
+SKIP = re.compile(r"^(SJCT Pilot Test information|April 2016|Malta Foundation School)")
 
 def extract_malta():
     blocks = {}
     cur = None
     for ln in LINES:
+        if SKIP.match(ln.strip()):
+            continue
+        if cur is not None and STOP.match(ln.strip()):
+            blocks[cur["id"]] = cur
+            cur = None
+            continue
         m = EX.match(ln.strip())
         if m:
             if cur:
@@ -85,4 +95,5 @@ if __name__ == "__main__":
     qs = extract_malta()
     for q in qs:
         print(q["id"], q["type"], "key=", q["key"], "options=", len(q["options"]))
-        print("  scenario:", q["scenario"][:90])
+        for i, o in enumerate(q["options"]):
+            print(f"  {chr(65+i)}: {o[:70]}")

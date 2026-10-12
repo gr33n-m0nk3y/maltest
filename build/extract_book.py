@@ -11,7 +11,7 @@ INSTR_RANK = re.compile(r"Rank\s*in\s*order")
 INSTR_MCQ = re.compile(r"Choose\s*the\s*THREE")
 REC_READ = re.compile(r"^Recommended reading")
 # running page headers / footers to strip
-RUNNING = re.compile(r"^(Questions \d+|Answers \d+|\d+ Chapter \d+:.*|Chapter \d+:.*)$")
+RUNNING = re.compile(r"^(Questions \d+|Answers \d+|\d+ Chapter \d+:.*|Chapter \d+:.*|\d+ \d+ [A-Z])")
 # garbage: short all-lowercase lines with no vowel (overlay remnants like "yypy")
 GARBAGE = re.compile(r"^[a-z]{2,8}$")
 

@@ -79,15 +79,15 @@ Expected extracted bank: **≈465 items** — keyed: ~350 (book) + 30 (practice 
 
 **P1 — Extraction pipeline (DONE).** `build/extract.py` → `app/data/questions.json`: **391 keyed questions** (book 352 + 30-Q 30 + Malta 4 + worked 5), validated by `build/validate.py` (0 errors). Book parser handles char-level overlay dedupe, ligature fixup, lost-letter options, running-header stripping. **2023 paper (75, unkeyed) deferred** to a later pass — its fragmented multi-part rating format needs dedicated parsing and it's provisional-keyed anyway.
 
-**P2 — Clinical core.** `data/topics.json` (39 topics, groups) + AI-drafted essentials notes per topic (`data/notes/<slug>.json`) + clinical question pipeline (per-topic in-depth bank via OpenRouter, user-reviewed). *Verify: 39 topics present; every topic has a note + ≥5 drafted in-depth SBA questions after review cycle.*
+**P2 — Clinical core (DONE).** `data/topics.json` (39 topics, 14 groups) + `data/notes.json` (39 AI-drafted essentials notes: mechanisms, key values, red flags, management) + **78 starter SBA questions** (`source: clinical`, provisional). All cross-checked (39/39 topics matched). *User reviews the AI-drafted notes/questions.*
 
-**P3 — Engine + Sections 2 & 3.** `js/engine.js` (5 scorers, near-miss matrices, mock assembler, timer) with `tests/test_engine.js` (official matrices as fixtures, e.g. ideal `BADCE`→20/20). Then `self-test.html` and `situational.html` (practice modes, rationale display, provisional-key toggle). *Verify: engine tests green; hand-scored sample matches engine.*
+**P3 — Engine + Sections 2 & 3 (DONE).** `js/engine.js` (5 scorers + mock assembler), 30 unit tests green vs official matrices. `self-test.html` + `situational.html` practice modes (rationale display, provisional-key toggle, theme/type filters). Verified in browser.
 
-**P4 — Mock exam.** `mock.html`: 60/140 Malta format, per-section composition by domain+type, timer, zero-on-over-select enforcement, section/topic score report. *Verify: full mock run scores correctly section-by-section.*
+**P4 — Mock exam (DONE).** `mock.html`: 60/140 Malta format, timer, section score report, shortfall reporting (B2 short — 1 tf in bank; generator fills it).
 
-**P5 — Learn tab.** `index.html`: topic browser + notes + per-topic quiz links + blueprint + glossary; per-topic mastery tracking. *Verify: all 39 topics navigable; notes render; quiz filters per topic.*
+**P5 — Learn tab (DONE).** `index.html`: 39-topic grouped browser + per-topic notes + blueprint + glossary. Verified.
 
-**P6 — Generator.** `generate.html` with two engines (clinical-by-topic few-shot; situational source-grounded few-shot from worked examples); strict output schema + client validation; review/approve/edit; export/import JSON. *Verify: 2 generated Qs per type pass schema; generated rank5 round-trips through scorer.*
+**P6 — Generator (DONE).** `generate.html`: two engines (clinical-by-topic SBA/mcq3/tf; situational rank5/mcq3), OpenRouter (localStorage key, DeepSeek default), strict output schema + client validation, review/approve/edit before saving, `[AI-GENERATED]` + provisional flags, export/import JSON. Generated bank merges into practice/mock via `loader.js`. *User generates the full clinical bank with their key.*
 
 **P7 — GitHub Pages deploy.** git init, commit, create repo `maltest`, push, enable Pages, relative asset paths. Key stays in localStorage. *Verify: live URL loads; all tabs functional.*
 
