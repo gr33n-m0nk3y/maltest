@@ -63,13 +63,17 @@ const Practice = (() => {
         </div>`).join("");
     }
 
+    const checkArea = q.key
+      ? `<button id="checkBtn">Check answer</button>`
+      : `<span class="badge provisional">Unkeyed question — official key unavailable (provisional keys come later)</span>`;
+
     return `
       <div class="card">
         <div class="scenario">${esc(q.scenario)}${badgeHtml}</div>
         <div class="instruction">${instruction(q)}</div>
         ${body}
-        <div class="controls">
-          ${q.key ? '<button id="checkBtn">Check answer</button>' : '<span class="badge provisional">Unkeyed question — official key unavailable (provisional keys come later)</span>'}
+        <div class="controls" id="controls">
+          ${checkArea}
         </div>
         <div id="feedback"></div>
       </div>`;
@@ -127,7 +131,6 @@ const Practice = (() => {
     return { error: "Unknown type" };
   }
 
-  // prefill the rendered inputs from a stored answer
   function prefill(q, answer) {
     if (q.type === "rank5") {
       answer.split("").forEach((letter, i) => {
@@ -162,7 +165,7 @@ const Practice = (() => {
     let html = `<div class="feedback ${cls}">
       <span class="score">${result.score} / ${result.max} (${pct}%)</span>`;
     if (q.type === "rank5") {
-      html += `<div class="rationale">Correct order: ${q.key.split("").join(" → ")}</div>`;
+      html += `<div class="rationale">Correct order: ${q.key.split("").join(" \u2192 ")}</div>`;
     } else if (q.type === "mcq3") {
       html += `<div class="rationale">Correct: ${q.key.split("").join(", ")}</div>`;
     } else if (q.type === "tf") {
@@ -178,13 +181,13 @@ const Practice = (() => {
   }
 
   function markOptions(q) {
-    // color by comparing chosen (from inputs) against key
     if (q.type === "rank5") {
       document.querySelectorAll(".option").forEach((el) => {
         const i = parseInt(el.dataset.i);
         const letter = String.fromCharCode(65 + i);
         const idealPos = q.key.indexOf(letter);
-        const chosen = [...document.querySelectorAll(".rank")].find((s) => s.dataset.i == i).value;
+        const sel = [...document.querySelectorAll(".rank")].find((s) => s.dataset.i == i);
+        const chosen = sel ? sel.value : "";
         if (chosen && parseInt(chosen) - 1 === idealPos) el.classList.add("correct");
         else if (chosen) el.classList.add("wrong");
       });
@@ -226,26 +229,42 @@ const Practice = (() => {
 
     let idx = 0;
     let total = 0, max = 0, correct = 0;
-    const answers = {};    // idx -> {answer, result}
-    const recorded = {};   // idx -> onQuestion already fired
-
-    function go(i) {
-      if (i < 0 || i >= questions.length) return;
-      idx = i;
-      render();
-    }
+    const answers = {};
+    const recorded = {};
 
     function finish() {
       const pct = max ? Math.round((total / max) * 100) : 0;
+      const answered = Object.keys(answers).length;
+      const detail = max
+        ? `${pct}% \u2014 ${correct} of ${questions.length} questions fully correct`
+        : `You didn't answer any of the ${questions.length} questions yet \u2014 use Check answer on each one.`;
       container.innerHTML = `
         <div class="card results">
           <div class="big">${total} / ${max}</div>
-          <div class="detail">${pct}% — ${correct} of ${questions.length} questions fully correct</div>
+          <div class="detail">${detail}</div>
           <div class="controls" style="justify-content:center">
             <button onclick="location.reload()">Practice again</button>
           </div>
         </div>`;
       onFinish({ total, max, pct, correct });
+    }
+
+    function go(i) {
+      if (i < 0) return;
+      if (i >= questions.length) { finish(); return; }
+      idx = i;
+      render();
+    }
+
+    // append a Next/Finish button after the check button (needed when nav bar is hidden)
+    function addAdvanceButton(isLast) {
+      const controls = document.getElementById("controls");
+      if (!controls || controls.querySelector("#advanceBtn")) return;
+      const nb = document.createElement("button");
+      nb.id = "advanceBtn";
+      nb.textContent = isLast ? "Finish \u2726" : "Next question \u2192";
+      nb.onclick = () => (isLast ? finish() : go(idx + 1));
+      controls.appendChild(nb);
     }
 
     function render() {
@@ -256,38 +275,43 @@ const Practice = (() => {
       if (idx >= questions.length) return finish();
       const q = questions[idx];
       const saved = answers[idx];
+      const isLast = idx === questions.length - 1;
 
       const navHtml = allowNav ? `
         <div class="controls" style="margin-top:0">
-          <button class="ghost" id="prevBtn" ${idx === 0 ? "disabled" : ""}>← Previous</button>
-          ${showRandom ? `<button class="ghost" id="randBtn">🎲 Random</button>` : ""}
-          <button class="ghost" id="navNextBtn" ${idx === questions.length - 1 ? "disabled" : ""}>Next →</button>
+          <button class="ghost" id="prevBtn" ${idx === 0 ? "disabled" : ""}>\u2190 Previous</button>
+          ${showRandom ? `<button class="ghost" id="randBtn">\uD83C\uDFB2 Random</button>` : ""}
+          <button class="ghost" id="navNextBtn">${isLast ? "Finish \u2726" : "Next \u2192"}</button>
         </div>` : "";
 
       container.innerHTML = `
-        <div class="progress">Question ${idx + 1} of ${questions.length} — running score ${total}/${max}</div>
+        <div class="progress">Question ${idx + 1} of ${questions.length} \u2014 running score ${total}/${max}</div>
         ${navHtml}
         ${renderQuestion(q)}`;
 
       if (allowNav) {
-        document.getElementById("prevBtn").onclick = () => go(idx - 1);
+        const pb = document.getElementById("prevBtn");
+        if (pb) pb.onclick = () => go(idx - 1);
         document.getElementById("navNextBtn").onclick = () => go(idx + 1);
         const rb = document.getElementById("randBtn");
         if (rb) rb.onclick = () => { let r; do { r = Math.floor(Math.random() * questions.length); } while (r === idx && questions.length > 1); go(r); };
       }
 
       if (saved) {
-        // restore answered state
         prefill(q, saved.answer);
         showFeedback(q, saved.result);
         markOptions(q);
         const cb0 = document.getElementById("checkBtn");
         if (cb0) cb0.disabled = true;
+        if (!allowNav) addAdvanceButton(isLast);
         return;
       }
 
       const cb = document.getElementById("checkBtn");
-      if (!cb || !q.key) return; // unkeyed — nothing to score against
+      if (!cb) { // unkeyed — allow advancing without scoring
+        if (!allowNav) addAdvanceButton(isLast);
+        return;
+      }
       cb.onclick = () => {
         const { answer, error } = collectAnswer(q);
         if (error) { document.getElementById("feedback").innerHTML = `<div class="feedback bad">${esc(error)}</div>`; return; }
@@ -302,7 +326,8 @@ const Practice = (() => {
         }
         showFeedback(q, result);
         markOptions(q);
-        document.getElementById("checkBtn").disabled = true;
+        cb.disabled = true;
+        if (!allowNav) addAdvanceButton(isLast);
       };
     }
 

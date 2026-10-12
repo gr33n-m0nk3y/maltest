@@ -91,7 +91,9 @@ const Engine = (() => {
   // Section B (clinical):   B1 = 10 mcq3, B2 = 10 tf
   function buildMock(bank, opts = {}) {
     const durationMin = opts.durationMin || 140;
-    const byType = (t) => bank.filter((q) => q.type === t);
+    // only keyed questions can be scored — exclude unkeyed (provisional) items
+    const keyed = (q) => q.key != null && !(typeof q.key === "string" && q.key === "");
+    const byType = (t) => bank.filter((q) => q.type === t && keyed(q));
     const pick = (pool, n) => {
       const shuffled = [...pool].sort(() => Math.random() - 0.5);
       return shuffled.slice(0, n);

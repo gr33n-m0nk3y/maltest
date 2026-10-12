@@ -58,7 +58,15 @@
     } else current = pool.filter((q) => q.topic === f);
     Practice.run(container, current);
   });
-  Practice.run(container, current);
+  // deep-link: ?topic=<slug> from the Learn tab
+  const wanted = new URLSearchParams(location.search).get("topic");
+  if (wanted) {
+    const btn = [...filters.querySelectorAll("button")].find((b) => b.dataset.f === wanted);
+    if (btn) { btn.click(); }
+    else Practice.run(container, current);
+  } else {
+    Practice.run(container, current);
+  }
 })();
 </script>
 </body>

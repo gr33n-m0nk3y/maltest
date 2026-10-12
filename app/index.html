@@ -119,6 +119,7 @@
     if (n.redFlags) h += `<h4>Red flags</h4><ul>${n.redFlags.map((x) => `<li>${x}</li>`).join("")}</ul>`;
     if (n.management) h += `<h4>First-line management</h4><ul>${n.management.map((x) => `<li>${x}</li>`).join("")}</ul>`;
     if (n.pitfalls) h += `<h4>Exam pearls &amp; pitfalls</h4><ul>${n.pitfalls.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+    h += `<a class="practice-link" href="clinical.html?topic=${slug}">Practice this topic \u2192</a>`;
     h += `<p class="sub" style="margin-top:14px">AI-drafted — verify against your own sources.</p>`;
     noteEl.style.display = "";
     noteEl.innerHTML = h;
