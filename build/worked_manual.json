@@ -1,0 +1,103 @@
+[
+  {
+    "id": "worked-1a",
+    "source": "worked",
+    "type": "rate",
+    "scenario": "You are covering a ward out of hours. An FY2 doctor, Jeremy tells you that he will be back shortly. As the ward becomes busier, you note that Jeremy has not returned from his break. You find Jeremy asleep in the break room. You are very busy and becoming overwhelmed on the ward, so you decide to wake Jeremy. Jeremy tells you to leave him alone as he needs the rest.",
+    "options": [
+      "Explain to Jeremy that you feel overwhelmed, under pressure and need his support",
+      "Explain to Jeremy that his behaviour is inappropriate",
+      "Leave Jeremy to sleep and carry on alone throughout the shift",
+      "Ask other colleagues on the ward for their support",
+      "Inform a more senior colleague that you are not receiving the support that you need from your FY2",
+      "Decide to work late to finish the tasks"
+    ],
+    "key": [1, 2, 4, 2, 1, 4],
+    "rationale": [
+      "This is a very appropriate action. It is clear and explicit that you need help on the ward, as you cannot manage the workload alone, whilst remaining polite and professional. It does not cast judgement on why Jeremy is sleeping, but simply asks for his help now that he is awake.",
+      "This action is somewhat appropriate. Although staff members are entitled to take breaks and rest, which may even include a small nap, this must not over run to when they are meant to be performing clinical duties. However, the response is not entirely appropriate as although Jeremy's behaviour is inappropriate, it does not explain to him what your immediate concerns are with the busy ward and that his help is needed now.",
+      "This is an inappropriate action. Regardless of Jeremy's reasons for taking a nap, when his allotted break time has finished, Jeremy should be ready to continue his clinical duties. If he is unwell or has genuine reasons, then the situation can be escalated, so that he can be sent home and appropriate cover can be found. However, by leaving him to sleep, the situation is not being dealt with, and it also means that the clinical work is becoming overwhelming for one FY1 doctor. Additionally, patient safety may be at risk due to not enough staff and support available.",
+      "This action is somewhat appropriate. It is recognising your own limitations and that you are becoming overwhelmed and require support on the ward. Asking for help is a positive step and ensures patient safety. However, the colleagues on the ward may have other duties and asking for their help is taking them away from their own work and it hasn't dealt with the main problem at this time, which is Jeremy sleeping and not able to perform his own duties.",
+      "This is a very appropriate action. Escalating the situation appropriately has two benefits: it means that additional support can be found for you in order to carry out the jobs properly, and patient safety isn't compromised. It also means that a senior colleague can deal sensitively with Jeremy, as there may be more complex issues involved that may explain the reasons why he is so tired and unable to complete his shift, which can be dealt with by his senior.",
+      "This is an inappropriate action. Despite the good intentions behind working late to get the jobs completed, it is inappropriate because, as an individual, you cannot simply take on an entire colleague's workload. You will be tired after a long shift, and in these circumstances mistakes can happen. Rest periods are essential, so you need to finish your shift when allocated and get the appropriate rest needed, so that you are ready for your next shift. Safe working times and rotas have been designed with this in mind. Working late to finish tasks also sets a precedent for other doctors to do the same. Any leftover jobs can be safely handed over to the on-call team or postponed until the following day. Finally, by working late to finish the tasks, not only might it be unsafe, but it is not dealing with the problem that you have been unsupported by a team member, Jeremy, who is asleep, and these needs escalating appropriately."
+    ],
+    "provisional": false
+  },
+  {
+    "id": "worked-1b",
+    "source": "worked",
+    "type": "rate",
+    "scenario": "Jeremy remains asleep for the remainder of the shift. As you are leaving, Jeremy wakes up and tells you that, before that shift, he had not slept in 4 days. He commends you for managing well without him. Later on, you find out that your colleague, Shannon, has also had a previous similar experience with Jeremy.",
+    "options": [
+      "Ask Jeremy why he is struggling to sleep during his time off",
+      "Tell Jeremy that he is putting patients at risk by coming to work over-tired",
+      "Encourage Jeremy to seek support from his General Practitioner (GP)",
+      "Advise Jeremy that you think it is inappropriate to sleep whilst on shift"
+    ],
+    "key": [1, 1, 1, 2],
+    "rationale": [
+      "This is a compassionate approach, understanding that there are likely to be reasons why Jeremy has been sleeping on his shifts. As an individual, you may not be able to fix the reasons on your own, and you will still need to escalate the situation, but by showing an empathetic and compassionate response to a fellow colleague, you are more likely to get a positive response from Jeremy, and foster trust and positive working relationship in future.",
+      "This is a very appropriate action. Whatever the reasons are for Jeremy being so tired that he needs to sleep through his shift, in doing so, he is risking patient safety. If he has genuine reasons, these need to be escalated and dealt with appropriately and he may require a period of sick or compassionate leave before he is safe to work again.",
+      "This is a kind and compassionate approach, taking into consideration that there may be genuine reasons why Jeremy is sleeping during a shift and these reasons need addressing, as he is currently not safe to be at work. Encouraging Jeremy to seek support from his GP is a compassionate and empathetic approach by directing him to get some help, rather than cast judgments on his behaviour.",
+      "Although it is inappropriate for Jeremy to sleep whilst on shift (not in his allocated break time), advising him that you think his behaviour is inappropriate is somewhat unhelpful, as it might be interpreted as inflammatory by Jeremy and cause a breakdown in trust. This action does not offer any practical solutions, such as speaking with a senior colleague or healthcare professional, nor does it highlight to Jeremy the additional stress that it has put you under, which has meant that jobs on the ward are not completed and thus patient safety may be compromised."
+    ],
+    "provisional": false
+  },
+  {
+    "id": "worked-3",
+    "source": "worked",
+    "type": "rate",
+    "scenario": "You are working in the Emergency Department, and you notice that your consultant, Julia, is failing to wash her hands ahead of conducting physical examinations of patients. You are aware that this is standard protocol. Later that day, you are in the break room when you overhear Julia discussing with another senior colleague that she had a spray tan that morning before work and cannot get her skin wet today as it may make the tan uneven.",
+    "options": [
+      "Julia could be spreading bacteria between patients by not washing her hands",
+      "Julia is discussing her spray tan with a senior colleague",
+      "Julia is putting herself at risk by not washing her hands after seeing patients",
+      "Patients may notice that Julia is not washing her hands",
+      "That you are not directly involved in the conversation"
+    ],
+    "key": [1, 4, 1, 1, 4],
+    "rationale": [
+      "This is a very important consideration. The standard protocols to wash hands exist for the primary purpose of preventing bacteria spreading between patients and other staff. Washing hands is a critical element in preventing transmission of bacteria between patients and staff and also in preventing the development of resistant bacteria. In being a healthcare professional, first and foremost, it is important that you are not causing any harm.",
+      "This consideration is not important at all. What Julia does in her own time and who she chooses to discuss it with, is not important. Having a spray tan is not prohibited, the issue here is solely that Julia is not washing hands, and in doing so, is not following Infection Prevention and Control (IPC) protocols and potentially putting herself and patients at risk.",
+      "This is a very important consideration. Not only is Julia putting her patients at risk by touching them without washing her hands, she is also risking spreading bacteria and therefore illnesses to others and herself. It is very important to ensure that it is safe to oneself as the medical professional, before approaching a patient. By not appropriately cleaning her hands (or wearing gloves) before and after conducting physical examination of patients, Julia is putting herself at risk.",
+      "This is a very important consideration. As well as endangering herself and patients by potentially transmitting bacteria, she is setting a bad example to colleagues and patients. Patients will likely lose trust in her and other medical staff members if they can't be trusted to do basic measures of Infection Prevention and Control (IPC) well. The ramifications of this loss of trust could be significant. It could also lead to complaints about the individual doctor, department and hospital.",
+      "This consideration is not important at all. Once noticed, it doesn't matter what the reason is for Julia not washing her hands, or whether you are directly involved in that discussion. The most important aspect is that Julia is not washing her hands and in doing so, she is putting patients, colleagues and herself at risk."
+    ],
+    "provisional": false
+  },
+  {
+    "id": "worked-4",
+    "source": "worked",
+    "type": "mcq3",
+    "scenario": "During a busy night shift, you ask your FY1 colleague, James, to complete a blood test for one of your patients, Mr Rowley. You introduce James to Mr Rowley and shortly after James begins to complete the blood test, and you leave. After waiting a few hours, the blood test results are still not back. You call the laboratory, who state that they have no blood test results for a Mr Rowley, but state that there are results for a different patient on your ward. You have repeated the blood sample for Mr Rowley and sent these to the laboratory. You know that no other patient on your ward has recently had a blood test, so you feel sure that James has labelled the blood test wrong.",
+    "options": [
+      "Inform James that he has labelled Mr Rowley's blood test wrong",
+      "Encourage James to double check the labelling of blood tests in the future",
+      "Explain to James that the laboratory has stated that they have no blood tests for a Mr Rowley",
+      "Ask James if he remembers labelling Mr Rowley's blood tests",
+      "Suggest to James that he gets someone to check over his labelling of blood tests in future",
+      "Tell James that you will not ask him to complete blood tests for your patients again",
+      "Inform James that Mr Rowley will not be very happy with him",
+      "Tell James that he has wasted the laboratory's time"
+    ],
+    "key": "BCD",
+    "rationale": "It is clear from the details in the stem that it is highly likely that James has incorrectly labelled the blood samples. This is a mistake, but it can be easily done and most importantly any mistake is learnt from. You have already resent the samples so the important thing for patient safety has already been done. Therefore, this question is asking about what happens next. Option B, C and D are the most appropriate actions to take. Option B is appropriate as by asking James to double check the labelling in future, you are alerting James to the probable error that he has made in a non-judgemental way. Option C is also appropriate as you are explaining to James that the laboratory has not received any samples for Mr Rowley, which allows James to come to the same conclusion himself that he had made a mistake and incorrectly labelled the samples. It is factual and non-judgemental, but it is not shying away from explaining to James what has happened. Option D is also appropriate, as you are opening channels of communication with James in a non-judgemental way. Asking James if he can remember the details might prompt him to realise the error and address it directly. Although it is likely that James has incorrectly labelled the samples, option A does not help him address the mistake. Option E is somewhat patronising and not helpful to James and does not address the issue directly. Option F is an over exaggeration to a small mistake, that many professionals will make. Option G may not be true and is likely to upset James unnecessarily. Option H is again unhelpful, as it does not help him to address the mistake and learn from it.",
+    "provisional": false
+  },
+  {
+    "id": "worked-5",
+    "source": "worked",
+    "type": "rank5",
+    "scenario": "You are working in the Emergency Department and have just reviewed a 10 year old boy with a probable diagnosis of appendicitis. You attempt to contact the surgical registrar/specialty trainee several times, and when he responds, he is very rude and states that \"just like all the other FY1 doctors, you are unable to use your knowledge to make the right decisions\". You have never had an interaction with him before, but your FY1 colleagues have said that he can be very rude.",
+    "options": [
+      "\"I am sorry to disturb you, but I am worried about this patient\"",
+      "\"Can you explain why you feel that I have made a wrong decision?\"",
+      "\"Would you like me to explain why I bleeped you?\"",
+      "\"I feel that you are being very rude\"",
+      "\"My FY1 colleagues have said that you are very rude\""
+    ],
+    "key": "ACBDE",
+    "rationale": "Incivility amongst colleagues can be difficult to manage and upsetting to be on the receiving end of. However, the most important thing in the short-term is the safety of the patient. Unprofessional behaviour needs be dealt with, but this can be done later and separately if needed. It is important to diffuse any potential arguments and keep the conversation professional and patient centred. Option A is the most appropriate thing to say as it is polite, professional, but gets to the point that you are worried about this patient, who is the priority in this situation. Option C is an appropriate response, as it is polite and reiterates that there is a purpose to you bleeping him regarding patient care and that you need to explain this. Option B is a somewhat appropriate response. Although it is opening the dialogue, it does not appear from the information that we have been given, that the wrong decision has been made, therefore inviting self-criticism is unlikely to be helpful for the patient or help building relationships going forward. Option D is not an appropriate response as although you think that he has been rude, telling him in this moment is unlikely to move the conversation forward and has lost track of the patient focus. Option E is the least appropriate thing to say, as it implies that people are gossiping behind his back and is likely to escalate tensions between you and the surgical registrar/specialty trainee. This response has also lost sight of patient care.",
+    "provisional": false
+  }
+]
