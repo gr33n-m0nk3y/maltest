@@ -14,8 +14,9 @@ A local-first study platform for the **Malta Foundation Training 1** exam (Situa
 | **Situational** | 352 questions from the *350 Questions for the SJT* book (keyed + rationales, by theme) + the 2023 paper, with near-miss scoring. |
 | **Mock Exam** | Full Malta-format mock: 60 Q / 140 min — Section A (25 rank5 + 15 MCQ 3-of-8 situational), Section B (10 MCQ 3-of-8 + 10 True/False clinical), timer, per-section score report. Section B2 is short (bank has few True/False items) until you generate more. |
 | **Generate** | AI question generator (OpenRouter): clinical questions from any of the 39 topics, or situational scenarios by theme. Review/approve before they join your bank; generated items carry `[AI-GENERATED]` + `provisional` flags. |
+| **Settings** | OpenRouter API key + model (used by Generate). Shows saved-answer stats and a **Wipe all answers** button. |
 
-Every practice mode has **prev / random / next** navigation with answer persistence, near-miss scoring per the official conventions, and rationale display.
+Every practice mode has **prev / random / next** navigation, **per-section answer persistence** (your answers are saved in this browser and survive switching sections or reloading), a **Reset answered questions** button per section, near-miss scoring per the official conventions, and rationale display. The mock exam does not persist (each attempt starts fresh).
 
 ## Question bank (544)
 

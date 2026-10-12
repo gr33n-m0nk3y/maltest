@@ -10,11 +10,12 @@
 <header class="nav">
   <span class="brand">Malta F1 Prep</span>
   <a href="index.html">Learn</a>
+  <a href="clinical.html">Clinical</a>
   <a href="self-test.html" class="active">Self-Test</a>
   <a href="situational.html">Situational</a>
-  <a href="clinical.html">Clinical</a>
   <a href="mock.html">Mock Exam</a>
   <a href="generate.html">Generate</a>
+  <a href="settings.html">Settings</a>
 </header>
 <main>
   <h1>Self-Test</h1>
@@ -27,6 +28,7 @@
     <button data-f="tf">True/False</button>
     <button data-f="fp2023">2023 Paper (unkeyed)</button>
   </div>
+  <button id="resetBtn" class="ghost" style="margin-bottom:18px">↺ Reset answered questions (this section)</button>
   <div id="container"></div>
 </main>
 <script src="js/engine.js"></script>
@@ -47,9 +49,16 @@
     if (f === "all") current = pool;
     else if (f === "fp2023") current = pool.filter((q) => q.source === "fp2023");
     else current = pool.filter((q) => q.type === f);
-    Practice.run(container, current);
+    Practice.run(container, current, { section: "self-test" });
   });
-  Practice.run(container, current);
+  Practice.run(container, current, { section: "self-test" });
+  document.getElementById("resetBtn").onclick = () => {
+    if (confirm("Reset all answered questions in this section?")) {
+      Practice.resetSection("self-test");
+      location.reload();
+    }
+  };
+
 })();
 </script>
 </body>

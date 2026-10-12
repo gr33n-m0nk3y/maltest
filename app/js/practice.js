@@ -1,9 +1,30 @@
 /* Practice engine: question-by-question with prev/random/next navigation,
- * answer persistence, scoring, and rationale display. */
+ * per-section answer persistence (localStorage), scoring, rationale display.
+ * Answers are stored per section by question id so they survive switching
+ * sections and reloading. */
 "use strict";
 const Practice = (() => {
   const RATE_LABELS = ["Very appropriate", "Somewhat appropriate", "Somewhat inappropriate", "Inappropriate"];
   const RATE_IMPORT = ["Very important", "Important", "Of minor importance", "Not at all important"];
+
+  // ---- per-section answer persistence ----
+  const AKEY = (section) => "maltest_answers_" + section;
+  function loadAnswers(section, persist) {
+    if (!persist || !section) return {};
+    try { return JSON.parse(localStorage.getItem(AKEY(section))) || {}; } catch { return {}; }
+  }
+  function saveAnswers(section, answers, persist) {
+    if (!persist || !section) return;
+    localStorage.setItem(AKEY(section), JSON.stringify(answers));
+  }
+  function resetSection(section) {
+    if (section) localStorage.removeItem(AKEY(section));
+  }
+  function wipeAllAnswers() {
+    Object.keys(localStorage)
+      .filter((k) => k.startsWith("maltest_answers_"))
+      .forEach((k) => localStorage.removeItem(k));
+  }
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -160,7 +181,7 @@ const Practice = (() => {
 
   function showFeedback(q, result) {
     const fb = document.getElementById("feedback");
-    const pct = Math.round((result.score / result.max) * 100);
+    const pct = result.max ? Math.round((result.score / result.max) * 100) : 0;
     const cls = pct >= 60 ? "good" : "bad";
     let html = `<div class="feedback ${cls}">
       <span class="score">${result.score} / ${result.max} (${pct}%)</span>`;
@@ -193,7 +214,7 @@ const Practice = (() => {
       });
     } else if (q.type === "mcq3") {
       document.querySelectorAll('input[type="checkbox"]').forEach((c) => {
-        const letter = String.fromCharCode(65 + parseInt(c.dataset.i));
+        const letter = String.fromCharCode(65 + c.dataset.i);
         const el = c.closest(".option");
         if (q.key.includes(letter)) el.classList.add("correct");
         else if (c.checked) el.classList.add("wrong");
@@ -224,20 +245,31 @@ const Practice = (() => {
   function run(container, questions, opts = {}) {
     const allowNav = opts.allowNav !== false;
     const showRandom = opts.showRandom !== false;
+    const section = opts.section || null;
+    const persist = opts.persist !== false && !!section;
     const onFinish = opts.onFinish || (() => {});
     const onQuestion = opts.onQuestion || (() => {});
 
     let idx = 0;
-    let total = 0, max = 0, correct = 0;
-    const answers = {};
-    const recorded = {};
+    const answers = loadAnswers(section, persist);   // { qid: {answer, result} }
+
+    function totals() {
+      let total = 0, max = 0, correct = 0;
+      for (const qid in answers) {
+        const r = answers[qid].result;
+        total += r.score; max += r.max;
+        if (r.score === r.max) correct++;
+      }
+      return { total, max, correct };
+    }
 
     function finish() {
+      const { total, max, correct } = totals();
       const pct = max ? Math.round((total / max) * 100) : 0;
       const answered = Object.keys(answers).length;
       const detail = max
         ? `${pct}% \u2014 ${correct} of ${questions.length} questions fully correct`
-        : `You didn't answer any of the ${questions.length} questions yet \u2014 use Check answer on each one.`;
+        : `You haven't answered any of the ${questions.length} questions yet \u2014 use Check answer on each one.`;
       container.innerHTML = `
         <div class="card results">
           <div class="big">${total} / ${max}</div>
@@ -246,7 +278,7 @@ const Practice = (() => {
             <button onclick="location.reload()">Practice again</button>
           </div>
         </div>`;
-      onFinish({ total, max, pct, correct });
+      onFinish({ total, max, pct, correct, answered });
     }
 
     function go(i) {
@@ -256,7 +288,6 @@ const Practice = (() => {
       render();
     }
 
-    // append a Next/Finish button after the check button (needed when nav bar is hidden)
     function addAdvanceButton(isLast) {
       const controls = document.getElementById("controls");
       if (!controls || controls.querySelector("#advanceBtn")) return;
@@ -274,7 +305,7 @@ const Practice = (() => {
       }
       if (idx >= questions.length) return finish();
       const q = questions[idx];
-      const saved = answers[idx];
+      const saved = answers[q.id];
       const isLast = idx === questions.length - 1;
 
       const navHtml = allowNav ? `
@@ -284,8 +315,9 @@ const Practice = (() => {
           <button class="ghost" id="navNextBtn">${isLast ? "Finish \u2726" : "Next \u2192"}</button>
         </div>` : "";
 
+      const answeredCount = questions.filter((x) => answers[x.id]).length;
       container.innerHTML = `
-        <div class="progress">Question ${idx + 1} of ${questions.length} \u2014 running score ${total}/${max}</div>
+        <div class="progress">Question ${idx + 1} of ${questions.length}${answeredCount ? ` \u00b7 ${answeredCount} answered` : ""}</div>
         ${navHtml}
         ${renderQuestion(q)}`;
 
@@ -308,7 +340,7 @@ const Practice = (() => {
       }
 
       const cb = document.getElementById("checkBtn");
-      if (!cb) { // unkeyed — allow advancing without scoring
+      if (!cb) {
         if (!allowNav) addAdvanceButton(isLast);
         return;
       }
@@ -316,17 +348,15 @@ const Practice = (() => {
         const { answer, error } = collectAnswer(q);
         if (error) { document.getElementById("feedback").innerHTML = `<div class="feedback bad">${esc(error)}</div>`; return; }
         const result = Engine.score(q, answer);
-        answers[idx] = { answer, result };
-        if (!recorded[idx]) {
-          recorded[idx] = true;
-          total += result.score; max += result.max;
-          if (result.score === result.max) correct++;
-          Progress.record(q.id, result.score === result.max);
-          onQuestion(q, result);
-        }
+        answers[q.id] = { answer, result };
+        saveAnswers(section, answers, persist);
+        Progress.record(q.id, result.score === result.max);
+        onQuestion(q, result);
         showFeedback(q, result);
         markOptions(q);
         cb.disabled = true;
+        const ac = document.querySelector(".progress");
+        if (ac) { const n = questions.filter((x) => answers[x.id]).length; ac.textContent = `Question ${idx + 1} of ${questions.length} \u00b7 ${n} answered`; }
         if (!allowNav) addAdvanceButton(isLast);
       };
     }
@@ -335,5 +365,5 @@ const Practice = (() => {
     return { go, restart: () => { idx = 0; render(); } };
   }
 
-  return { run };
+  return { run, resetSection, wipeAllAnswers };
 })();

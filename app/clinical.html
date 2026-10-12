@@ -15,6 +15,7 @@
   <a href="situational.html">Situational</a>
   <a href="mock.html">Mock Exam</a>
   <a href="generate.html">Generate</a>
+  <a href="settings.html">Settings</a>
 </header>
 <main>
   <h1>Clinical Knowledge</h1>
@@ -23,6 +24,7 @@
     <button data-f="all" class="active">All topics</button>
     <button data-f="weak">🎯 Weak topics</button>
   </div>
+  <button id="resetBtn" class="ghost" style="margin-bottom:18px">↺ Reset answered questions (this section)</button>
   <div id="container"></div>
 </main>
 <script src="js/engine.js"></script>
@@ -56,17 +58,24 @@
       current = pool.filter((q) => q.topic && weak.has(q.topic));
       if (!current.length) { container.innerHTML = '<div class="card"><p>No weak topics yet — attempt more questions and weak spots will appear here.</p></div>'; return; }
     } else current = pool.filter((q) => q.topic === f);
-    Practice.run(container, current);
+    Practice.run(container, current, { section: "clinical" });
   });
   // deep-link: ?topic=<slug> from the Learn tab
   const wanted = new URLSearchParams(location.search).get("topic");
   if (wanted) {
     const btn = [...filters.querySelectorAll("button")].find((b) => b.dataset.f === wanted);
     if (btn) { btn.click(); }
-    else Practice.run(container, current);
+    else Practice.run(container, current, { section: "clinical" });
   } else {
-    Practice.run(container, current);
+    Practice.run(container, current, { section: "clinical" });
   }
+  document.getElementById("resetBtn").onclick = () => {
+    if (confirm("Reset all answered questions in this section?")) {
+      Practice.resetSection("clinical");
+      location.reload();
+    }
+  };
+
 })();
 </script>
 </body>

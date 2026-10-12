@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — Malta Foundation Training 1</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+input[type="text"], input[type="password"], select {
+  background: var(--card2); color: var(--fg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 12px; font-size: 14px; width: 100%;
+}
+label { display: block; margin: 10px 0 4px; font-size: 13px; color: var(--muted); }
+.status { color: var(--muted); font-size: 13px; margin-top: 10px; }
+.danger { border-color: var(--danger) !important; }
+.danger:hover { background: rgba(248,113,113,0.1) !important; }
+.stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="nav">
+  <span class="brand">Malta F1 Prep</span>
+  <a href="index.html">Learn</a>
+  <a href="clinical.html">Clinical</a>
+  <a href="self-test.html">Self-Test</a>
+  <a href="situational.html">Situational</a>
+  <a href="mock.html">Mock Exam</a>
+  <a href="generate.html">Generate</a>
+  <a href="settings.html" class="active">Settings</a>
+</header>
+<main>
+  <h1>Settings</h1>
+  <div class="sub">Everything here is stored in this browser only (localStorage) — nothing leaves your device.</div>
+
+  <div class="card">
+    <h2>AI question generator</h2>
+    <label>OpenRouter API key</label>
+    <input type="password" id="keyInput" placeholder="sk-or-...">
+    <label>Model</label>
+    <select id="modelInput">
+      <option value="deepseek/deepseek-chat">DeepSeek (default)</option>
+      <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
+      <option value="openai/gpt-4o">GPT-4o</option>
+    </select>
+    <div class="status" id="keyStatus">Used by the <a href="generate.html">Generate</a> tab to create new questions.</div>
+  </div>
+
+  <div class="card">
+    <h2>Your data</h2>
+    <div id="stats"></div>
+    <div class="controls" style="margin-top:16px">
+      <button id="wipeBtn" class="ghost danger">Wipe all answers</button>
+    </div>
+    <div class="status" id="wipeStatus"></div>
+  </div>
+</main>
+<script src="js/engine.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/practice.js"></script>
+<script>
+(() => {
+  const KEY = "maltest_openrouter_key";
+  const MODEL = "maltest_model";
+
+  const keyInput = document.getElementById("keyInput");
+  const modelInput = document.getElementById("modelInput");
+  keyInput.value = localStorage.getItem(KEY) || "";
+  modelInput.value = localStorage.getItem(MODEL) || "deepseek/deepseek-chat";
+  keyInput.onchange = () => { localStorage.setItem(KEY, keyInput.value); document.getElementById("keyStatus").textContent = "Key saved (this browser only)."; };
+  modelInput.onchange = () => localStorage.setItem(MODEL, modelInput.value);
+
+  function answerKeys() { return Object.keys(localStorage).filter((k) => k.startsWith("maltest_answers_")); }
+  function totalAnswered() {
+    let n = 0;
+    for (const k of answerKeys()) { try { n += Object.keys(JSON.parse(localStorage.getItem(k)) || {}).length; } catch (e) {} }
+    return n;
+  }
+  function renderStats() {
+    let gen = 0;
+    try { gen = (JSON.parse(localStorage.getItem("maltest_generated_bank")) || []).length; } catch (e) {}
+    const sections = answerKeys().map((k) => k.replace("maltest_answers_", ""));
+    document.getElementById("stats").innerHTML =
+      '<div class="stat-row"><span>Answered questions saved</span><strong>' + totalAnswered() + '</strong></div>' +
+      '<div class="stat-row"><span>Sections with saved answers</span><strong>' + (sections.join(", ") || "none") + '</strong></div>' +
+      '<div class="stat-row"><span>Generated questions in your bank</span><strong>' + gen + '</strong></div>';
+  }
+  renderStats();
+
+  document.getElementById("wipeBtn").onclick = () => {
+    if (!confirm("Wipe ALL saved answers and progress across every section? This cannot be undone.")) return;
+    Practice.wipeAllAnswers();
+    localStorage.removeItem("maltest_progress");
+    document.getElementById("wipeStatus").textContent = "All answers and progress wiped.";
+    renderStats();
+  };
+})();
+</script>
+</body>
+</html>

@@ -10,11 +10,12 @@
 <header class="nav">
   <span class="brand">Malta F1 Prep</span>
   <a href="index.html">Learn</a>
+  <a href="clinical.html">Clinical</a>
   <a href="self-test.html">Self-Test</a>
   <a href="situational.html">Situational</a>
-  <a href="clinical.html">Clinical</a>
   <a href="mock.html" class="active">Mock Exam</a>
   <a href="generate.html">Generate</a>
+  <a href="settings.html">Settings</a>
 </header>
 <main>
   <h1>Mock Exam</h1>
@@ -75,7 +76,8 @@
     const secScores = {};
     mock.questions.forEach((q) => { secScores[q._section] = { score: 0, max: 0 }; });
     Practice.run(container, mock.questions, {
-      allowNav: false,  // timed exam — linear, no skipping ahead
+      allowNav: false,   // timed exam — linear, no skipping ahead
+      persist: false,    // each mock starts fresh
       onQuestion: (q, r) => {
         const s = secScores[q._section];
         s.score += r.score; s.max += r.max;

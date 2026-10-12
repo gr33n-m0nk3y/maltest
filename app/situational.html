@@ -10,11 +10,12 @@
 <header class="nav">
   <span class="brand">Malta F1 Prep</span>
   <a href="index.html">Learn</a>
+  <a href="clinical.html">Clinical</a>
   <a href="self-test.html">Self-Test</a>
   <a href="situational.html" class="active">Situational</a>
-  <a href="clinical.html">Clinical</a>
   <a href="mock.html">Mock Exam</a>
   <a href="generate.html">Generate</a>
+  <a href="settings.html">Settings</a>
 </header>
 <main>
   <h1>Situational Judgement</h1>
@@ -28,6 +29,7 @@
     <button data-f="Working Effectively as Part of a Team">Teamwork</button>
     <button data-f="weak">🎯 Weak topics</button>
   </div>
+  <button id="resetBtn" class="ghost" style="margin-bottom:18px">↺ Reset answered questions (this section)</button>
   <div id="container"></div>
 </main>
 <script src="js/engine.js"></script>
@@ -51,9 +53,16 @@
       current = pool.filter((q) => weak.has(q.topic));
       if (!current.length) { container.innerHTML = '<div class="card"><p>No weak topics yet — attempt more questions and weak spots will appear here.</p></div>'; return; }
     } else current = pool.filter((q) => q.topic === f);
-    Practice.run(container, current);
+    Practice.run(container, current, { section: "situational" });
   });
-  Practice.run(container, current);
+  Practice.run(container, current, { section: "situational" });
+  document.getElementById("resetBtn").onclick = () => {
+    if (confirm("Reset all answered questions in this section?")) {
+      Practice.resetSection("situational");
+      location.reload();
+    }
+  };
+
 })();
 </script>
 </body>

@@ -27,33 +27,21 @@ label { display: block; margin: 10px 0 4px; font-size: 13px; color: var(--muted)
 <header class="nav">
   <span class="brand">Malta F1 Prep</span>
   <a href="index.html">Learn</a>
+  <a href="clinical.html">Clinical</a>
   <a href="self-test.html">Self-Test</a>
   <a href="situational.html">Situational</a>
-  <a href="clinical.html">Clinical</a>
   <a href="mock.html">Mock Exam</a>
   <a href="generate.html" class="active">Generate</a>
+  <a href="settings.html">Settings</a>
 </header>
 <main>
   <h1>Generate Questions</h1>
   <div class="sub">Create new in-depth clinical or situational questions with AI. Review and approve each before it joins your bank. Generated items are marked <span class="badge generated">AI-GENERATED</span>.</div>
 
   <div class="card">
-    <h2>Settings</h2>
-    <div class="row">
-      <div>
-        <label>OpenRouter API key (stored in this browser only)</label>
-        <input type="password" id="keyInput" placeholder="sk-or-...">
-      </div>
-      <div>
-        <label>Model</label>
-        <select id="modelInput">
-          <option value="deepseek/deepseek-chat">DeepSeek (default)</option>
-          <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
-          <option value="openai/gpt-4o">GPT-4o</option>
-        </select>
-      </div>
-    </div>
+    <h2>API key &amp; model</h2>
     <div class="status" id="keyStatus"></div>
+    <div class="controls"><a href="settings.html" style="text-decoration:none"><button class="ghost">Open Settings →</button></a></div>
   </div>
 
   <div class="card">
@@ -184,13 +172,15 @@ const Gen = (() => {
 })();
 
 (async () => {
-  // settings
-  const keyInput = document.getElementById("keyInput");
-  const modelInput = document.getElementById("modelInput");
-  keyInput.value = Gen.getKey();
-  modelInput.value = Gen.getModel();
-  keyInput.onchange = () => { Gen.setKey(keyInput.value); document.getElementById("keyStatus").textContent = "Key saved (this browser only)."; };
-  modelInput.onchange = () => Gen.setModel(modelInput.value);
+  // settings now live on the Settings page; just show status here
+  const keyStatus = document.getElementById("keyStatus");
+  function refreshKeyStatus() {
+    const k = Gen.getKey();
+    keyStatus.textContent = k
+      ? `API key set (${Gen.getModel()}). Configure in Settings.`
+      : "No API key set — add one in Settings to generate questions.";
+  }
+  refreshKeyStatus();
 
   // topics
   const topics = await (await fetch("data/topics.json")).json();
