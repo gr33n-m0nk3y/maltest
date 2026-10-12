@@ -89,7 +89,7 @@ Expected extracted bank: **≈465 items** — keyed: ~350 (book) + 30 (practice 
 
 **P6 — Generator (DONE).** `generate.html`: two engines (clinical-by-topic SBA/mcq3/tf; situational rank5/mcq3), OpenRouter (localStorage key, DeepSeek default), strict output schema + client validation, review/approve/edit before saving, `[AI-GENERATED]` + provisional flags, export/import JSON. Generated bank merges into practice/mock via `loader.js`. *User generates the full clinical bank with their key.*
 
-**P7 — GitHub Pages deploy.** git init, commit, create repo `maltest`, push, enable Pages, relative asset paths. Key stays in localStorage. *Verify: live URL loads; all tabs functional.*
+**P7 — GitHub Pages deploy (DONE).** Repo `gr33n-m0nk3y/maltest` (public), pushed; GitHub Actions workflow (`.github/workflows/pages.yml`) publishes the `app/` folder; Pages source = GitHub Actions. **Live: https://gr33n-m0nk3y.github.io/maltest/** — verified (39 topics render, notes, practice pages all functional over https).
 
 **P8 — Polish.** 2023 provisional-key review pass (user approves each), weak-topic drill, progress stats, README + deploy notes.
 

@@ -56,12 +56,14 @@ Notes:
 - The book PDF has a duplicated-text overlay and ligature glyphs; `clean_text.py` handles both.
 - The 2023 paper needed position-sorted extraction (`sort=True`) to restore reading order.
 
-## Deploy to GitHub Pages
+## Live site
 
-1. Create a repo named `maltest` (or whatever) on GitHub.
-2. `git remote add origin git@github.com:<you>/maltest.git && git push -u origin main`
-3. Repo → Settings → Pages → Deploy from branch → `main` / root.
-4. Done — paths are relative, so it works from any subpath. The API key stays in the user's browser.
+**https://gr33n-m0nk3y.github.io/maltest/** (repo: https://github.com/gr33n-m0nk3y/maltest)
+
+Deployed with GitHub Actions (`.github/workflows/pages.yml`), which publishes the `app/` folder on every push to `main`.
+Pages source = **GitHub Actions** (set once via the API; the workflow's own token cannot create the Pages site).
+
+To redeploy: just `git push` to `main` — the workflow rebuilds and republishes automatically.
 
 ## Scoring conventions (matches the official sources)
 
