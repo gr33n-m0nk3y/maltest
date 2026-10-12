@@ -25,6 +25,7 @@
     <button data-f="mcq3">Choose 3 of 8</button>
     <button data-f="rate">Rating</button>
     <button data-f="tf">True/False</button>
+    <button data-f="fp2023">2023 Paper (unkeyed)</button>
   </div>
   <div id="container"></div>
 </main>
@@ -35,7 +36,7 @@
 (async () => {
   const all = await Bank.load();
   // self-test = official source bank (30q + worked + malta), not the book
-  const pool = all.filter((q) => ["30q", "worked", "malta"].includes(q.source));
+  const pool = all.filter((q) => ["30q", "worked", "malta", "fp2023"].includes(q.source));
   let current = pool;
   const container = document.getElementById("container");
   document.getElementById("filters").addEventListener("click", (e) => {
@@ -43,7 +44,9 @@
     document.querySelectorAll("#filters button").forEach((b) => b.classList.remove("active"));
     e.target.classList.add("active");
     const f = e.target.dataset.f;
-    current = f === "all" ? pool : pool.filter((q) => q.type === f);
+    if (f === "all") current = pool;
+    else if (f === "fp2023") current = pool.filter((q) => q.source === "fp2023");
+    else current = pool.filter((q) => q.type === f);
     Practice.run(container, current);
   });
   Practice.run(container, current);

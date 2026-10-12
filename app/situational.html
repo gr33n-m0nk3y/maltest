@@ -26,6 +26,7 @@
     <button data-f="Effective Communication">Communication</button>
     <button data-f="Patient Focus">Patient Focus</button>
     <button data-f="Working Effectively as Part of a Team">Teamwork</button>
+    <button data-f="weak">🎯 Weak topics</button>
   </div>
   <div id="container"></div>
 </main>
@@ -35,7 +36,8 @@
 <script>
 (async () => {
   const all = await Bank.load();
-  const pool = all.filter((q) => q.source === "book");
+  const themes = ["Commitment to Professionalism", "Coping with Pressure", "Effective Communication", "Patient Focus", "Working Effectively as Part of a Team"];
+  const pool = all.filter((q) => q.source === "book" || q.source === "fp2023" || (q.source === "generated" && themes.includes(q.topic)));
   let current = pool;
   const container = document.getElementById("container");
   document.getElementById("filters").addEventListener("click", (e) => {
@@ -43,7 +45,12 @@
     document.querySelectorAll("#filters button").forEach((b) => b.classList.remove("active"));
     e.target.classList.add("active");
     const f = e.target.dataset.f;
-    current = f === "all" ? pool : pool.filter((q) => q.topic === f);
+    if (f === "all") current = pool;
+    else if (f === "weak") {
+      const weak = new Set(Progress.weakTopics(pool));
+      current = pool.filter((q) => weak.has(q.topic));
+      if (!current.length) { container.innerHTML = '<div class="card"><p>No weak topics yet — attempt more questions and weak spots will appear here.</p></div>'; return; }
+    } else current = pool.filter((q) => q.topic === f);
     Practice.run(container, current);
   });
   Practice.run(container, current);

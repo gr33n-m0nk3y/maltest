@@ -21,6 +21,7 @@
   <div class="sub">In-depth single-best-answer questions from the 39 exam topics. Starter set is AI-drafted and marked provisional — verify against your sources.</div>
   <div class="filters" id="filters">
     <button data-f="all" class="active">All topics</button>
+    <button data-f="weak">🎯 Weak topics</button>
   </div>
   <div id="container"></div>
 </main>
@@ -49,7 +50,12 @@
     document.querySelectorAll("#filters button").forEach((b) => b.classList.remove("active"));
     e.target.classList.add("active");
     const f = e.target.dataset.f;
-    current = f === "all" ? pool : pool.filter((q) => q.topic === f);
+    if (f === "all") current = pool;
+    else if (f === "weak") {
+      const weak = new Set(Progress.weakTopics(pool));
+      current = pool.filter((q) => q.topic && weak.has(q.topic));
+      if (!current.length) { container.innerHTML = '<div class="card"><p>No weak topics yet — attempt more questions and weak spots will appear here.</p></div>'; return; }
+    } else current = pool.filter((q) => q.topic === f);
     Practice.run(container, current);
   });
   Practice.run(container, current);

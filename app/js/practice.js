@@ -1,4 +1,5 @@
-/* Practice engine: renders one question at a time, scores, shows rationale. */
+/* Practice engine: question-by-question with prev/random/next navigation,
+ * answer persistence, scoring, and rationale display. */
 "use strict";
 const Practice = (() => {
   const RATE_LABELS = ["Very appropriate", "Somewhat appropriate", "Somewhat inappropriate", "Inappropriate"];
@@ -68,8 +69,7 @@ const Practice = (() => {
         <div class="instruction">${instruction(q)}</div>
         ${body}
         <div class="controls">
-          <button id="checkBtn">Check answer</button>
-          <button id="nextBtn" class="ghost" style="display:none">Next question</button>
+          ${q.key ? '<button id="checkBtn">Check answer</button>' : '<span class="badge provisional">Unkeyed question — official key unavailable (provisional keys come later)</span>'}
         </div>
         <div id="feedback"></div>
       </div>`;
@@ -127,6 +127,34 @@ const Practice = (() => {
     return { error: "Unknown type" };
   }
 
+  // prefill the rendered inputs from a stored answer
+  function prefill(q, answer) {
+    if (q.type === "rank5") {
+      answer.split("").forEach((letter, i) => {
+        const sel = document.querySelector(`.rank[data-i="${letter.charCodeAt(0) - 65}"]`);
+        if (sel) sel.value = String(i + 1);
+      });
+    } else if (q.type === "mcq3") {
+      answer.forEach((letter) => {
+        const cb = document.querySelector(`input[type="checkbox"][data-i="${letter.charCodeAt(0) - 65}"]`);
+        if (cb) cb.checked = true;
+      });
+    } else if (q.type === "tf") {
+      answer.forEach((v, i) => {
+        const r = document.querySelector(`input[name="tf${i}"][value="${v}"]`);
+        if (r) r.checked = true;
+      });
+    } else if (q.type === "rate") {
+      answer.forEach((v, i) => {
+        const r = document.querySelector(`input[name="rate${i}"][value="${v}"]`);
+        if (r) r.checked = true;
+      });
+    } else if (q.type === "sba") {
+      const r = document.querySelector(`input[name="sba"][value="${answer}"]`);
+      if (r) r.checked = true;
+    }
+  }
+
   function showFeedback(q, result) {
     const fb = document.getElementById("feedback");
     const pct = Math.round((result.score / result.max) * 100);
@@ -141,13 +169,16 @@ const Practice = (() => {
       html += `<div class="rationale">Correct: ${q.key.split("").map((c, i) => `${String.fromCharCode(65 + i)}: ${c === "T" ? "True" : "False"}`).join("; ")}</div>`;
     } else if (q.type === "rate") {
       html += `<div class="rationale">Correct ratings: ${q.key.map((k, i) => `${String.fromCharCode(65 + i)}: ${k}`).join("; ")}</div>`;
+    } else if (q.type === "sba") {
+      html += `<div class="rationale">Correct: ${q.key}</div>`;
     }
     if (q.explanation) html += `<div class="rationale"><strong>Rationale:</strong> ${esc(q.explanation)}</div>`;
     html += `</div>`;
     fb.innerHTML = html;
   }
 
-  function markOptions(q, result) {
+  function markOptions(q) {
+    // color by comparing chosen (from inputs) against key
     if (q.type === "rank5") {
       document.querySelectorAll(".option").forEach((el) => {
         const i = parseInt(el.dataset.i);
@@ -188,30 +219,20 @@ const Practice = (() => {
   }
 
   function run(container, questions, opts = {}) {
+    const allowNav = opts.allowNav !== false;
+    const showRandom = opts.showRandom !== false;
+    const onFinish = opts.onFinish || (() => {});
+    const onQuestion = opts.onQuestion || (() => {});
+
     let idx = 0;
     let total = 0, max = 0, correct = 0;
-    const onFinish = opts.onFinish || (() => {});
+    const answers = {};    // idx -> {answer, result}
+    const recorded = {};   // idx -> onQuestion already fired
 
-    function render() {
-      if (idx >= questions.length) return finish();
-      const q = questions[idx];
-      container.innerHTML = `
-        <div class="progress">Question ${idx + 1} of ${questions.length} — running score ${total}/${max}</div>
-        ${renderQuestion(q)}`;
-      document.getElementById("checkBtn").onclick = () => {
-        const { answer, error } = collectAnswer(q);
-        if (error) { document.getElementById("feedback").innerHTML = `<div class="feedback bad">${esc(error)}</div>`; return; }
-        const result = Engine.score(q, answer);
-        total += result.score; max += result.max;
-        if (result.score === result.max) correct++;
-        Progress.record(q.id, result.score === result.max);
-        if (opts.onQuestion) opts.onQuestion(q, result);
-        showFeedback(q, result);
-        markOptions(q, result);
-        document.getElementById("checkBtn").disabled = true;
-        document.getElementById("nextBtn").style.display = "";
-      };
-      document.getElementById("nextBtn").onclick = () => { idx++; render(); };
+    function go(i) {
+      if (i < 0 || i >= questions.length) return;
+      idx = i;
+      render();
     }
 
     function finish() {
@@ -227,7 +248,66 @@ const Practice = (() => {
       onFinish({ total, max, pct, correct });
     }
 
+    function render() {
+      if (questions.length === 0) {
+        container.innerHTML = `<div class="card"><p>No questions match.</p></div>`;
+        return;
+      }
+      if (idx >= questions.length) return finish();
+      const q = questions[idx];
+      const saved = answers[idx];
+
+      const navHtml = allowNav ? `
+        <div class="controls" style="margin-top:0">
+          <button class="ghost" id="prevBtn" ${idx === 0 ? "disabled" : ""}>← Previous</button>
+          ${showRandom ? `<button class="ghost" id="randBtn">🎲 Random</button>` : ""}
+          <button class="ghost" id="navNextBtn" ${idx === questions.length - 1 ? "disabled" : ""}>Next →</button>
+        </div>` : "";
+
+      container.innerHTML = `
+        <div class="progress">Question ${idx + 1} of ${questions.length} — running score ${total}/${max}</div>
+        ${navHtml}
+        ${renderQuestion(q)}`;
+
+      if (allowNav) {
+        document.getElementById("prevBtn").onclick = () => go(idx - 1);
+        document.getElementById("navNextBtn").onclick = () => go(idx + 1);
+        const rb = document.getElementById("randBtn");
+        if (rb) rb.onclick = () => { let r; do { r = Math.floor(Math.random() * questions.length); } while (r === idx && questions.length > 1); go(r); };
+      }
+
+      if (saved) {
+        // restore answered state
+        prefill(q, saved.answer);
+        showFeedback(q, saved.result);
+        markOptions(q);
+        const cb0 = document.getElementById("checkBtn");
+        if (cb0) cb0.disabled = true;
+        return;
+      }
+
+      const cb = document.getElementById("checkBtn");
+      if (!cb || !q.key) return; // unkeyed — nothing to score against
+      cb.onclick = () => {
+        const { answer, error } = collectAnswer(q);
+        if (error) { document.getElementById("feedback").innerHTML = `<div class="feedback bad">${esc(error)}</div>`; return; }
+        const result = Engine.score(q, answer);
+        answers[idx] = { answer, result };
+        if (!recorded[idx]) {
+          recorded[idx] = true;
+          total += result.score; max += result.max;
+          if (result.score === result.max) correct++;
+          Progress.record(q.id, result.score === result.max);
+          onQuestion(q, result);
+        }
+        showFeedback(q, result);
+        markOptions(q);
+        document.getElementById("checkBtn").disabled = true;
+      };
+    }
+
     render();
+    return { go, restart: () => { idx = 0; render(); } };
   }
 
   return { run };

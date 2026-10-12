@@ -252,7 +252,7 @@ const Gen = (() => {
 
   function esc(s) { return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
 
-  async function runGen(btn, statusEl, prompt, type, count) {
+  async function runGen(btn, statusEl, prompt, type, count, topic) {
     if (!Gen.getKey()) { statusEl.textContent = "Enter your OpenRouter key in Settings first."; return; }
     btn.disabled = true;
     statusEl.textContent = "Generating…";
@@ -263,7 +263,7 @@ const Gen = (() => {
       for (const it of items) {
         const err = Gen.validate(it, type);
         if (err) { statusEl.textContent = `Skipped invalid item: ${err}`; continue; }
-        valid.push({ ...it, type, generated: true, provisional: true, source: "generated", topic: type === "sba" ? clinTopic.value : null });
+        valid.push({ ...it, type, generated: true, provisional: true, source: "generated", topic: topic || null });
       }
       pending = pending.concat(valid);
       statusEl.textContent = `Generated ${valid.length} valid question(s). Review below.`;
@@ -283,7 +283,7 @@ const Gen = (() => {
 ${type === "sba" ? 'Format: single best answer. Each: a realistic clinical scenario, 5 options (A-E), exactly one correct, a brief rationale. Output JSON array: [{"scenario":"...","options":["A","B","C","D","E"],"key":"C","rationale":"..."}]' : type === "mcq3" ? 'Format: choose 3 of 8. Each: scenario + 8 actions, pick the 3 most appropriate. Output JSON array: [{"scenario":"...","options":["...x8"],"key":"BGH","rationale":"..."}]' : 'Format: true/false. Each: scenario + 5 statements, each True or False. Output JSON array: [{"scenario":"...","options":["...x5"],"key":"FTFTF","rationale":"..."}]'}
 
 Return ONLY the JSON array, no other text.`;
-    runGen(this, document.getElementById("clinStatus"), prompt, type, count);
+    runGen(this, document.getElementById("clinStatus"), prompt, type, count, clinTopic.value);
   };
 
   document.getElementById("sitGen").onclick = () => {
@@ -295,7 +295,7 @@ Return ONLY the JSON array, no other text.`;
 ${type === "rank5" ? 'Format: ranking. Each: a realistic FY1 scenario + 5 actions to rank in order of appropriateness (1=most appropriate, 5=least). Key is the 5-letter rank order. Output JSON array: [{"scenario":"...","options":["...x5"],"key":"BADCE","rationale":"brief explanation of the ranking"}]' : 'Format: choose 3 of 8. Each: scenario + 8 actions, pick the 3 most appropriate. Output JSON array: [{"scenario":"...","options":["...x8"],"key":"BGH","rationale":"brief explanation"}]'}
 
 Return ONLY the JSON array, no other text.`;
-    runGen(this, document.getElementById("sitStatus"), prompt, type, count);
+    runGen(this, document.getElementById("sitStatus"), prompt, type, count, theme);
   };
 
   // bank export/import

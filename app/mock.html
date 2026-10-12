@@ -75,6 +75,7 @@
     const secScores = {};
     mock.questions.forEach((q) => { secScores[q._section] = { score: 0, max: 0 }; });
     Practice.run(container, mock.questions, {
+      allowNav: false,  // timed exam — linear, no skipping ahead
       onQuestion: (q, r) => {
         const s = secScores[q._section];
         s.score += r.score; s.max += r.max;

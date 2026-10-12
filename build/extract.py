@@ -5,6 +5,7 @@ from pathlib import Path
 from extract_book import extract_book
 from extract_30q import extract_30q
 from extract_malta import extract_malta
+from extract_2023 import extract_2023
 from sba_a import PART as SBA_A
 from sba_b import PART as SBA_B
 from sba_c import PART as SBA_C
@@ -14,6 +15,7 @@ def main():
     bank += extract_book()
     bank += extract_30q()
     bank += extract_malta()
+    bank += extract_2023()  # unkeyed -> provisional
     bank += json.load(open("build/worked_manual.json", encoding="utf-8"))
 
     # starter SBA clinical set (AI-drafted, provisional — user reviews)
@@ -34,6 +36,7 @@ def main():
     for q in bank:
         q.setdefault("topic", None)
         q.setdefault("chapter", None)
+        q.setdefault("paperNum", None)
         q.setdefault("provisional", False)
         q.setdefault("generated", False)
         q.setdefault("difficulty", None)
