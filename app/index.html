@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn — Malta Foundation Training 1</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.topic-group { margin-bottom: 8px; }
+.topic-group h3 { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 6px; }
+.topic-chip {
+  display: inline-block; padding: 6px 12px; margin: 3px; border: 1px solid var(--border);
+  border-radius: 8px; background: var(--card2); cursor: pointer; font-size: 13px;
+}
+.topic-chip:hover { border-color: var(--accent); }
+.topic-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.note h2 { margin-top: 0; }
+.note h4 { color: var(--accent); margin: 16px 0 6px; font-size: 14px; }
+.note ul { margin: 0; padding-left: 20px; }
+.note li { margin-bottom: 6px; font-size: 14px; }
+.note table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+.note table th, .note table td { padding: 6px 10px; border-bottom: 1px solid var(--border); text-align: left; font-size: 13px; }
+.note table th { color: var(--muted); }
+.blueprint li { margin-bottom: 6px; font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="nav">
+  <span class="brand">Malta F1 Prep</span>
+  <a href="index.html" class="active">Learn</a>
+  <a href="self-test.html">Self-Test</a>
+  <a href="situational.html">Situational</a>
+  <a href="clinical.html">Clinical</a>
+  <a href="mock.html">Mock Exam</a>
+  <a href="generate.html">Generate</a>
+</header>
+<main>
+  <h1>Learn — Clinical Core</h1>
+  <div class="sub">The 39 exam topics. Questions come only from these, but in depth. Notes are AI-drafted — verify against your own sources.</div>
+
+  <div class="card blueprint">
+    <h2>Exam blueprint (Malta SJCT)</h2>
+    <ul>
+      <li><strong>60 questions in 140 minutes.</strong> Answer as an FY1 doctor — what you <em>should</em> do.</li>
+      <li><strong>Section A — Situational Judgement:</strong> Q1-25 Ranking (rank 5 options, near-miss marks, no tied ranks); Q26-40 MCQ choose 3 of 8.</li>
+      <li><strong>Section B — Situational Clinical:</strong> Q41-50 MCQ choose 3 of 8; Q51-60 True/False (2 marks each).</li>
+      <li><strong>No negative marking</strong> — attempt everything. Over-selecting (more than 3 in a 3-of-8, duplicate ranks, both T and F) disqualifies that question.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Topics</h2>
+    <div id="topics"></div>
+  </div>
+
+  <div id="note" class="card note" style="display:none"></div>
+</main>
+<script>
+(async () => {
+  const topics = await (await fetch("data/topics.json")).json();
+  const groups = {};
+  topics.forEach((t) => { (groups[t.group] = groups[t.group] || []).push(t); });
+  const topicsEl = document.getElementById("topics");
+  let html = "";
+  for (const [g, ts] of Object.entries(groups)) {
+    html += `<div class="topic-group"><h3>${g}</h3>`;
+    ts.forEach((t) => { html += `<span class="topic-chip" data-slug="${t.slug}">${t.name}</span>`; });
+    html += `</div>`;
+  }
+  topicsEl.innerHTML = html;
+
+  const noteEl = document.getElementById("note");
+  let notes = {};
+  try { notes = await (await fetch("data/notes.json")).json(); } catch {}
+
+  topicsEl.addEventListener("click", (e) => {
+    const chip = e.target.closest(".topic-chip");
+    if (!chip) return;
+    document.querySelectorAll(".topic-chip").forEach((c) => c.classList.remove("active"));
+    chip.classList.add("active");
+    const n = notes[chip.dataset.slug];
+    if (!n) {
+      noteEl.style.display = "";
+      noteEl.innerHTML = `<h2>${chip.textContent}</h2><p class="sub">Note not yet drafted. Use the <a href="generate.html">Generate</a> tab to create one.</p>`;
+      return;
+    }
+    let h = `<h2>${n.name}</h2><span class="badge topic">${n.group}</span>`;
+    if (n.essentials) { h += `<h4>Essentials</h4><ul>${n.essentials.map((x) => `<li>${x}</li>`).join("")}</ul>`; }
+    if (n.keyValues) {
+      h += `<h4>Key values</h4><table><tr><th>Value</th><th>Reference</th></tr>${n.keyValues.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join("")}</table>`;
+    }
+    if (n.redFlags) { h += `<h4>Red flags</h4><ul>${n.redFlags.map((x) => `<li>${x}</li>`).join("")}</ul>`; }
+    if (n.management) { h += `<h4>First-line management</h4><ul>${n.management.map((x) => `<li>${x}</li>`).join("")}</ul>`; }
+    h += `<p class="sub" style="margin-top:14px">AI-drafted — verify against your own sources.</p>`;
+    noteEl.style.display = "";
+    noteEl.innerHTML = h;
+  });
+})();
+</script>
+</body>
+</html>

@@ -11,11 +11,9 @@ def main():
     for q in bank:
         types[q["type"]] += 1
         sources[q["source"]] += 1
-        # required fields
         for f in ("id", "source", "type", "scenario", "options", "key", "provisional"):
             if f not in q:
                 errors.append(f"{q.get('id')}: missing field {f}")
-        # type-specific checks
         t, opts, key = q["type"], q.get("options", []), q.get("key")
         if t == "rank5":
             if len(opts) != 5 or len(key) != 5:
@@ -37,6 +35,11 @@ def main():
                 errors.append(f"{q['id']}: rate key list must match option count")
             if any(not (1 <= k <= 4) for k in (key if isinstance(key, list) else [])):
                 errors.append(f"{q['id']}: rate keys must be 1-4")
+        elif t == "sba":
+            if len(opts) < 4 or len(opts) > 5:
+                errors.append(f"{q['id']}: sba needs 4-5 options (got {len(opts)})")
+            if not isinstance(key, str) or len(key) != 1 or key not in "ABCDE":
+                errors.append(f"{q['id']}: bad sba key {key!r}")
         else:
             errors.append(f"{q['id']}: unknown type {t!r}")
 

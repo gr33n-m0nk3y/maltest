@@ -8262,5 +8262,1565 @@
   "chapter": null,
   "generated": false,
   "difficulty": null
+ },
+ {
+  "id": "clin-1",
+  "source": "clinical",
+  "topic": "anticoagulation",
+  "type": "sba",
+  "scenario": "A 72-year-old man on warfarin for atrial fibrillation (target INR 2.0-3.0) presents with haematemesis and melaena. His INR is 6.8 and he is hypotensive. What is the most appropriate immediate management?",
+  "options": [
+   "Withhold warfarin and recheck INR in 24 hours",
+   "IV vitamin K alone",
+   "IV vitamin K plus prothrombin complex concentrate (PCC)",
+   "Fresh frozen plasma alone",
+   "Oral vitamin K and observe"
+  ],
+  "key": "C",
+  "explanation": "Major bleeding on warfarin with a high INR requires urgent reversal with IV vitamin K AND PCC (or FFP if PCC unavailable). Withholding alone is too slow for active bleeding.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-2",
+  "source": "clinical",
+  "topic": "anticoagulation",
+  "type": "sba",
+  "scenario": "A patient on therapeutic-dose LMWH develops a large bruise at the injection site but no other bleeding. What is the most appropriate action?",
+  "options": [
+   "Stop the LMWH immediately",
+   "Give protamine sulfate",
+   "Reassure and continue, monitoring for other bleeding",
+   "Switch to unfractionated heparin",
+   "Check APTT and adjust the dose"
+  ],
+  "key": "C",
+  "explanation": "A local injection-site bruise is common and not an indication to stop anticoagulation. Reassure, continue, and monitor for signs of significant bleeding.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-3",
+  "source": "clinical",
+  "topic": "chest-pain",
+  "type": "sba",
+  "scenario": "A 58-year-old man has central crushing chest pain radiating to the left arm with sweating and nausea for 40 minutes. ECG shows ST elevation in leads II, III, aVF. What is the most appropriate immediate management?",
+  "options": [
+   "Aspirin and observe for 6 hours",
+   "Aspirin, then urgent primary PCI",
+   "GTN spray and discharge if pain settles",
+   "Troponin and discharge if normal",
+   "CT coronary angiogram"
+  ],
+  "key": "B",
+  "explanation": "ST-elevation MI is a time-critical emergency — activate the primary PCI pathway immediately. Aspirin is given but the priority is reperfusion.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-4",
+  "source": "clinical",
+  "topic": "chest-pain",
+  "type": "sba",
+  "scenario": "A 65-year-old man has sudden severe 'tearing' chest pain radiating to the back, with a BP difference of 30 mmHg between arms. What is the most likely diagnosis?",
+  "options": [
+   "Acute coronary syndrome",
+   "Pulmonary embolism",
+   "Aortic dissection",
+   "Pericarditis",
+   "Gastro-oesophageal reflux"
+  ],
+  "key": "C",
+  "explanation": "Sudden tearing chest pain radiating to the back with a pulse/BP differential between arms is classic for aortic dissection — a surgical emergency.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-5",
+  "source": "clinical",
+  "topic": "arrhythmias",
+  "type": "sba",
+  "scenario": "A 70-year-old woman has an irregularly irregular pulse, rate 110, and is haemodynamically stable. ECG confirms atrial fibrillation. What is the most appropriate first step in management?",
+  "options": [
+   "Synchronised DC cardioversion",
+   "IV amiodarone",
+   "Rate control with a beta-blocker and assess stroke risk",
+   "Digoxin loading",
+   "Immediate anticoagulation only"
+  ],
+  "key": "C",
+  "explanation": "In stable AF, rate control (beta-blocker/CCB) is first-line, and stroke risk (CHA2DS2-VASc) determines anticoagulation. Cardioversion is for unstable or recent-onset AF.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-6",
+  "source": "clinical",
+  "topic": "arrhythmias",
+  "type": "sba",
+  "scenario": "A 60-year-old man has a regular narrow-complex tachycardia at 180 bpm. He is hypotensive and dizzy. What is the most appropriate management?",
+  "options": [
+   "Adenosine 6 mg IV",
+   "Synchronised DC cardioversion",
+   "IV metoprolol",
+   "Vagal manoeuvres and observe",
+   "IV amiodarone"
+  ],
+  "key": "B",
+  "explanation": "An unstable tachyarrhythmia (hypotension, dizziness) requires synchronised DC cardioversion, not drugs. Adenosine is for stable SVT.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-7",
+  "source": "clinical",
+  "topic": "collapse-shock",
+  "type": "sba",
+  "scenario": "A 45-year-old man with a stab wound to the abdomen is hypotensive, tachycardic, with cool peripheries. What is the most appropriate initial management?",
+  "options": [
+   "IV crystalloid bolus and urgent surgery",
+   "IV inotropes",
+   "CT abdomen before surgery",
+   "Observe with serial Hb",
+   "Oral fluids"
+  ],
+  "key": "A",
+  "explanation": "Haemorrhagic shock from trauma needs rapid IV fluid/blood resuscitation and urgent surgical control of the bleeding source. Do not delay surgery for imaging.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-8",
+  "source": "clinical",
+  "topic": "collapse-shock",
+  "type": "sba",
+  "scenario": "A septic patient is hypotensive with a lactate of 4.2 mmol/L. Which is the most appropriate immediate management?",
+  "options": [
+   "IV antibiotics only",
+   "Blood cultures, IV antibiotics and IV fluids within 1 hour",
+   "IV fluids only",
+   "Inotropes first",
+   "CT to find the source before treatment"
+  ],
+  "key": "B",
+  "explanation": "Septic shock requires the Sepsis Six within 1 hour: cultures, broad-spectrum antibiotics, and IV fluids. Do not delay treatment for imaging.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-9",
+  "source": "clinical",
+  "topic": "syncope",
+  "type": "sba",
+  "scenario": "A 20-year-old woman faints after seeing blood during a blood test, with a prodrome of light-headedness and sweating, and recovers quickly. What is the most likely diagnosis?",
+  "options": [
+   "Cardiac syncope",
+   "Vasovagal (reflex) syncope",
+   "Orthostatic hypotension",
+   "Seizure",
+   "Hypoglycaemia"
+  ],
+  "key": "B",
+  "explanation": "A prodrome of light-headedness/sweating triggered by a stressful stimulus (needle) with rapid recovery is classic vasovagal (reflex) syncope.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-10",
+  "source": "clinical",
+  "topic": "syncope",
+  "type": "sba",
+  "scenario": "A 55-year-old man collapses while running, with no prodrome. His father died suddenly at age 50. What is the most important next step?",
+  "options": [
+   "Reassure and discharge",
+   "ECG and cardiology assessment for possible cardiac syncope",
+   "Tilt-table test",
+   "Psychiatric review",
+   "CT head"
+  ],
+  "key": "B",
+  "explanation": "Exertional syncope with no prodrome and a family history of sudden death suggests a cardiac cause (arrhythmia, HCM) — needs ECG and cardiology assessment.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-11",
+  "source": "clinical",
+  "topic": "acute-limb-ischaemia",
+  "type": "sba",
+  "scenario": "A 78-year-old man with atrial fibrillation develops sudden pain, pallor, and coldness of his right leg with absent pulses. He has no prior claudication. What is the most likely diagnosis?",
+  "options": [
+   "Chronic limb ischaemia",
+   "Acute embolic limb ischaemia",
+   "Deep vein thrombosis",
+   "Cellulitis",
+   "Sciatica"
+  ],
+  "key": "B",
+  "explanation": "Sudden onset of a cold, pulseless, painful leg in a patient with AF suggests acute embolic limb ischaemia — a time-critical surgical emergency.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-12",
+  "source": "clinical",
+  "topic": "acute-limb-ischaemia",
+  "type": "sba",
+  "scenario": "A patient with an acutely ischaemic leg develops paralysis and paraesthesia. What does this indicate?",
+  "options": [
+   "Mild ischaemia that will resolve",
+   "Advanced ischaemia with imminent irreversible damage",
+   "Venous congestion",
+   "Nerve root compression",
+   "Normal finding"
+  ],
+  "key": "B",
+  "explanation": "Paralysis and paraesthesia indicate advanced ischaemia with irreversible muscle/nerve damage imminent — urgent revascularisation needed.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-13",
+  "source": "clinical",
+  "topic": "chronic-limb-ischaemia",
+  "type": "sba",
+  "scenario": "A diabetic patient has a painless punched-out ulcer on the plantar surface of the foot with loss of monofilament sensation. What is the most likely cause?",
+  "options": [
+   "Arterial ischaemia",
+   "Venous insufficiency",
+   "Neuropathic (diabetic) ulcer",
+   "Malignancy",
+   "Pressure sore"
+  ],
+  "key": "C",
+  "explanation": "A painless plantar ulcer with loss of protective sensation (monofilament) in a diabetic is a neuropathic ulcer.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-14",
+  "source": "clinical",
+  "topic": "chronic-limb-ischaemia",
+  "type": "sba",
+  "scenario": "A patient with rest pain and an ABPI of 0.4 has a non-healing ulcer on the heel. What is the most appropriate management?",
+  "options": [
+   "Wound dressings only",
+   "Best medical therapy and vascular surgery referral for revascularisation",
+   "Amputation immediately",
+   "Antibiotics only",
+   "Observation"
+  ],
+  "key": "B",
+  "explanation": "Chronic limb-threatening ischaemia (rest pain, ABPI <0.5, non-healing ulcer) needs best medical therapy plus revascularisation.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-15",
+  "source": "clinical",
+  "topic": "dvt-pe",
+  "type": "sba",
+  "scenario": "A 30-year-old woman on the combined oral contraceptive pill has sudden dyspnoea, pleuritic chest pain, and hypoxia. Wells score is 5. What is the most appropriate next step?",
+  "options": [
+   "D-dimer and discharge if negative",
+   "CTPA (or V/Q) to confirm PE",
+   "Chest X-ray only",
+   "Antibiotics for pneumonia",
+   "Observe for 24 hours"
+  ],
+  "key": "B",
+  "explanation": "A high Wells score (>4) with suspected PE warrants direct imaging (CTPA), not D-dimer. Anticoagulate if high probability while awaiting.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-16",
+  "source": "clinical",
+  "topic": "dvt-pe",
+  "type": "sba",
+  "scenario": "A patient with a suspected massive PE is hypotensive and shocked. What is the most appropriate management?",
+  "options": [
+   "IV fluids and observe",
+   "Thrombolysis (alteplase)",
+   "CTPA before any treatment",
+   "LMWH only",
+   "Inotropes"
+  ],
+  "key": "B",
+  "explanation": "Massive PE with shock/hypotension requires urgent thrombolysis — do not delay for imaging.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-17",
+  "source": "clinical",
+  "topic": "shortness-of-breath",
+  "type": "sba",
+  "scenario": "A 70-year-old man with known COPD has an exacerbation with oxygen saturations of 90% on air. What oxygen target should you aim for?",
+  "options": [
+   "94-98%",
+   "88-92%",
+   "100%",
+   "85-90%",
+   "No oxygen"
+  ],
+  "key": "B",
+  "explanation": "Patients at risk of hypercapnic respiratory failure (COPD) should be oxygenated to a target of 88-92% to avoid suppressing respiratory drive.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-18",
+  "source": "clinical",
+  "topic": "shortness-of-breath",
+  "type": "sba",
+  "scenario": "A patient with acute severe asthma has a silent chest and is becoming drowsy. What is the most appropriate immediate action?",
+  "options": [
+   "Nebulised salbutamol and observe",
+   "Call for help — this is a peri-arrest emergency",
+   "Chest X-ray",
+   "Oral steroids",
+   "Discharge with inhalers"
+  ],
+  "key": "B",
+  "explanation": "A silent chest with drowsiness in asthma indicates near-fatal asthma — call for help immediately (peri-arrest).",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-19",
+  "source": "clinical",
+  "topic": "oxygen-management",
+  "type": "sba",
+  "scenario": "A patient with COPD and hypercapnic respiratory failure is on oxygen. What is the most appropriate target saturation?",
+  "options": [
+   "94-98%",
+   "88-92%",
+   "100%",
+   ">98%",
+   "No target needed"
+  ],
+  "key": "B",
+  "explanation": "COPD patients at risk of hypercapnia should be oxygenated to 88-92% to avoid worsening CO2 retention.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-20",
+  "source": "clinical",
+  "topic": "oxygen-management",
+  "type": "sba",
+  "scenario": "A patient's oxygen saturations fall to 85% despite a non-rebreathe mask at 15 L/min. What is the most appropriate next step?",
+  "options": [
+   "Increase to 20 L/min",
+   "Call for help and consider ABG and the cause of refractory hypoxia",
+   "Reduce oxygen",
+   "Reassure and recheck in an hour",
+   "Give nebulised saline"
+  ],
+  "key": "B",
+  "explanation": "Refractory hypoxia despite high-flow oxygen is an emergency — call for help, check ABG, and look for the cause (PE, pneumothorax, shunt).",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-21",
+  "source": "clinical",
+  "topic": "abg-interpretation",
+  "type": "sba",
+  "scenario": "An ABG shows pH 7.28, PaCO2 8.0 kPa, HCO3 24. What is the acid-base diagnosis?",
+  "options": [
+   "Metabolic acidosis",
+   "Respiratory acidosis",
+   "Metabolic alkalosis",
+   "Respiratory alkalosis",
+   "Mixed acidosis"
+  ],
+  "key": "B",
+  "explanation": "Low pH (acidaemia) with high PaCO2 and normal HCO3 = respiratory acidosis (hypoventilation).",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-22",
+  "source": "clinical",
+  "topic": "abg-interpretation",
+  "type": "sba",
+  "scenario": "An ABG shows pH 7.30, PaCO2 3.5 kPa, HCO3 12, lactate 6. What is the most likely cause?",
+  "options": [
+   "Respiratory acidosis",
+   "Metabolic acidosis with high anion gap (lactic acidosis)",
+   "Metabolic alkalosis",
+   "Respiratory alkalosis",
+   "Normal"
+  ],
+  "key": "B",
+  "explanation": "Low pH with low HCO3 and a high lactate = high anion-gap metabolic acidosis (lactic acidosis).",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-23",
+  "source": "clinical",
+  "topic": "electrolytes",
+  "type": "sba",
+  "scenario": "A patient with renal failure has a potassium of 7.0 mmol/L and ECG shows peaked T waves. What is the most appropriate immediate management?",
+  "options": [
+   "Oral potassium",
+   "IV calcium gluconate, then insulin+dextrose",
+   "Observe and recheck",
+   "IV fluids only",
+   "Stop all potassium-containing food"
+  ],
+  "key": "B",
+  "explanation": "Hyperkalaemia with ECG changes is a cardiac emergency — IV calcium gluconate protects the myocardium, then shift K+ with insulin+dextrose.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-24",
+  "source": "clinical",
+  "topic": "electrolytes",
+  "type": "sba",
+  "scenario": "A patient on a thiazide diuretic has a potassium of 2.8 mmol/L. What is the most appropriate management?",
+  "options": [
+   "IV calcium gluconate",
+   "Oral/IV potassium replacement and review the diuretic",
+   "Insulin+dextrose",
+   "Nebulised salbutamol",
+   "No treatment needed"
+  ],
+  "key": "B",
+  "explanation": "Hypokalaemia from diuretics is treated with potassium replacement and review of the causative drug.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-25",
+  "source": "clinical",
+  "topic": "low-urine-output",
+  "type": "sba",
+  "scenario": "A post-operative patient has urine output of 0.2 mL/kg/h, is tachycardic and hypotensive with dry mucous membranes. What is the most appropriate initial management?",
+  "options": [
+   "IV furosemide",
+   "IV fluid challenge and reassess",
+   "Renal USS",
+   "Start dialysis",
+   "Restrict fluids"
+  ],
+  "key": "B",
+  "explanation": "Pre-renal AKI from hypovolaemia responds to a fluid challenge. Diuretics would worsen pre-renal failure.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-26",
+  "source": "clinical",
+  "topic": "low-urine-output",
+  "type": "sba",
+  "scenario": "A patient develops anuria (no urine output) after pelvic surgery. What is the most important next step?",
+  "options": [
+   "IV fluids",
+   "Check for obstruction (catheter, USS) and renal function",
+   "Furosemide",
+   "Dialysis",
+   "Observe"
+  ],
+  "key": "B",
+  "explanation": "Anuria suggests obstruction (post-renal) or severe renal failure — check the catheter, do a renal USS, and assess renal function.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-27",
+  "source": "clinical",
+  "topic": "iv-fluids",
+  "type": "sba",
+  "scenario": "A patient is hypovolaemic and needs IV fluid resuscitation. Which fluid is most appropriate as first-line?",
+  "options": [
+   "0.9% saline",
+   "Balanced crystalloid (e.g. Hartmann's)",
+   "5% dextrose",
+   "Colloid (gelatin)",
+   "Blood"
+  ],
+  "key": "B",
+  "explanation": "Balanced crystalloids (Hartmann's, Plasma-Lyte) are preferred first-line for resuscitation over 0.9% saline (which can cause hyperchloraemic acidosis).",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-28",
+  "source": "clinical",
+  "topic": "iv-fluids",
+  "type": "sba",
+  "scenario": "What is the approximate daily maintenance water requirement for an adult?",
+  "options": [
+   "10-15 mL/kg/day",
+   "25-30 mL/kg/day",
+   "50-60 mL/kg/day",
+   "100 mL/kg/day",
+   "5 mL/kg/day"
+  ],
+  "key": "B",
+  "explanation": "Adult maintenance is ~25-30 mL/kg/day of water, with ~1 mmol/kg/day each of Na+ and K+.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-29",
+  "source": "clinical",
+  "topic": "gi-bleeds",
+  "type": "sba",
+  "scenario": "A 60-year-old man with cirrhosis presents with haematemesis and is tachycardic and hypotensive. What is the most appropriate immediate management?",
+  "options": [
+   "Oral omeprazole and observe",
+   "IV access, resuscitation, terlipressin + antibiotics, urgent endoscopy",
+   "CT abdomen",
+   "Lactulose",
+   "Transfusion only"
+  ],
+  "key": "B",
+  "explanation": "A variceal bleed in cirrhosis is life-threatening — resuscitate, give terlipressin + antibiotics, and arrange urgent endoscopy for banding.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-30",
+  "source": "clinical",
+  "topic": "gi-bleeds",
+  "type": "sba",
+  "scenario": "A patient with melaena and haemodynamic compromise has a suspected upper GI bleed. What is the most appropriate first step?",
+  "options": [
+   "Urgent endoscopy before anything else",
+   "Resuscitate with IV access, bloods, fluids/blood, then endoscopy",
+   "CT abdomen",
+   "Oral iron",
+   "Discharge with PPI"
+  ],
+  "key": "B",
+  "explanation": "Resuscitate first (IV access, bloods, crossmatch, fluids/blood), then arrange urgent endoscopy. Do not scope an unstable patient.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-31",
+  "source": "clinical",
+  "topic": "hepatic-encephalopathy",
+  "type": "sba",
+  "scenario": "A cirrhotic patient develops confusion and asterixis after a GI bleed. What is the most appropriate management?",
+  "options": [
+   "Sedate with a benzodiazepine",
+   "Lactulose and treat the precipitant (bleed)",
+   "IV antibiotics only",
+   "High-protein diet",
+   "Observe"
+  ],
+  "key": "B",
+  "explanation": "Hepatic encephalopathy is treated with lactulose and by treating the precipitant (GI bleed). Avoid sedatives.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-32",
+  "source": "clinical",
+  "topic": "hepatic-encephalopathy",
+  "type": "sba",
+  "scenario": "Which of the following is a common precipitant of hepatic encephalopathy?",
+  "options": [
+   "Constipation",
+   "Hyperglycaemia",
+   "Hypernatraemia",
+   "Excess sleep",
+   "High potassium"
+  ],
+  "key": "A",
+  "explanation": "Constipation (increased ammonia absorption), GI bleed, infection, and electrolyte disturbance are common precipitants of hepatic encephalopathy.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-33",
+  "source": "clinical",
+  "topic": "ascites",
+  "type": "sba",
+  "scenario": "A patient with cirrhosis and ascites develops fever and abdominal pain. Ascitic fluid shows neutrophils of 400/mm3. What is the most appropriate management?",
+  "options": [
+   "Observe",
+   "IV antibiotics (cefotaxime) + albumin for SBP",
+   "Paracentesis only",
+   "Oral antibiotics",
+   "Lactulose"
+  ],
+  "key": "B",
+  "explanation": "Ascitic neutrophils >250/mm3 = spontaneous bacterial peritonitis — IV antibiotics (cefotaxime) + albumin.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-34",
+  "source": "clinical",
+  "topic": "ascites",
+  "type": "sba",
+  "scenario": "A patient with tense ascites needs a large-volume paracentesis. What should be given alongside to prevent circulatory dysfunction?",
+  "options": [
+   "IV furosemide",
+   "IV albumin",
+   "IV saline",
+   "Oral spironolactone",
+   "Nothing"
+  ],
+  "key": "B",
+  "explanation": "Large-volume paracentesis (>5 L) should be accompanied by IV albumin to prevent post-paracentesis circulatory dysfunction.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-35",
+  "source": "clinical",
+  "topic": "jaundice",
+  "type": "sba",
+  "scenario": "A patient has jaundice with pale stools, dark urine, and a raised ALP/GGT with conjugated hyperbilirubinaemia. USS shows dilated bile ducts. What is the most likely cause?",
+  "options": [
+   "Haemolysis",
+   "Obstructive jaundice (e.g. gallstone or malignancy)",
+   "Viral hepatitis",
+   "Alcoholic liver disease",
+   "Gilbert's syndrome"
+  ],
+  "key": "B",
+  "explanation": "Conjugated hyperbilirubinaemia with raised ALP/GGT and dilated ducts = obstructive (post-hepatic) jaundice.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-36",
+  "source": "clinical",
+  "topic": "jaundice",
+  "type": "sba",
+  "scenario": "A patient has fever, jaundice, and right upper quadrant pain. What is the most likely diagnosis and immediate management?",
+  "options": [
+   "Viral hepatitis — supportive care",
+   "Cholangitis — IV antibiotics and urgent biliary drainage",
+   "Haemolysis — blood transfusion",
+   "Gilbert's — reassure",
+   "Pancreatitis — NBM"
+  ],
+  "key": "B",
+  "explanation": "Charcot's triad (fever, jaundice, RUQ pain) = cholangitis, an emergency needing IV antibiotics and urgent biliary drainage (ERCP).",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-37",
+  "source": "clinical",
+  "topic": "neutropenic-sepsis",
+  "type": "sba",
+  "scenario": "A patient on chemotherapy has a temperature of 38.5°C and a neutrophil count of 0.3 × 10^9/L. What is the most appropriate immediate management?",
+  "options": [
+   "Paracetamol and observe",
+   "Blood cultures then IV broad-spectrum antibiotics within 1 hour",
+   "Wait for culture results before antibiotics",
+   "Oral antibiotics",
+   "Discharge with advice"
+  ],
+  "key": "B",
+  "explanation": "Neutropenic sepsis is an emergency — blood cultures then IV broad-spectrum antibiotics within 1 hour, without waiting for results.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-38",
+  "source": "clinical",
+  "topic": "neutropenic-sepsis",
+  "type": "sba",
+  "scenario": "What defines neutropenic sepsis?",
+  "options": [
+   "Temperature ≥38°C with neutrophils <0.5 × 10^9/L",
+   "Any fever with a normal neutrophil count",
+   "Temperature >40°C",
+   "Neutrophils <1.0 × 10^9/L",
+   "Positive blood cultures"
+  ],
+  "key": "A",
+  "explanation": "Neutropenic sepsis = fever (≥38°C) or sepsis signs with neutrophils <0.5 × 10^9/L in a patient on chemotherapy/haematological malignancy.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-39",
+  "source": "clinical",
+  "topic": "congenital-bleeding",
+  "type": "sba",
+  "scenario": "A young man with haemophilia A presents with a swollen, painful knee after minor trauma. What is the most appropriate management?",
+  "options": [
+   "Aspirin for pain",
+   "Factor VIII replacement + analgesia + rest",
+   "Joint aspiration",
+   "NSAIDs",
+   "Observation only"
+  ],
+  "key": "B",
+  "explanation": "Haemarthrosis in haemophilia A is treated with factor VIII replacement, analgesia (avoid aspirin/NSAIDs), and rest.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-40",
+  "source": "clinical",
+  "topic": "congenital-bleeding",
+  "type": "sba",
+  "scenario": "Which is the most common inherited bleeding disorder?",
+  "options": [
+   "Haemophilia A",
+   "Haemophilia B",
+   "von Willebrand disease",
+   "Factor XI deficiency",
+   "Protein C deficiency"
+  ],
+  "key": "C",
+  "explanation": "von Willebrand disease is the most common inherited bleeding disorder, causing mucocutaneous bleeding.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-41",
+  "source": "clinical",
+  "topic": "spinal-cord-compression",
+  "type": "sba",
+  "scenario": "A patient with metastatic prostate cancer develops new thoracic back pain and leg weakness. What is the most appropriate immediate management?",
+  "options": [
+   "Analgesia and outpatient review",
+   "High-dose dexamethasone and urgent MRI whole spine",
+   "CT spine",
+   "Physiotherapy",
+   "Observation"
+  ],
+  "key": "B",
+  "explanation": "Suspected malignant spinal cord compression is an emergency — high-dose dexamethasone and urgent MRI whole spine (within 24h).",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-42",
+  "source": "clinical",
+  "topic": "spinal-cord-compression",
+  "type": "sba",
+  "scenario": "Which of the following is a red flag for malignant spinal cord compression?",
+  "options": [
+   "Back pain with a sensory level and bladder dysfunction",
+   "Muscle stiffness",
+   "Mild backache after exercise",
+   "Sciatica",
+   "Cervical lymphadenopathy"
+  ],
+  "key": "A",
+  "explanation": "Back pain with a sensory level, leg weakness, or bladder/bowel dysfunction in a cancer patient = MSCC until proven otherwise.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-43",
+  "source": "clinical",
+  "topic": "diabetes-control",
+  "type": "sba",
+  "scenario": "A patient with type 1 diabetes has DKA with a potassium of 3.2 mmol/L. What is the most appropriate management?",
+  "options": [
+   "Start insulin immediately",
+   "Replace potassium before starting insulin",
+   "Give IV fluids only",
+   "Give sodium bicarbonate",
+   "Start metformin"
+  ],
+  "key": "B",
+  "explanation": "In DKA, replace potassium before/with insulin — insulin drives K+ into cells and can cause dangerous hypokalaemia.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-44",
+  "source": "clinical",
+  "topic": "diabetes-control",
+  "type": "sba",
+  "scenario": "A patient with type 2 diabetes has glucose of 38 mmol/L, marked dehydration, but no significant ketosis or acidosis. What is the most likely diagnosis?",
+  "options": [
+   "DKA",
+   "Hyperosmolar hyperglycaemic state (HHS)",
+   "Hypoglycaemia",
+   "Lactic acidosis",
+   "Sepsis"
+  ],
+  "key": "B",
+  "explanation": "Severe hyperglycaemia with dehydration but no significant ketosis/acidosis = HHS, treated with aggressive fluids and cautious insulin.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-45",
+  "source": "clinical",
+  "topic": "hypoglycaemia",
+  "type": "sba",
+  "scenario": "A diabetic patient is found unconscious with a glucose of 1.8 mmol/L. What is the most appropriate immediate management?",
+  "options": [
+   "Oral glucose tablets",
+   "IV 10% glucose (or IM glucagon) and protect the airway",
+   "Wait for them to wake",
+   "IV insulin",
+   "Give a meal"
+  ],
+  "key": "B",
+  "explanation": "An unconscious hypoglycaemic patient needs IV glucose (or IM glucagon) with airway protection — not oral treatment.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-46",
+  "source": "clinical",
+  "topic": "hypoglycaemia",
+  "type": "sba",
+  "scenario": "What is the threshold for hypoglycaemia in a diabetic patient?",
+  "options": [
+   "<2.0 mmol/L",
+   "<4.0 mmol/L",
+   "<5.5 mmol/L",
+   "<6.0 mmol/L",
+   "<7.0 mmol/L"
+  ],
+  "key": "B",
+  "explanation": "Hypoglycaemia is defined as glucose <4.0 mmol/L in a diabetic patient.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-47",
+  "source": "clinical",
+  "topic": "diabetic-foot",
+  "type": "sba",
+  "scenario": "A diabetic patient has a deep infected foot ulcer with crepitus and systemic sepsis. What is the most appropriate management?",
+  "options": [
+   "Oral antibiotics and outpatient review",
+   "IV antibiotics and urgent surgical debridement",
+   "Wound dressings only",
+   "Observation",
+   "Podiatry referral only"
+  ],
+  "key": "B",
+  "explanation": "A necrotising infected diabetic foot with sepsis is a surgical emergency — IV antibiotics and urgent debridement.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-48",
+  "source": "clinical",
+  "topic": "diabetic-foot",
+  "type": "sba",
+  "scenario": "A diabetic patient has a deep foot ulcer and 'probe-to-bone' is positive. What is the most likely complication?",
+  "options": [
+   "Cellulitis",
+   "Osteomyelitis",
+   "Gangrene",
+   "Charcot arthropathy",
+   "Venous ulcer"
+  ],
+  "key": "B",
+  "explanation": "Probe-to-bone in a diabetic foot ulcer strongly suggests underlying osteomyelitis.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-49",
+  "source": "clinical",
+  "topic": "acute-confusional-states",
+  "type": "sba",
+  "scenario": "An elderly patient develops acute, fluctuating confusion with inattention. What is the most likely diagnosis?",
+  "options": [
+   "Dementia",
+   "Delirium",
+   "Depression",
+   "Schizophrenia",
+   "Normal ageing"
+  ],
+  "key": "B",
+  "explanation": "Acute, fluctuating confusion with inattention = delirium, common in the acutely ill elderly. Dementia is chronic and progressive.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-50",
+  "source": "clinical",
+  "topic": "acute-confusional-states",
+  "type": "sba",
+  "scenario": "Which of the following is a common reversible cause of delirium?",
+  "options": [
+   "Urinary retention",
+   "Alzheimer's disease",
+   "Huntington's disease",
+   "Normal pressure hydrocephalus",
+   "Parkinson's disease"
+  ],
+  "key": "A",
+  "explanation": "Urinary retention, infection, drugs, constipation, and metabolic disturbance are common reversible causes of delirium.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-51",
+  "source": "clinical",
+  "topic": "falls-elderly",
+  "type": "sba",
+  "scenario": "An elderly patient falls and is found on the floor for several hours. What complication should you specifically look for?",
+  "options": [
+   "Rhabdomyolysis, hypothermia, and pressure injury",
+   "Hyperglycaemia",
+   "Hypernatraemia",
+   "Pneumothorax",
+   "Appendicitis"
+  ],
+  "key": "A",
+  "explanation": "A 'long lie' (>1h on the floor) risks rhabdomyolysis, hypothermia, and pressure injury.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-52",
+  "source": "clinical",
+  "topic": "falls-elderly",
+  "type": "sba",
+  "scenario": "An elderly patient on an antihypertensive has recurrent falls and a systolic BP drop of 25 mmHg on standing. What is the most likely cause?",
+  "options": [
+   "Cardiac arrhythmia",
+   "Postural (orthostatic) hypotension",
+   "Vestibular disorder",
+   "Stroke",
+   "Anaemia"
+  ],
+  "key": "B",
+  "explanation": "A SBP drop ≥20 mmHg on standing = postural hypotension, often drug-induced (antihypertensives) — a common cause of falls.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-53",
+  "source": "clinical",
+  "topic": "obs-gynae-emergencies",
+  "type": "sba",
+  "scenario": "A 28-year-old woman of reproductive age presents with lower abdominal pain, vaginal bleeding, and collapse. What is the most important initial step?",
+  "options": [
+   "CT abdomen",
+   "Pregnancy test and assess for ectopic pregnancy",
+   "USS pelvis only",
+   "Appendicectomy",
+   "Observe"
+  ],
+  "key": "B",
+  "explanation": "Any woman of reproductive age with abdominal pain/bleeding/collapse may have a ruptured ectopic — pregnancy test and urgent assessment.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-54",
+  "source": "clinical",
+  "topic": "obs-gynae-emergencies",
+  "type": "sba",
+  "scenario": "A woman has a postpartum haemorrhage of 1200 mL. What is the most appropriate immediate management?",
+  "options": [
+   "Observe",
+   "Call for help, IV access, fluids/blood, uterotonics, and identify the cause",
+   "Oral iron",
+   "Discharge",
+   "USS only"
+  ],
+  "key": "B",
+  "explanation": "PPH is an emergency — call for help, resuscitate, give uterotonics (oxytocin), and identify the cause (4 Ts: tone, trauma, tissue, thrombin).",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-55",
+  "source": "clinical",
+  "topic": "skin-rashes",
+  "type": "sba",
+  "scenario": "A febrile, unwell child has a non-blanching purpuric rash. What is the most appropriate immediate management?",
+  "options": [
+   "Observe for 6 hours",
+   "IV antibiotics for suspected meningococcal sepsis",
+   "Antihistamines",
+   "Topical steroids",
+   "Paracetamol and discharge"
+  ],
+  "key": "B",
+  "explanation": "Non-blanching purpura + fever/illness = meningococcal sepsis until proven otherwise — IV antibiotics immediately.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-56",
+  "source": "clinical",
+  "topic": "skin-rashes",
+  "type": "sba",
+  "scenario": "A patient on a new drug develops widespread blistering with oral mucosal involvement. What is the most likely diagnosis and immediate action?",
+  "options": [
+   "Urticaria — antihistamines",
+   "Stevens-Johnson syndrome/TEN — stop the drug and urgent care",
+   "Cellulitis — antibiotics",
+   "Shingles — antivirals",
+   "Scabies — permethrin"
+  ],
+  "key": "B",
+  "explanation": "Blistering with mucosal involvement on a drug = SJS/TEN, a medical emergency — stop the culprit drug and urgent specialist care.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-57",
+  "source": "clinical",
+  "topic": "febrile-patient",
+  "type": "sba",
+  "scenario": "A patient has a temperature of 38.5°C, NEWS2 of 6, and a lactate of 3.5. What is the most appropriate immediate management?",
+  "options": [
+   "Paracetamol and observe",
+   "Sepsis Six: cultures, IV antibiotics, fluids within 1 hour",
+   "Wait for cultures",
+   "CT to find the source first",
+   "Discharge with oral antibiotics"
+  ],
+  "key": "B",
+  "explanation": "Suspected sepsis with organ dysfunction (NEWS2 ≥5, raised lactate) needs the Sepsis Six within 1 hour — do not delay antibiotics.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-58",
+  "source": "clinical",
+  "topic": "febrile-patient",
+  "type": "sba",
+  "scenario": "What is the single most important time-critical intervention in sepsis?",
+  "options": [
+   "IV fluids",
+   "IV broad-spectrum antibiotics within 1 hour",
+   "Blood cultures",
+   "Lactate measurement",
+   "Oxygen"
+  ],
+  "key": "B",
+  "explanation": "IV broad-spectrum antibiotics within 1 hour of suspected sepsis is the most important time-critical intervention.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-59",
+  "source": "clinical",
+  "topic": "infection-control",
+  "type": "sba",
+  "scenario": "A patient is diagnosed with Clostridium difficile. What hand hygiene method is most appropriate?",
+  "options": [
+   "Alcohol hand rub",
+   "Soap and water",
+   "No hand hygiene needed",
+   "Gloves only",
+   "Chlorhexidine only"
+  ],
+  "key": "B",
+  "explanation": "C. difficile spores are not killed by alcohol hand rub — use soap and water.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-60",
+  "source": "clinical",
+  "topic": "infection-control",
+  "type": "sba",
+  "scenario": "A patient has suspected pulmonary tuberculosis. What precautions are required?",
+  "options": [
+   "Standard precautions only",
+   "Airborne precautions (negative pressure, FFP3)",
+   "Contact precautions",
+   "Droplet precautions",
+   "No precautions"
+  ],
+  "key": "B",
+  "explanation": "TB is airborne — negative pressure isolation and FFP3 respirator.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-61",
+  "source": "clinical",
+  "topic": "cpr",
+  "type": "sba",
+  "scenario": "A patient is in pulseless ventricular tachycardia. What is the most appropriate immediate management?",
+  "options": [
+   "Adrenaline first",
+   "Defibrillate immediately, then CPR",
+   "Amiodarone first",
+   "Observe",
+   "IV fluids"
+  ],
+  "key": "B",
+  "explanation": "Shockable rhythms (VF/pulseless VT) need immediate defibrillation, then CPR. Don't delay defibrillation for drugs.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-62",
+  "source": "clinical",
+  "topic": "cpr",
+  "type": "sba",
+  "scenario": "During CPR for PEA, which of the following is a reversible cause to look for?",
+  "options": [
+   "Tension pneumothorax",
+   "Hyperglycaemia",
+   "Hypernatraemia",
+   "Anaemia",
+   "Hypothyroidism"
+  ],
+  "key": "A",
+  "explanation": "The 4 Ts (tension pneumothorax, tamponade, toxins, thrombosis) and 4 Hs (hypoxia, hypovolaemia, K+, hypothermia) are reversible causes of PEA.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-63",
+  "source": "clinical",
+  "topic": "anaphylaxis",
+  "type": "sba",
+  "scenario": "A patient develops stridor, wheeze, and hypotension after a bee sting. What is the most appropriate immediate management?",
+  "options": [
+   "Oral antihistamine",
+   "IM adrenaline 500 mcg, call for help, high-flow oxygen",
+   "IV hydrocortisone only",
+   "Nebulised salbutamol only",
+   "Observe"
+  ],
+  "key": "B",
+  "explanation": "Anaphylaxis is treated with IM adrenaline (first-line, life-saving), call for help, and high-flow oxygen.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-64",
+  "source": "clinical",
+  "topic": "anaphylaxis",
+  "type": "sba",
+  "scenario": "What is the first-line drug and route for anaphylaxis?",
+  "options": [
+   "IV hydrocortisone",
+   "IM adrenaline (anterolateral thigh)",
+   "IV chlorphenamine",
+   "Nebulised adrenaline",
+   "Oral prednisolone"
+  ],
+  "key": "B",
+  "explanation": "IM adrenaline 500 mcg (0.5 mL 1:1000) into the anterolateral thigh is first-line for anaphylaxis.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-65",
+  "source": "clinical",
+  "topic": "overdoses",
+  "type": "sba",
+  "scenario": "A patient presents 5 hours after a paracetamol overdose. What is the most appropriate management?",
+  "options": [
+   "Observe",
+   "Check paracetamol level and give N-acetylcysteine if indicated",
+   "Activated charcoal",
+   "Gastric lavage",
+   "Discharge"
+  ],
+  "key": "B",
+  "explanation": "Paracetamol overdose is treated with N-acetylcysteine if the 4-hour level is above the treatment line (or staggered/late presentation).",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-66",
+  "source": "clinical",
+  "topic": "overdoses",
+  "type": "sba",
+  "scenario": "A patient with opioid overdose has respiratory depression and pinpoint pupils. What is the most appropriate immediate management?",
+  "options": [
+   "IV naloxone and airway support",
+   "IV flumazenil",
+   "Activated charcoal",
+   "Observe",
+   "IV diazepam"
+  ],
+  "key": "A",
+  "explanation": "Opioid overdose with respiratory depression is treated with naloxone (IV/IM) and airway support.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-67",
+  "source": "clinical",
+  "topic": "post-op-complications",
+  "type": "sba",
+  "scenario": "A patient 5 days post-bowel surgery develops fever, peritonism, and rising inflammatory markers. What is the most likely diagnosis?",
+  "options": [
+   "Wound infection",
+   "Anastomotic leak",
+   "Urinary tract infection",
+   "Atelectasis",
+   "Ileus"
+  ],
+  "key": "B",
+  "explanation": "Fever + peritonism days 3-7 after bowel surgery suggests an anastomotic leak — urgent CT/surgery.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-68",
+  "source": "clinical",
+  "topic": "post-op-complications",
+  "type": "sba",
+  "scenario": "A post-operative patient has abdominal distension, nausea, and absent bowel sounds. What is the most likely diagnosis?",
+  "options": [
+   "Anastomotic leak",
+   "Post-operative ileus",
+   "Bleeding",
+   "Pneumonia",
+   "DVT"
+  ],
+  "key": "B",
+  "explanation": "Abdominal distension, nausea, and absent bowel sounds after surgery = post-operative ileus — NBM, NG tube, correct electrolytes, mobilise.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-69",
+  "source": "clinical",
+  "topic": "urine-retention",
+  "type": "sba",
+  "scenario": "A post-operative patient has a painful, palpable bladder and cannot pass urine. What is the most appropriate management?",
+  "options": [
+   "Observe",
+   "Catheterise and drain the bladder",
+   "IV fluids",
+   "Furosemide",
+   "Analgesia only"
+  ],
+  "key": "B",
+  "explanation": "Acute urinary retention is treated by catheterisation and drainage, then investigating the cause.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-70",
+  "source": "clinical",
+  "topic": "urine-retention",
+  "type": "sba",
+  "scenario": "A patient has painless chronic urinary retention with overflow incontinence and a raised creatinine. What is the concern?",
+  "options": [
+   "No concern",
+   "High-pressure retention causing renal impairment — urgent drainage",
+   "Bladder cancer",
+   "Prostatitis",
+   "UTI only"
+  ],
+  "key": "B",
+  "explanation": "High-pressure chronic retention can cause renal impairment — urgent drainage and renal assessment.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-71",
+  "source": "clinical",
+  "topic": "medication-errors",
+  "type": "sba",
+  "scenario": "You realise you have given a patient the wrong dose of insulin. What is the most appropriate immediate action?",
+  "options": [
+   "Do nothing if the patient seems fine",
+   "Assess the patient, treat any harm, inform the patient, and report the incident",
+   "Hide the error",
+   "Wait and see",
+   "Blame the nurse"
+  ],
+  "key": "B",
+  "explanation": "On a medication error: assess the patient immediately, treat harm, inform the patient, report (datix), and document.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-72",
+  "source": "clinical",
+  "topic": "medication-errors",
+  "type": "sba",
+  "scenario": "Which of the following is a key strategy to prevent medication errors?",
+  "options": [
+   "Relying on memory",
+   "Checking the '5 rights' (patient, drug, dose, route, time)",
+   "Using abbreviations",
+   "Verbal orders without confirmation",
+   "Skipping allergy checks"
+  ],
+  "key": "B",
+  "explanation": "Checking the 5 rights, confirming allergies, and double-checking high-risk drugs prevent medication errors.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-73",
+  "source": "clinical",
+  "topic": "early-warning-score",
+  "type": "sba",
+  "scenario": "A patient has a NEWS2 of 8. What is the most appropriate response?",
+  "options": [
+   "Recheck in 4 hours",
+   "Emergency response — call for help immediately",
+   "Routine ward care",
+   "Discharge",
+   "Increase monitoring only"
+  ],
+  "key": "B",
+  "explanation": "NEWS2 ≥7 triggers an emergency response — call for help immediately.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-74",
+  "source": "clinical",
+  "topic": "early-warning-score",
+  "type": "sba",
+  "scenario": "A NEWS2 of 5 or more should prompt what additional action?",
+  "options": [
+   "Nothing",
+   "Screening for sepsis",
+   "Immediate ICU admission",
+   "Discharge",
+   "Psychiatric review"
+  ],
+  "key": "B",
+  "explanation": "NEWS2 ≥5 is a trigger for sepsis screening.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-75",
+  "source": "clinical",
+  "topic": "venous-access-lines",
+  "type": "sba",
+  "scenario": "A patient with a central line develops a fever. What is the most appropriate management?",
+  "options": [
+   "Observe",
+   "Blood cultures (peripheral + line) and consider removing the line",
+   "Remove the line without cultures",
+   "Antibiotics only",
+   "USS the line"
+  ],
+  "key": "B",
+  "explanation": "Suspected line sepsis: take blood cultures (peripheral and line), consider removing the line, and treat with antibiotics.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-76",
+  "source": "clinical",
+  "topic": "venous-access-lines",
+  "type": "sba",
+  "scenario": "A patient with a central line suddenly collapses with hypoxia. What is the most appropriate immediate action?",
+  "options": [
+   "Observe",
+   "Clamp the line, head-down/left lateral position, 100% oxygen",
+   "Remove the line",
+   "IV fluids",
+   "USS the line"
+  ],
+  "key": "B",
+  "explanation": "Sudden collapse with a central line suggests air embolism — clamp the line, position head-down/left lateral, and give 100% oxygen.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-77",
+  "source": "clinical",
+  "topic": "covid-19",
+  "type": "sba",
+  "scenario": "A patient with COVID-19 pneumonia needs oxygen. What is the most appropriate oxygen target?",
+  "options": [
+   "88-92%",
+   "94-98% (88-92% if hypercapnia risk)",
+   "100%",
+   "85-90%",
+   "No target"
+  ],
+  "key": "B",
+  "explanation": "Target 94-98% for most, 88-92% if at risk of hypercapnic respiratory failure.",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
+ },
+ {
+  "id": "clin-78",
+  "source": "clinical",
+  "topic": "covid-19",
+  "type": "sba",
+  "scenario": "Which treatment is indicated for a COVID-19 patient who requires oxygen?",
+  "options": [
+   "Dexamethasone",
+   "Antibiotics routinely",
+   "No treatment",
+   "High-dose steroids for all",
+   "Ibuprofen"
+  ],
+  "key": "A",
+  "explanation": "Dexamethasone is indicated for COVID-19 patients who require oxygen (reduces mortality).",
+  "provisional": true,
+  "generated": false,
+  "chapter": null,
+  "difficulty": null
  }
 ]

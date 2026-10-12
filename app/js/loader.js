@@ -1,11 +1,17 @@
-/* Loader: fetch the question bank + shared helpers. */
+/* Loader: fetch the question bank + merge the user's generated bank + shared helpers. */
 "use strict";
 const Bank = (() => {
   let _all = null;
   async function load() {
     if (_all) return _all;
     const res = await fetch("data/questions.json");
-    _all = await res.json();
+    const staticBank = await res.json();
+    // merge user-generated bank (localStorage) so generated questions appear in practice/mock
+    let gen = [];
+    try { gen = JSON.parse(localStorage.getItem("maltest_generated_bank")) || []; } catch {}
+    const seen = new Set(staticBank.map((q) => q.id));
+    const merged = staticBank.concat(gen.filter((q) => !seen.has(q.id)));
+    _all = merged;
     return _all;
   }
   function all() { return _all || []; }
@@ -25,7 +31,6 @@ const Progress = (() => {
     localStorage.setItem(KEY, JSON.stringify(p));
   }
   function weakTopics(questions) {
-    // topics with < 60% accuracy and >= 2 attempts
     const p = get();
     const byTopic = {};
     for (const q of questions) {
