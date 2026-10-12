@@ -1,0 +1,4 @@
+.venv/
+source/
+build/_inventory.json
+__pycache__/
