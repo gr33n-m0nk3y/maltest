@@ -38,7 +38,7 @@ label { display: block; margin: 10px 0 4px; font-size: 13px; color: var(--muted)
     <input type="password" id="keyInput" placeholder="sk-or-...">
     <label>Model</label>
     <select id="modelInput">
-      <option value="deepseek/deepseek-chat">DeepSeek (default)</option>
+      <option value="deepseek/deepseek-v4.1-flash">DeepSeek V4.1 Flash (default)</option>
       <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
       <option value="openai/gpt-4o">GPT-4o</option>
     </select>
@@ -65,7 +65,7 @@ label { display: block; margin: 10px 0 4px; font-size: 13px; color: var(--muted)
   const keyInput = document.getElementById("keyInput");
   const modelInput = document.getElementById("modelInput");
   keyInput.value = localStorage.getItem(KEY) || "";
-  modelInput.value = localStorage.getItem(MODEL) || "deepseek/deepseek-chat";
+  modelInput.value = localStorage.getItem(MODEL) || "deepseek/deepseek-v4.1-flash";
   keyInput.onchange = () => { localStorage.setItem(KEY, keyInput.value); document.getElementById("keyStatus").textContent = "Key saved (this browser only)."; };
   modelInput.onchange = () => localStorage.setItem(MODEL, modelInput.value);
 

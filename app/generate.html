@@ -130,7 +130,7 @@ const Gen = (() => {
 
   function getKey() { return localStorage.getItem(KEY) || ""; }
   function setKey(k) { localStorage.setItem(KEY, k); }
-  function getModel() { return localStorage.getItem(MODEL) || "deepseek/deepseek-chat"; }
+  function getModel() { return localStorage.getItem(MODEL) || "deepseek/deepseek-v4.1-flash"; }
   function setModel(m) { localStorage.setItem(MODEL, m); }
   function getBank() { try { return JSON.parse(localStorage.getItem(BANK)) || []; } catch { return []; } }
   function setBank(b) { localStorage.setItem(BANK, JSON.stringify(b)); }
