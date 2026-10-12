@@ -794,52 +794,158 @@
  "shortness-of-breath": {
   "name": "Shortness of breath",
   "group": "Respiratory",
+  "overview": "Dyspnoea is the most common acute medical presentation — the exam wants you to pick out the immediately life-threatening causes (PE, tension pneumothorax, severe asthma, pulmonary oedema, anaphylaxis) and treat before you diagnose.",
   "essentials": [
-   "Dyspnoea has cardiac, respiratory, and other causes. Life-threatening: PE, tension pneumothorax, severe asthma/COPD, pulmonary oedema, anaphylaxis, foreign body.",
-   "Assess severity: speaking in sentences, accessory muscle use, oxygen saturations, respiratory rate, ABG. Silent chest in asthma is ominous (no air entry).",
-   "Pulmonary oedema (heart failure): orthopnoea, PND, crackles, raised JVP, S3 — treat with oxygen, diuretics, nitrates, CPAP.",
-   "COPD exacerbation: increased breathlessness, wheeze, sputum; treat with bronchodilators, steroids, antibiotics if infective, controlled oxygen (target 88-92%).",
-   "Pneumothorax: sudden pleuritic pain + dyspnoea; tension (tracheal shift, haemodynamic compromise) needs needle decompression."
+   "Life-threatening causes to exclude first: PE, tension pneumothorax, severe asthma/COPD, acute pulmonary oedema, anaphylaxis, foreign body.",
+   "Assess severity: ability to speak in sentences, accessory muscle use, respiratory rate, saturations, ABG. A silent chest in asthma is ominous (no air entry).",
+   "Pulmonary oedema (heart failure): orthopnoea, paroxysmal nocturnal dyspnoea, basal crackles, raised JVP, S3 — treat with oxygen, diuretics, nitrates, CPAP.",
+   "COPD exacerbation: increased breathlessness, wheeze, sputum change — bronchodilators, steroids, antibiotics if infective, controlled oxygen.",
+   "Pneumothorax: sudden pleuritic pain + dyspnoea; tension variant (tracheal shift, haemodynamic compromise) needs immediate needle decompression."
+  ],
+  "drugs": [
+   {
+    "name": "Salbutamol (nebulised)",
+    "when": "Acute asthma / COPD exacerbation",
+    "notes": "2.5-5 mg; titrate; watch for tremor and hypokalaemia"
+   },
+   {
+    "name": "Ipratropium (nebulised)",
+    "when": "Acute severe asthma / COPD exacerbation",
+    "notes": "Add to salbutamol; 500 mcg"
+   },
+   {
+    "name": "Prednisolone / hydrocortisone",
+    "when": "Asthma/COPD exacerbation",
+    "notes": "Oral prednisolone 40-50 mg (or IV hydrocortisone)"
+   },
+   {
+    "name": "Magnesium sulfate",
+    "when": "Severe/life-threatening asthma not responding",
+    "notes": "IV 1.2-2 g over 20 min"
+   },
+   {
+    "name": "Furosemide",
+    "when": "Acute pulmonary oedema",
+    "notes": "IV 40-80 mg; monitor urine output and renal function"
+   },
+   {
+    "name": "Nitrates (GTN)",
+    "when": "Pulmonary oedema with hypertension",
+    "notes": "IV/oral; avoid if hypotensive"
+   },
+   {
+    "name": "Antibiotics",
+    "when": "Infective exacerbation of COPD",
+    "notes": "Per local policy if increased sputum purulence"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Sudden pleuritic pain and dyspnoea with unilateral absent breath sounds and tracheal deviation in an unstable patient.",
+    "answer": "Tension pneumothorax — immediate needle decompression (2nd intercostal space, mid-clavicular), then chest drain."
+   },
+   {
+    "scenario": "Orthopnoea with bibasal crackles, raised JVP and a third heart sound.",
+    "answer": "Acute pulmonary oedema — oxygen, IV furosemide, nitrates, consider CPAP."
+   },
+   {
+    "scenario": "Asthma patient with a silent chest and drowsiness.",
+    "answer": "Near-fatal asthma — call for help, nebulised salbutamol + ipratropium, steroids, IV magnesium; consider ICU."
+   },
+   {
+    "scenario": "COPD patient with purulent sputum, increased breathlessness and wheeze.",
+    "answer": "Infective exacerbation — controlled oxygen (88-92%), bronchodilators, steroids, antibiotics."
+   },
+   {
+    "scenario": "Elderly patient with sudden dyspnoea, hypoxia and tachycardia after recent surgery.",
+    "answer": "Consider PE — Wells score, CTPA, anticoagulate if high probability."
+   }
   ],
   "keyValues": [
    [
-    "O2 target (COPD)",
+    "O2 target (COPD/at risk of hypercapnia)",
     "88-92%"
    ],
    [
-    "O2 target (other)",
+    "O2 target (other acutely ill)",
     "94-98%"
    ],
    [
-    "Tension pneumothorax",
-    "Needle decompression (2nd ICS mid-clavicular)"
+    "Tension pneumothorax decompression",
+    "2nd ICS mid-clavicular line"
    ],
    [
-    "Pulmonary oedema",
-    "O2, furosemide, nitrates, CPAP"
+    "Severe asthma features",
+    "Cannot complete sentences, RR>25, HR>110, PEF<50%"
    ]
   ],
   "redFlags": [
    "Silent chest, exhaustion, or reduced consciousness in asthma — peri-arrest.",
-   "Tension pneumothorax — decompress immediately.",
+   "Tension pneumothorax — decompress immediately, do not wait for X-ray.",
    "Hypoxia refractory to oxygen — think PE, shunt, or severe disease."
   ],
   "management": [
-   "ABC, oxygen to target, sit patient up, IV access, monitoring.",
-   "Asthma: salbutamol (nebulised), ipratropium, steroids, consider magnesium.",
+   "ABC, target oxygen, sit the patient up, IV access, monitoring.",
+   "Asthma: salbutamol, ipratropium, steroids, magnesium; escalate if severe.",
    "Pulmonary oedema: furosemide, nitrates, CPAP, treat the cause.",
-   "Pneumothorax: size/clinical assessment; aspiration or chest drain; tension → decompress."
+   "Pneumothorax: aspirate or drain per size/clinical state; tension → decompress first."
+  ],
+  "pitfalls": [
+   "Do not give uncontrolled high-flow oxygen to a COPD patient at risk of hypercapnia.",
+   "A normal chest X-ray does not exclude PE — go on to CTPA if clinical suspicion is high.",
+   "In tension pneumothorax, treat clinically — imaging would delay life-saving decompression."
   ]
  },
  "oxygen-management": {
   "name": "Oxygen management in wards",
   "group": "Respiratory",
+  "overview": "Oxygen is a drug: it needs a prescribed target, an appropriate device, and monitoring. The exam tests the two targets (94-98% vs 88-92%) and the danger of over-oxygenating COPD.",
   "essentials": [
-   "Oxygen is a drug — prescribe it with a target range, not 'as required'. Over-oxygenation in COPD can suppress hypoxic drive and cause hypercapnia.",
+   "Prescribe oxygen with a target saturation range, not 'as required'. Over-oxygenation in COPD can suppress the hypoxic drive and cause hypercapnia.",
    "Targets: 94-98% for most acutely ill patients; 88-92% for those at risk of hypercapnic respiratory failure (COPD, obesity hypoventilation, neuromuscular disease).",
-   "Delivery: nasal cannulae (low flow), simple face mask, Venturi mask (precise FiO2), non-rebreathe (high flow, 15 L/min) for emergencies.",
-   "Monitor response: saturations, ABG if hypercapnia suspected or target not met. Reassess regularly.",
-   "Document the oxygen prescription, target range, and weaning plan. Escalate if saturations fall below target."
+   "Delivery devices: nasal cannulae (low flow), simple face mask, Venturi mask (precise FiO2, 24-60%), non-rebreathe mask (high flow ~15 L/min) for emergencies.",
+   "Monitor the response: saturations and ABG if hypercapnia is suspected or the target is not met. Reassess regularly.",
+   "Document the prescription, target range, device, and a weaning plan; escalate if saturations fall below target."
+  ],
+  "drugs": [
+   {
+    "name": "Oxygen (nasal cannulae)",
+    "when": "Mild hypoxia, stable patient",
+    "notes": "1-6 L/min; ~24-44% FiO2 (variable)"
+   },
+   {
+    "name": "Venturi mask",
+    "when": "Precise FiO2 needed (e.g. COPD)",
+    "notes": "24%, 28%, 35%, 40%, 60% — controlled delivery"
+   },
+   {
+    "name": "Non-rebreathe mask",
+    "when": "Emergency / severe hypoxia",
+    "notes": "15 L/min, ~85-95% FiO2; humidify if prolonged"
+   },
+   {
+    "name": "NIV (BiPAP/CPAP)",
+    "when": "Hypercapnic respiratory failure (COPD) or type 2 failure",
+    "notes": "Consider if pH<7.35 and PaCO2 high; strict monitoring"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Known COPD with an exacerbation, saturations 90% on air.",
+    "answer": "Controlled oxygen to 88-92% via Venturi mask; recheck ABG (risk of CO2 retention)."
+   },
+   {
+    "scenario": "A healthy 30-year-old with pneumonia and saturations 90%.",
+    "answer": "Target 94-98%; titrate oxygen and treat the pneumonia; check ABG if not improving."
+   },
+   {
+    "scenario": "COPD patient on high-flow oxygen becomes drowsy with a rising PaCO2.",
+    "answer": "Reduce FiO2 to target 88-92%, check ABG, consider NIV — this is hypercapnic respiratory failure."
+   },
+   {
+    "scenario": "Saturations 85% despite a non-rebreathe mask at 15 L/min.",
+    "answer": "Refractory hypoxia — call for help, ABG, look for the cause (PE, pneumothorax, oedema, shunt)."
+   }
   ],
   "keyValues": [
    [
@@ -851,35 +957,85 @@
     "88-92%"
    ],
    [
-    "Non-rebreathe",
-    "15 L/min (emergency)"
+    "Non-rebreathe mask",
+    "15 L/min (~85-95% FiO2)"
    ],
    [
     "Venturi mask",
-    "Precise FiO2 (24-60%)"
+    "Precise FiO2 24-60%"
    ]
   ],
   "redFlags": [
    "Falling saturations despite high-flow oxygen — call for help, consider ABG.",
    "Rising CO2 or drowsiness in COPD on oxygen — reduce FiO2, consider NIV.",
-   "Hypoxia with no improvement — look for the cause (PE, pneumothorax, oedema)."
+   "Hypoxia with no improvement — look for the cause rather than simply increasing flow."
   ],
   "management": [
-   "Prescribe oxygen with a target range and delivery device.",
-   "Start at appropriate FiO2, titrate to target, monitor saturations.",
-   "Check ABG if hypercapnia risk or target not achieved.",
+   "Prescribe oxygen with a target range and device.",
+   "Start at an appropriate FiO2 and titrate to target; monitor saturations.",
+   "Check ABG if hypercapnia risk or the target is not achieved.",
    "Wean oxygen as the patient improves; document the plan."
+  ],
+  "pitfalls": [
+   "'Oxygen as required' is not a prescription — always state a target range and device.",
+   "Beware over-oxygenation in COPD — high flow can cause dangerous CO2 retention.",
+   "Do not delay NIV in hypercapnic respiratory failure while waiting for a repeat ABG."
   ]
  },
  "abg-interpretation": {
   "name": "Arterial blood gas interpretation",
   "group": "Respiratory",
+  "overview": "ABGs are examined constantly — the exam expects a systematic read (oxygenation → pH → PaCO2 → HCO3 → compensation) and matching the pattern to a cause.",
   "essentials": [
    "Systematic approach: (1) oxygenation (PaO2), (2) pH (acidaemia/alkalaemia), (3) PaCO2 (respiratory), (4) HCO3 (metabolic), (5) compensation.",
    "Respiratory acidosis: high PaCO2 (hypoventilation — COPD, sedation, neuromuscular). Respiratory alkalosis: low PaCO2 (hyperventilation — pain, anxiety, PE, sepsis).",
    "Metabolic acidosis: low HCO3 — anion gap (lactate, ketoacidosis, renal failure, toxins) vs non-anion gap (diarrhoea, renal tubular acidosis).",
    "Metabolic alkalosis: high HCO3 (vomiting, diuretics, hypokalaemia).",
-   "Compensation: respiratory compensates metabolic quickly (change PaCO2), metabolic compensates respiratory slowly (change HCO3). Check if compensation is adequate."
+   "Compensation: respiratory compensates metabolic quickly (change in PaCO2); metabolic compensates respiratory slowly (change in HCO3). Check whether compensation is adequate."
+  ],
+  "drugs": [
+   {
+    "name": "Oxygen",
+    "when": "Hypoxaemia on the ABG",
+    "notes": "Titrate to target; beware CO2 retention in COPD"
+   },
+   {
+    "name": "Naloxone",
+    "when": "Opioid-induced respiratory acidosis",
+    "notes": "IV; reverses sedation/hypoventilation"
+   },
+   {
+    "name": "NIV (BiPAP)",
+    "when": "Hypercapnic respiratory acidosis from COPD",
+    "notes": "Reduces PaCO2 and work of breathing; monitor closely"
+   },
+   {
+    "name": "Sodium bicarbonate",
+    "when": "Severe metabolic acidosis (selected, specialist)",
+    "notes": "Reserved for e.g. TCA toxicity or severe acidaemia; not routine"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "pH 7.28, PaCO2 8.0 kPa, HCO3 24.",
+    "answer": "Respiratory acidosis (hypoventilation) — improve ventilation, treat the cause."
+   },
+   {
+    "scenario": "pH 7.30, PaCO2 3.5 kPa, HCO3 12, lactate 6.",
+    "answer": "High anion-gap metabolic acidosis (lactic acidosis) — look for sepsis/ischaemia, resuscitate."
+   },
+   {
+    "scenario": "pH 7.48, PaCO2 3.0 kPa, HCO3 24 in an anxious patient with a PE.",
+    "answer": "Respiratory alkalosis (hyperventilation) — treat the underlying cause (PE, pain, sepsis)."
+   },
+   {
+    "scenario": "pH 7.50, HCO3 32 in a patient who has been vomiting.",
+    "answer": "Metabolic alkalosis — replace fluids/electrolytes, treat the cause."
+   },
+   {
+    "scenario": "pH 7.20, PaCO2 6.5, HCO3 18 in a COPD patient.",
+    "answer": "Decompensated respiratory acidosis — consider NIV, controlled oxygen; this is type 2 respiratory failure."
+   }
   ],
   "keyValues": [
    [
@@ -895,8 +1051,8 @@
     "22-26 mmol/L"
    ],
    [
-    "Normal PaO2",
-    "10-13 kPa on air"
+    "Normal PaO2 (on air)",
+    "10-13 kPa"
    ],
    [
     "Anion gap",
@@ -904,26 +1060,91 @@
    ]
   ],
   "redFlags": [
-   "pH < 7.2 — severe acidaemia, consider bicarbonate/ICU.",
-   "Lactic acidosis (lactate > 4) — sepsis/ischaemia, treat the cause.",
+   "pH < 7.2 — severe acidaemia, consider ICU/bicarbonate.",
+   "Lactic acidosis (lactate >4) — sepsis/ischaemia, treat the cause.",
    "Rising PaCO2 with falling pH in COPD — hypercapnic respiratory failure, consider NIV."
   ],
   "management": [
    "Interpret systematically: oxygenation → pH → PaCO2 → HCO3 → compensation.",
    "Treat the underlying cause, not just the numbers.",
    "Respiratory acidosis: improve ventilation (bronchodilators, NIV, treat cause).",
-   "Metabolic acidosis: identify anion gap, treat cause (fluids, insulin for DKA, treat sepsis)."
+   "Metabolic acidosis: identify the anion gap and treat the cause (fluids, insulin for DKA, sepsis)."
+  ],
+  "pitfalls": [
+   "Always check compensation — a normal pH can hide a mixed picture.",
+   "Calculate the anion gap in every metabolic acidosis — it points to the cause.",
+   "A normal PaO2 on oxygen can mask severe disease — interpret in context of FiO2."
   ]
  },
  "electrolytes": {
   "name": "Electrolyte management",
   "group": "Renal, fluids & electrolytes",
+  "overview": "Electrolyte emergencies (especially hypo/hyperkalaemia) cause arrhythmias and arrest. The exam tests safe correction — rate of change matters as much as the target.",
   "essentials": [
-   "Sodium: hyponatraemia (most common) — assess volume status and osmolality; causes include SIADH, hypovolaemia, heart failure, adrenal insufficiency. Correct slowly (risk of osmotic demyelination). Hypernatraemia = water deficit.",
-   "Potassium: hypokalaemia (diuretics, vomiting, diarrhoea) — cardiac arrhythmia risk; replace orally/IV. Hyperkalaemia (renal failure, ACEi, K+-sparing diuretics, cell lysis) — cardiac emergency, treat with calcium gluconate, insulin+dextrose, nebulised salbutamol, then removal.",
-   "Calcium: hypercalcaemia (malignancy, primary hyperparathyroidism) — hydrate + bisphosphonate. Hypocalcaemia (post-thyroidectomy, hypoparathyroidism) — tetany, Chvostek/Trousseau signs.",
-   "Magnesium: hypomagnesaemia (diuretics, alcohol) — associated with hypokalaemia/hypocalcaemia, arrhythmia. Hypermagnesaemia (renal failure).",
-   "Phosphate: hypophosphataemia (refeeding, dialysis) — muscle weakness, rhabdomyolysis."
+   "Sodium: hyponatraemia (common) — assess volume status and osmolality; causes include SIADH, hypovolaemia, heart failure, adrenal insufficiency. Correct slowly (risk of osmotic demyelination). Hypernatraemia = water deficit.",
+   "Potassium: hypokalaemia (diuretics, vomiting, diarrhoea) risks arrhythmia — replace. Hyperkalaemia (renal failure, ACEi, K+-sparing diuretics, cell lysis) is a cardiac emergency.",
+   "Calcium: hypercalcaemia (malignancy, hyperparathyroidism) — hydrate + bisphosphonate. Hypocalcaemia (post-thyroidectomy, hypoparathyroidism) — tetany, Chvostek/Trousseau signs.",
+   "Magnesium: hypomagnesaemia (diuretics, alcohol) associates with hypokalaemia/hypocalcaemia and arrhythmia; hypermagnesaemia occurs in renal failure.",
+   "Phosphate: hypophosphataemia (refeeding, dialysis) causes muscle weakness and rhabdomyolysis."
+  ],
+  "drugs": [
+   {
+    "name": "Calcium gluconate 10%",
+    "when": "Hyperkalaemia with ECG changes (cardiac protection)",
+    "notes": "IV 10-30 mL; stabilises myocardium but does not lower K+"
+   },
+   {
+    "name": "Insulin + dextrose",
+    "when": "Hyperkalaemia",
+    "notes": "Shifts K+ into cells; monitor glucose closely"
+   },
+   {
+    "name": "Salbutamol (nebulised)",
+    "when": "Hyperkalaemia (adjunct)",
+    "notes": "Shifts K+ intracellularly"
+   },
+   {
+    "name": "Potassium chloride",
+    "when": "Hypokalaemia",
+    "notes": "Oral or IV (max 10 mmol/h peripherally, 20 mmol/h central with monitoring)"
+   },
+   {
+    "name": "Spironolactone / furosemide",
+    "when": "Fluid overload with electrolytes",
+    "notes": "K+-sparing vs K+-wasting — choose to correct the K+"
+   },
+   {
+    "name": "IV fluids / bisphosphonate",
+    "when": "Hypercalcaemia",
+    "notes": "Aggressive saline + zoledronic acid/pamidronate"
+   },
+   {
+    "name": "Magnesium sulfate",
+    "when": "Hypomagnesaemia",
+    "notes": "IV; often needed alongside K+ replacement"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "K+ 7.0 with peaked T waves on ECG.",
+    "answer": "Hyperkalaemia emergency — calcium gluconate (myocardial protection), insulin+dextrose, salbutamol, then removal (resonium/dialysis)."
+   },
+   {
+    "scenario": "K+ 2.8 on a thiazide diuretic.",
+    "answer": "Hypokalaemia — replace K+ (oral/IV) and review the diuretic; check Mg2+."
+   },
+   {
+    "scenario": "Na+ 118 with confusion and seizures.",
+    "answer": "Severe hyponatraemia — hypertonic saline for seizures, but correct slowly (≤8-10 mmol/L/24 h) to avoid osmotic demyelination."
+   },
+   {
+    "scenario": "Post-thyroidectomy patient with tingling and muscle twitching.",
+    "answer": "Hypocalcaemia — IV calcium gluconate; check corrected calcium, magnesium and PTH."
+   },
+   {
+    "scenario": "Malignancy patient with confusion, thirst and a calcium of 3.2 mmol/L.",
+    "answer": "Hypercalcaemia — IV fluids then a bisphosphonate; treat the underlying malignancy."
+   }
   ],
   "keyValues": [
    [
@@ -936,15 +1157,15 @@
    ],
    [
     "Hyperkalaemia emergency",
-    "K > 6.5 or ECG changes"
+    "K >6.5 or ECG changes"
    ],
    [
-    "Hyperkalaemia Rx",
-    "Calcium gluconate, insulin+dextrose, salbutamol"
+    "Hyponatraemia correction rate",
+    "≤8-10 mmol/L per 24 h"
    ],
    [
-    "Hyponatraemia correction",
-    "≤8-10 mmol/L per 24h"
+    "Normal corrected calcium",
+    "2.2-2.6 mmol/L"
    ]
   ],
   "redFlags": [
@@ -953,38 +1174,93 @@
    "Symptomatic hypocalcaemia (tetany, laryngospasm) — IV calcium."
   ],
   "management": [
-   "Hyperkalaemia: calcium gluconate (cardiac protection), insulin+dextrose, salbutamol, then K+ removal (resonium, dialysis).",
-   "Hypokalaemia: oral/IV potassium replacement, treat cause.",
-   "Hyponatraemia: correct the cause, replace slowly, monitor Na frequently.",
+   "Hyperkalaemia: calcium gluconate (protection), insulin+dextrose, salbutamol, then K+ removal.",
+   "Hypokalaemia: oral/IV potassium replacement and treat the cause; check magnesium.",
+   "Hyponatraemia: treat the cause and correct slowly with frequent monitoring.",
    "Hypercalcaemia: IV fluids, bisphosphonate, treat malignancy."
+  ],
+  "pitfalls": [
+   "Calcium gluconate protects the heart but does not lower potassium — always follow with a shifting/removal strategy.",
+   "Correcting hyponatraemia too fast causes osmotic demyelination — go slowly.",
+   "Always check magnesium when treating hypokalaemia — low Mg2+ makes K+ hard to correct."
   ]
  },
  "low-urine-output": {
   "name": "Low urine output",
   "group": "Renal, fluids & electrolytes",
+  "overview": "Oliguria is a common ward call and often reversible. The exam tests classifying AKI (pre-renal / intrinsic / post-renal) and the safe first step.",
   "essentials": [
-   "Oliguria = urine output < 0.5 mL/kg/h (or < 400 mL/24h). Anuria (< 100 mL/24h) suggests obstruction or severe renal failure.",
+   "Oliguria = urine output <0.5 mL/kg/h (or <400 mL/24h). Anuria (<100 mL/24h) suggests obstruction or severe renal failure.",
    "Classify AKI: pre-renal (hypovolaemia, sepsis, heart failure — most common), intrinsic renal (ATN, glomerulonephritis, interstitial nephritis), post-renal (obstruction — catheter, prostate, stones).",
-   "Assess: fluid balance, weight, JVP, BP, urine output, urinalysis, U&Es, creatinine, consider renal USS for obstruction.",
-   "Pre-renal AKI responds to fluid resuscitation; intrinsic/post-renal need specific treatment. Monitor for hyperkalaemia, acidosis, fluid overload.",
+   "Assess: fluid balance, weight, JVP, BP, urine output, urinalysis, U&Es, creatinine; renal USS for obstruction.",
+   "Pre-renal AKI responds to fluid resuscitation; intrinsic/post-renal need specific treatment. Watch for hyperkalaemia, acidosis and fluid overload.",
    "Prevent: adequate hydration, avoid nephrotoxins (NSAIDs, ACEi in dehydration, contrast), monitor high-risk patients."
+  ],
+  "drugs": [
+   {
+    "name": "IV crystalloid",
+    "when": "Pre-renal (hypovolaemic) AKI",
+    "notes": "Balanced crystalloid boluses, reassess after each"
+   },
+   {
+    "name": "Furosemide",
+    "when": "Fluid overload with AKI (not for pre-renal oliguria)",
+    "notes": "Does not treat AKI itself; avoid in hypovolaemia"
+   },
+   {
+    "name": "Stop nephrotoxins",
+    "when": "Any AKI",
+    "notes": "NSAIDs, ACEi/ARB, aminoglycosides, contrast"
+   },
+   {
+    "name": "Catheterisation",
+    "when": "Suspected bladder outlet obstruction",
+    "notes": "Relieves post-renal AKI; monitor for post-obstructive diuresis"
+   },
+   {
+    "name": "Treatment of hyperkalaemia",
+    "when": "AKI with raised K+",
+    "notes": "Calcium gluconate, insulin+dextrose — see electrolytes"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Post-operative patient with urine output 0.2 mL/kg/h, tachycardic and hypotensive with dry mucous membranes.",
+    "answer": "Pre-renal AKI — IV fluid challenge and reassess; do not give diuretics."
+   },
+   {
+    "scenario": "Anuria after pelvic surgery.",
+    "answer": "Check the catheter (blockage) and do a renal USS for obstruction; assess renal function."
+   },
+   {
+    "scenario": "Rising creatinine with a nephrotoxic drug started recently.",
+    "answer": "Intrinsic AKI — stop the nephrotoxin (e.g. NSAID, aminoglycoside), monitor U&Es."
+   },
+   {
+    "scenario": "Enlarged prostate with chronic retention and renal impairment.",
+    "answer": "Post-renal AKI — catheterise urgently, monitor for post-obstructive diuresis."
+   },
+   {
+    "scenario": "AKI with K+ 6.8 and pulmonary oedema.",
+    "answer": "Refractory AKI with hyperkalaemia/overload — consider urgent dialysis; involve renal team."
+   }
   ],
   "keyValues": [
    [
     "Oliguria",
-    "< 0.5 mL/kg/h"
+    "<0.5 mL/kg/h"
    ],
    [
     "Anuria",
-    "< 100 mL/24h"
+    "<100 mL/24h"
    ],
    [
     "AKI (KDIGO)",
-    "Cr rise ≥26.5 µmol/L in 48h or 1.5× baseline"
+    "Cr rise ≥26.5 µmol/L in 48 h or 1.5× baseline"
    ],
    [
     "Urine output target",
-    "≥ 0.5 mL/kg/h"
+    "≥0.5 mL/kg/h"
    ]
   ],
   "redFlags": [
@@ -994,20 +1270,71 @@
   ],
   "management": [
    "Assess volume status; fluid challenge if hypovolaemic (pre-renal).",
-   "Catheterise to measure output accurately; check for obstruction.",
+   "Catheterise to measure output accurately and exclude obstruction.",
    "Stop nephrotoxins, treat the cause, monitor U&Es and output.",
-   "Escalate for dialysis if refractory hyperkalaemia, acidosis, or fluid overload."
+   "Escalate for dialysis if refractory hyperkalaemia, acidosis, or overload."
+  ],
+  "pitfalls": [
+   "Do not give furosemide for oliguria from hypovolaemia — it worsens pre-renal AKI.",
+   "Anuria is not 'low output' — it suggests obstruction and needs urgent action.",
+   "A 'normal' creatinine can hide significant AKI in low-muscle-mass patients — use trends."
   ]
  },
  "iv-fluids": {
   "name": "Intravenous fluid prescription",
   "group": "Renal, fluids & electrolytes",
+  "overview": "IV fluids are drugs with indications, doses and harms. The exam tests assessing the patient's fluid status first, then choosing the right fluid and monitoring.",
   "essentials": [
-   "Prescribe IV fluids like a drug: assess the patient's fluid status (hypovolaemic, euvolaemic, overloaded), then choose the right fluid, rate, and monitoring.",
-   "Crystalloids are first-line: balanced solutions (Hartmann's, Plasma-Lyte) preferred over 0.9% saline (which can cause hyperchloraemic acidosis). Dextrose for water loss.",
-   "Maintenance: ~25-30 mL/kg/day water, with Na+ and K+ (~1 mmol/kg/day each). Adjust for losses (vomiting, diarrhoea, drains, fever).",
-   "Resuscitation: rapid boluses (250-500 mL) for hypovolaemia/shock, reassess after each bolus. Avoid over-resuscitation (pulmonary oedema).",
-   "Monitor: fluid balance charts, weight, urine output, U&Es, clinical signs. Reassess daily and stop when no longer needed."
+   "Prescribe IV fluids like a drug: assess fluid status (hypovolaemic, euvolaemic, overloaded), then choose fluid, rate and monitoring.",
+   "Crystalloids are first-line: balanced solutions (Hartmann's, Plasma-Lyte) preferred over 0.9% saline (which can cause hyperchloraemic acidosis). Dextrose is for water replacement.",
+   "Maintenance: ~25-30 mL/kg/day water with Na+ and K+ (~1 mmol/kg/day each). Adjust for losses (vomiting, diarrhoea, drains, fever).",
+   "Resuscitation: rapid boluses (250-500 mL) for hypovolaemia/shock, reassess after each. Avoid over-resuscitation.",
+   "Monitor: fluid balance, weight, urine output, U&Es and clinical signs; reassess daily and stop when no longer needed."
+  ],
+  "drugs": [
+   {
+    "name": "Hartmann's / balanced crystalloid",
+    "when": "Resuscitation and maintenance (first-line)",
+    "notes": "Closest to plasma; avoids hyperchloraemic acidosis"
+   },
+   {
+    "name": "0.9% sodium chloride",
+    "when": "Resuscitation; when a balanced solution is unavailable; with blood products",
+    "notes": "Large volumes cause hyperchloraemic acidosis"
+   },
+   {
+    "name": "5% dextrose",
+    "when": "Free water replacement / maintenance",
+    "notes": "Poor resuscitation fluid (distributes across all compartments)"
+   },
+   {
+    "name": "Potassium chloride (in fluids)",
+    "when": "Maintenance with hypokalaemia",
+    "notes": "Add per renal function; max rates apply"
+   },
+   {
+    "name": "4% albumin / colloid",
+    "when": "Selected cases (e.g. SBP, large-volume paracentesis)",
+    "notes": "Not routine for resuscitation"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Hypovolaemic patient needing resuscitation — which fluid first?",
+    "answer": "Balanced crystalloid (Hartmann's) boluses, reassessing after each."
+   },
+   {
+    "scenario": "Adult needing maintenance fluids.",
+    "answer": "~25-30 mL/kg/day water with ~1 mmol/kg/day Na+ and K+; use a balanced solution."
+   },
+   {
+    "scenario": "Patient with heart failure becoming breathless after IV fluids.",
+    "answer": "Fluid overload — stop fluids, consider diuresis; reassess the plan and weight."
+   },
+   {
+    "scenario": "Large-volume paracentesis for ascites.",
+    "answer": "Give IV albumin alongside to prevent circulatory dysfunction."
+   }
   ],
   "keyValues": [
    [
@@ -1015,12 +1342,12 @@
     "25-30 mL/kg/day"
    ],
    [
-    "Maintenance Na/K",
+    "Maintenance Na+/K+",
     "~1 mmol/kg/day each"
    ],
    [
     "Resuscitation bolus",
-    "250-500 mL crystalloid, reassess"
+    "250-500 mL, reassess"
    ],
    [
     "First-line fluid",
@@ -1030,24 +1357,84 @@
   "redFlags": [
    "Signs of fluid overload (pulmonary oedema, raised JVP) — stop fluids, diurese.",
    "Hypovolaemic shock — rapid resuscitation, not slow maintenance.",
-   "Heart failure/renal failure — fluids can worsen; be cautious."
+   "Heart or renal failure — fluids can worsen; be cautious and reassess."
   ],
   "management": [
-   "Assess volume status and prescribe a clear plan (resuscitation vs maintenance vs replacement).",
+   "Assess volume status; prescribe a clear plan (resuscitation vs maintenance vs replacement).",
    "Choose balanced crystalloid; add K+ as needed (check renal function).",
-   "Monitor fluid balance, weight, U&Es; reassess daily.",
+   "Monitor fluid balance, weight and U&Es; reassess daily.",
    "Stop IV fluids as soon as the patient can drink."
+  ],
+  "pitfalls": [
+   "Never prescribe '1 L over 24 h' for a shocked patient — resuscitation is bolus-based.",
+   "Large volumes of 0.9% saline cause hyperchloraemic acidosis — prefer balanced solutions.",
+   "Always reassess after each bolus rather than following a fixed prescription."
   ]
  },
  "gi-bleeds": {
   "name": "Gastrointestinal bleeds",
   "group": "Gastrointestinal & hepatology",
+  "overview": "A major GI bleed is a resuscitation first, diagnosis second. The exam tests recognising the severity, resuscitating, and differentiating upper (variceal) from lower bleeding.",
   "essentials": [
-   "Upper GI bleed (haematemesis, melaena): most commonly peptic ulcer, varices (in cirrhosis), Mallory-Weiss tear, gastritis. Lower GI bleed (fresh PR bleeding): diverticular, angiodysplasia, colorectal cancer, haemorrhoids.",
-   "Assess severity: haemodynamic status, Hb drop, shock. A patient with melaena + haemodynamic compromise has a significant upper GI bleed.",
-   "Resuscitate first: IV access (2 large-bore), bloods (FBC, U&E, LFT, crossmatch), fluids/blood, correct coagulopathy. Consider tranexamic acid.",
-   "Upper GI: urgent endoscopy (within 24h; within 1h for variceal/significant). Variceal bleed: terlipressin + antibiotics + endoscopic banding.",
-   "Risk scores (Rockall, Glasgow-Blatchford) guide need for endoscopy and admission. Re-bleeding or haemodynamic instability → repeat endoscopy/surgery/IR."
+   "Upper GI bleed (haematemesis, melaena): peptic ulcer, varices (cirrhosis), Mallory-Weiss tear, gastritis. Lower GI bleed (fresh PR): diverticular, angiodysplasia, colorectal cancer, haemorrhoids.",
+   "Assess severity: haemodynamic status, Hb drop, shock. Melaena + compromise = significant upper GI bleed.",
+   "Resuscitate first: 2 large-bore IVs, bloods (FBC, U&E, LFT, crossmatch), fluids/blood, correct coagulopathy. Consider tranexamic acid.",
+   "Upper GI: urgent endoscopy (within 24 h; within 1 h for variceal/severe). Variceal bleed: terlipressin + antibiotics + endoscopic banding.",
+   "Risk scores (Glasgow-Blatchford, Rockall) guide admission and endoscopy timing; re-bleeding escalates to repeat endoscopy/IR/surgery."
+  ],
+  "drugs": [
+   {
+    "name": "Terlipressin",
+    "when": "Suspected variceal bleed (cirrhosis)",
+    "notes": "IV; reduces portal pressure; watch for ischaemia/hyponatraemia"
+   },
+   {
+    "name": "Prophylactic antibiotics",
+    "when": "Variceal bleed / cirrhosis with GI bleed",
+    "notes": "Reduces mortality and re-bleeding; per local policy"
+   },
+   {
+    "name": "Proton pump inhibitor (IV)",
+    "when": "Non-variceal upper GI bleed / after endoscopic therapy",
+    "notes": "IV omeprazole/esomeprazole"
+   },
+   {
+    "name": "Tranexamic acid",
+    "when": "Significant GI bleeding (selected)",
+    "notes": "Consider early; per local policy"
+   },
+   {
+    "name": "Blood products",
+    "when": "Haemodynamic compromise / significant Hb drop",
+    "notes": "Restrictive transfusion (Hb <70-80 g/L) unless cardiac"
+   },
+   {
+    "name": "Vitamin K / PCC",
+    "when": "Coagulopathy or anticoagulation",
+    "notes": "Reverse if bleeding"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Cirrhotic patient with haematemesis, tachycardic and hypotensive.",
+    "answer": "Variceal bleed — resuscitate, terlipressin + antibiotics, urgent endoscopy for banding."
+   },
+   {
+    "scenario": "Melaena with haemodynamic compromise.",
+    "answer": "Significant upper GI bleed — IV access, bloods/crossmatch, fluids/blood, then urgent endoscopy."
+   },
+   {
+    "scenario": "Patient on warfarin with a GI bleed and INR 4.",
+    "answer": "Reverse with IV vitamin K + PCC while resuscitating; urgent endoscopy."
+   },
+   {
+    "scenario": "Fresh PR bleeding in a stable 55-year-old.",
+    "answer": "Lower GI bleed — resuscitate, identify source (colonoscopy/CT), treat the cause."
+   },
+   {
+    "scenario": "Re-bleeding after endoscopic therapy.",
+    "answer": "Escalate — repeat endoscopy, consider IR embolisation or surgery."
+   }
   ],
   "keyValues": [
    [
@@ -1055,39 +1442,85 @@
     "≥1 → endoscopy; high score → urgent"
    ],
    [
-    "Variceal bleed Rx",
+    "Variceal bleed treatment",
     "Terlipressin + antibiotics + banding"
    ],
    [
     "Endoscopy timing",
-    "Within 24h (1h if variceal/severe)"
+    "Within 24 h (1 h if variceal/severe)"
    ],
    [
     "Transfusion trigger",
-    "Hb < 70-80 g/L (higher if cardiac)"
+    "Hb <70-80 g/L (higher if cardiac)"
    ]
   ],
   "redFlags": [
    "Haematemesis with shock — massive bleed, resuscitate aggressively.",
-   "Variceal bleed (cirrhosis) — high mortality, terlipressin + antibiotics urgently.",
+   "Variceal bleed in cirrhosis — high mortality, terlipressin + antibiotics urgently.",
    "Re-bleeding after endoscopy — escalate."
   ],
   "management": [
-   "ABC, 2 large-bore IVs, bloods + crossmatch, fluids/blood, correct coagulopathy.",
+   "ABC, two large-bore IVs, bloods + crossmatch, fluids/blood, correct coagulopathy.",
    "Upper GI: urgent endoscopy; variceal → terlipressin + antibiotics + banding.",
-   "Lower GI: resuscitate, identify source (colonoscopy/CT), treat cause.",
-   "Monitor Hb, haemodynamics; repeat endoscopy if re-bleeding."
+   "Lower GI: resuscitate, identify source (colonoscopy/CT), treat the cause.",
+   "Monitor Hb and haemodynamics; repeat endoscopy if re-bleeding."
+  ],
+  "pitfalls": [
+   "Do not scope an unstable patient — resuscitate first.",
+   "A normal Hb early in a bleed is misleading — it falls with fluid resuscitation.",
+   "In cirrhosis, always consider variceal bleeding and give antibiotics — not just a PPI."
   ]
  },
  "hepatic-encephalopathy": {
   "name": "Hepatic encephalopathy",
   "group": "Gastrointestinal & hepatology",
+  "overview": "A neuropsychiatric syndrome of liver failure driven by ammonia and other toxins. The exam tests finding the precipitants — treating them is the priority.",
   "essentials": [
-   "Neuropsychiatric syndrome in liver failure due to accumulation of ammonia and other toxins (impaired hepatic clearance). Precipitants: GI bleed, infection, constipation, electrolyte disturbance, sedatives, dehydration, high protein load.",
-   "Grading: I (mild confusion, altered sleep), II (lethargy, disorientation), III (somnolent but rousable), IV (coma).",
+   "Neuropsychiatric syndrome in liver failure due to accumulation of ammonia and other toxins (impaired hepatic clearance).",
+   "Precipitants: GI bleed, infection, constipation, electrolyte disturbance, sedatives, dehydration, high protein load, portosystemic shunting.",
+   "Grading (West Haven): I mild confusion/altered sleep, II lethargy/disorientation, III somnolent but rousable, IV coma.",
    "Clinical: altered consciousness, asterixis (flapping tremor), confusion, personality change, fetor hepaticus.",
-   "Management: identify and treat the precipitant (bleed, infection, constipation), lactulose (reduces ammonia via gut), rifaximin (add-on), correct electrolytes, avoid sedatives.",
-   "Exclude other causes of confusion (hypoglycaemia, sepsis, intracranial bleed, Wernicke's)."
+   "Exclude other causes of confusion (hypoglycaemia, sepsis, intracranial bleed, Wernicke's) — never assume HH is the whole story."
+  ],
+  "drugs": [
+   {
+    "name": "Lactulose",
+    "when": "Hepatic encephalopathy (first-line)",
+    "notes": "Oral/enema; titrate to 2-3 soft stools/day; reduces ammonia via the gut"
+   },
+   {
+    "name": "Rifaximin",
+    "when": "Recurrent/chronic encephalopathy (add-on)",
+    "notes": "Non-absorbed antibiotic reducing ammonia-producing gut flora"
+   },
+   {
+    "name": "Avoid sedatives",
+    "when": "All encephalopathy",
+    "notes": "Benzodiazepines/opiates worsen it"
+   },
+   {
+    "name": "Treat the precipitant",
+    "when": "Always",
+    "notes": "Antibiotics for SBP, terlipressin for varices, correct electrolytes"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Cirrhotic patient becomes confused and asterixic after a GI bleed.",
+    "answer": "Hepatic encephalopathy precipitated by the bleed — lactulose + treat the bleed (terlipressin, antibiotics, banding)."
+   },
+   {
+    "scenario": "Grade IV encephalopathy (coma) in liver failure.",
+    "answer": "Airway protection, ICU, lactulose/rifaximin, treat the precipitant; consider liver unit transfer."
+   },
+   {
+    "scenario": "New confusion in cirrhosis with no obvious cause.",
+    "answer": "Screen for precipitants — infection (SBP), GI bleed, constipation, electrolytes, drugs."
+   },
+   {
+    "scenario": "Confusion in a malnourished alcoholic patient.",
+    "answer": "Consider Wernicke's encephalopathy — give parenteral thiamine before glucose; also check for other causes."
+   }
   ],
   "keyValues": [
    [
@@ -1109,25 +1542,76 @@
   ],
   "redFlags": [
    "Grade III-IV encephalopathy — airway protection, ICU.",
-   "New confusion in cirrhosis — always exclude GI bleed, sepsis, hypoglycaemia.",
+   "New confusion in cirrhosis — always exclude GI bleed, sepsis and hypoglycaemia.",
    "Deterioration despite treatment — re-evaluate for precipitants."
   ],
   "management": [
    "Treat the precipitant (bleed, infection, constipation, electrolytes).",
-   "Lactulose (oral/enema), add rifaximin if recurrent.",
-   "Correct electrolytes, avoid sedatives and high protein load acutely.",
+   "Lactulose (oral/enema); add rifaximin if recurrent.",
+   "Correct electrolytes, avoid sedatives and a high protein load acutely.",
    "Exclude other causes of altered consciousness."
+  ],
+  "pitfalls": [
+   "Never sedate a confused cirrhotic patient — it worsens encephalopathy.",
+   "Encephalopathy is a diagnosis of exclusion — always look for a precipitant.",
+   "Give thiamine before glucose in at-risk patients (Wernicke's)."
   ]
  },
  "ascites": {
   "name": "Ascites",
   "group": "Gastrointestinal & hepatology",
+  "overview": "Ascites usually reflects portal hypertension (cirrhosis). The exam tests diagnostic paracentesis (SAAG, SBP) and the diuretic/paracentesis strategy.",
   "essentials": [
-   "Ascites = accumulation of fluid in the peritoneal cavity. Most common cause is portal hypertension (cirrhosis); other causes: malignancy, heart failure, nephrotic syndrome, TB, pancreatitis.",
-   "Diagnosis: clinical (shifting dullness, fluid thrill), USS, diagnostic paracentesis. SAAG (serum-ascites albumin gradient) distinguishes portal hypertension (SAAG ≥ 11 g/L) from other causes.",
-   "Cirrhotic ascites: sodium restriction, spironolactone (aldosterone antagonist), furosemide. Large-volume paracentesis with albumin for tense ascites.",
-   "Complications: spontaneous bacterial peritonitis (SBP) — fever, abdominal pain, rising WCC; refractory ascites; hepatorenal syndrome.",
-   "SBP: diagnostic paracentesis (neutrophils > 250/mm3), IV antibiotics (cefotaxime), albumin."
+   "Ascites = peritoneal fluid accumulation. Most commonly portal hypertension (cirrhosis); other causes: malignancy, heart failure, nephrotic syndrome, TB, pancreatitis.",
+   "Diagnosis: clinical (shifting dullness, fluid thrill), USS, diagnostic paracentesis.",
+   "SAAG (serum-ascites albumin gradient): ≥11 g/L indicates portal hypertension; <11 g/L suggests another cause (malignancy, TB, pancreatitis).",
+   "Cirrhotic ascites: sodium restriction, spironolactone (aldosterone antagonist) ± furosemide. Large-volume paracentesis with albumin for tense ascites.",
+   "Complications: SBP (fever, abdominal pain, rising WCC), refractory ascites, hepatorenal syndrome."
+  ],
+  "drugs": [
+   {
+    "name": "Spironolactone",
+    "when": "Cirrhotic ascites (first-line diuretic)",
+    "notes": "Start 100 mg; titrate; watch for hyperkalaemia and renal impairment"
+   },
+   {
+    "name": "Furosemide",
+    "when": "Add-on to spironolactone",
+    "notes": "Usually 40 mg; monitor U&Es and weight"
+   },
+   {
+    "name": "IV albumin",
+    "when": "Large-volume paracentesis / SBP",
+    "notes": "Prevents circulatory dysfunction; 20% albumin"
+   },
+   {
+    "name": "IV antibiotics (cefotaxime)",
+    "when": "Spontaneous bacterial peritonitis",
+    "notes": "With albumin; per local policy"
+   },
+   {
+    "name": "Vasoconstrictors (terlipressin)",
+    "when": "Hepatorenal syndrome (specialist)",
+    "notes": "With albumin; specialist use"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Cirrhotic patient with ascites develops fever and abdominal pain; ascitic neutrophils 400/mm3.",
+    "answer": "SBP — IV cefotaxime + albumin; secondary prophylaxis afterwards."
+   },
+   {
+    "scenario": "Tense ascites causing respiratory compromise.",
+    "answer": "Large-volume paracentesis with IV albumin."
+   },
+   {
+    "scenario": "New ascites in a patient with known malignancy.",
+    "answer": "Consider malignant ascites — diagnostic paracentesis with cytology; SAAG <11 g/L."
+   },
+   {
+    "scenario": "Cirrhotic ascites not responding to spironolactone/furosemide.",
+    "answer": "Refractory ascites — consider regular paracentesis, TIPS assessment, or transplant referral."
+   }
   ],
   "keyValues": [
    [
@@ -1136,10 +1620,10 @@
    ],
    [
     "SBP diagnosis",
-    "Ascitic neutrophils > 250/mm3"
+    "Ascitic neutrophils >250/mm3"
    ],
    [
-    "SBP Rx",
+    "SBP treatment",
     "IV cefotaxime + albumin"
    ],
    [
@@ -1148,7 +1632,7 @@
    ]
   ],
   "redFlags": [
-   "Fever/abdominal pain in ascites — SBP, urgent paracentesis + antibiotics.",
+   "Fever/abdominal pain with ascites — SBP, urgent paracentesis + antibiotics.",
    "Rising creatinine with ascites — hepatorenal syndrome.",
    "Tense ascites with respiratory compromise — therapeutic paracentesis + albumin."
   ],
@@ -1157,17 +1641,67 @@
    "Cirrhotic ascites: sodium restriction, spironolactone ± furosemide.",
    "Tense ascites: large-volume paracentesis with IV albumin.",
    "SBP: IV antibiotics + albumin; treat the underlying liver disease."
+  ],
+  "pitfalls": [
+   "Always do a diagnostic paracentesis — SBP can be subtle and is easily missed.",
+   "Do not drain large volumes without albumin — risk of circulatory collapse.",
+   "Ascites in cirrhosis is not 'just third-spacing' — it signals advanced disease and complications."
   ]
  },
  "jaundice": {
   "name": "Jaundice",
   "group": "Gastrointestinal & hepatology",
+  "overview": "Jaundice is classified pre-hepatic, hepatic or post-hepatic, and the pattern of LFTs points to the cause. The exam tests spotting obstructive jaundice and the cholangitis emergency.",
   "essentials": [
-   "Jaundice = yellow discolouration from hyperbilirubinaemia. Classify: pre-hepatic (haemolysis — unconjugated), hepatic (hepatocellular — mixed), post-hepatic (obstructive — conjugated, cholestatic).",
-   "Pre-hepatic: haemolysis (raised unconjugated bilirubin, normal LFTs, reticulocytosis, low haptoglobin).",
+   "Jaundice = yellow discolouration from hyperbilirubinaemia. Classify: pre-hepatic (haemolysis — unconjugated), hepatic (hepatocellular — mixed), post-hepatic (obstructive — conjugated).",
+   "Pre-hepatic: haemolysis (raised unconjugated bilirubin, normal LFTs, reticulocytosis).",
    "Hepatic: viral hepatitis, alcohol, drugs, autoimmune, cirrhosis — raised transaminases (ALT/AST).",
    "Post-hepatic/obstructive: gallstones, malignancy (pancreatic head), stricture — raised ALP/GGT, conjugated bilirubin, pale stools, dark urine.",
-   "Investigations: LFTs, bilirubin (total/conjugated), FBC, USS (biliary dilatation), viral serology, autoimmune screen. Urgent if cholangitis (Charcot's triad: fever, jaundice, RUQ pain)."
+   "Investigations: LFTs, bilirubin (total/conjugated), FBC, USS (biliary dilatation), viral serology, autoimmune screen."
+  ],
+  "drugs": [
+   {
+    "name": "IV antibiotics",
+    "when": "Cholangitis",
+    "notes": "Broad-spectrum per local policy; then urgent biliary drainage"
+   },
+   {
+    "name": "Vitamin K",
+    "when": "Obstructive jaundice with coagulopathy",
+    "notes": "Fat-soluble vitamin malabsorption — correct before procedures"
+   },
+   {
+    "name": "Analgesia (avoid hepatotoxic)",
+    "when": "Biliary colic",
+    "notes": "NSAIDs/paracetamol per liver function; avoid opioids that worsen spasm (pethidine debated)"
+   },
+   {
+    "name": "Ursodeoxycholic acid",
+    "when": "Selected cholestatic conditions",
+    "notes": "Specialist; e.g. primary biliary cholangitis"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Jaundice with pale stools, dark urine, raised ALP/GGT and dilated ducts on USS.",
+    "answer": "Obstructive jaundice — find the cause (gallstone/malignancy); may need ERCP or drainage."
+   },
+   {
+    "scenario": "Fever, jaundice and RUQ pain (Charcot's triad).",
+    "answer": "Cholangitis — IV antibiotics and urgent biliary drainage (ERCP)."
+   },
+   {
+    "scenario": "Painless jaundice in an elderly patient with weight loss.",
+    "answer": "Suspect pancreatic (head) malignancy — urgent imaging (CT/USS) and referral."
+   },
+   {
+    "scenario": "Jaundice with very high ALT after starting a new drug.",
+    "answer": "Hepatocellular (drug-induced) jaundice — stop the culprit, check viral/autoimmune causes."
+   },
+   {
+    "scenario": "Unconjugated hyperbilirubinaemia with a normal blood film otherwise well.",
+    "answer": "Consider Gilbert's syndrome (benign) or haemolysis — check LFTs and haemolysis screen."
+   }
   ],
   "keyValues": [
    [
@@ -1183,40 +1717,86 @@
     "Raised ALP/GGT, conjugated bilirubin"
    ],
    [
-    "Cholangitis",
-    "Fever + jaundice + RUQ pain (Charcot's triad)"
+    "Charcot's triad",
+    "Fever + jaundice + RUQ pain (cholangitis)"
    ]
   ],
   "redFlags": [
    "Cholangitis — IV antibiotics + urgent biliary drainage (ERCP).",
    "Acute liver failure (coagulopathy, encephalopathy) — urgent hepatology/ICU.",
-   "Painless jaundice in elderly — think pancreatic malignancy."
+   "Painless jaundice in the elderly — think pancreatic malignancy."
   ],
   "management": [
    "Classify the type of jaundice (pre-hepatic/hepatic/post-hepatic).",
    "LFTs, bilirubin, FBC, USS; further tests by suspected cause.",
-   "Obstructive: treat cause (ERCP for stones, drainage for malignancy).",
+   "Obstructive: treat the cause (ERCP for stones, drainage for malignancy).",
    "Cholangitis: IV antibiotics, urgent biliary drainage."
+  ],
+  "pitfalls": [
+   "Always check conjugated vs unconjugated bilirubin — it directs the classification.",
+   "Charcot's triad may be incomplete — a fever with obstructive jaundice is still cholangitis until proven otherwise.",
+   "Do not overlook drug-induced liver injury — take a full drug history."
   ]
  },
  "neutropenic-sepsis": {
   "name": "Neutropenic sepsis",
   "group": "Haematology & acute oncology",
+  "overview": "A haematological emergency where the usual signs of infection may be absent. The exam tests the rule: any fever in a neutropenic patient is sepsis until proven otherwise, and antibiotics must not wait.",
   "essentials": [
-   "Neutropenic sepsis = temperature ≥38°C (or signs of sepsis) with neutrophil count < 0.5 × 10^9/L, in a patient on chemotherapy or with haematological malignancy. A medical emergency.",
-   "Neutropenic patients have no inflammatory response — they may present with minimal signs. Any fever or feeling unwell in a neutropenic patient is treated as sepsis until proven otherwise.",
-   "Immediate management (within 1 hour): blood cultures, FBC, U&E, LFT, CRP, lactate, then IV broad-spectrum antibiotics (per local policy, e.g. piperacillin-tazobactam) WITHOUT waiting for results.",
-   "Look for a source: line infection, chest, urine, skin, perianal. Consider antifungal if persistent fever despite antibiotics.",
-   "Monitor: temperature, observations, cultures, response to antibiotics. Escalate if deteriorating."
+   "Neutropenic sepsis = temperature ≥38°C (or sepsis signs) with neutrophils <0.5 × 10^9/L, in a patient on chemotherapy or with haematological malignancy. A medical emergency.",
+   "Neutropenic patients mount no inflammatory response — they may look deceptively well with minimal signs.",
+   "Immediate management (within 1 hour): blood cultures, FBC, U&E, LFT, CRP, lactate, then IV broad-spectrum antibiotics — do not wait for results.",
+   "Look for a source: line infection, chest, urine, skin, perianal. Consider antifungal if fever persists despite antibiotics.",
+   "Monitor temperature, observations, cultures and response; escalate if deteriorating."
+  ],
+  "drugs": [
+   {
+    "name": "IV broad-spectrum antibiotics",
+    "when": "Neutropenic sepsis — immediately",
+    "notes": "Piperacillin-tazobactam (or per local policy); within 1 hour"
+   },
+   {
+    "name": "Antifungal (e.g. amphotericin/caspofungin)",
+    "when": "Persistent fever after 48-72 h of antibiotics",
+    "notes": "Covers fungal infection; specialist input"
+   },
+   {
+    "name": "G-CSF (granulocyte colony-stimulating factor)",
+    "when": "Selected cases (prophylaxis or treatment, specialist)",
+    "notes": "Stimulates neutrophil recovery"
+   },
+   {
+    "name": "IV fluids",
+    "when": "Hypotension/sepsis",
+    "notes": "Part of Sepsis Six resuscitation"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Chemotherapy patient, temperature 38.5°C, neutrophils 0.3.",
+    "answer": "Neutropenic sepsis — blood cultures then IV broad-spectrum antibiotics within 1 hour."
+   },
+   {
+    "scenario": "Neutropenic patient with a central line and fever.",
+    "answer": "Consider line sepsis — cultures (peripheral + line), antibiotics, consider line removal."
+   },
+   {
+    "scenario": "Fever persists after 72 h of appropriate antibiotics.",
+    "answer": "Consider fungal infection — add antifungal; re-image and re-culture."
+   },
+   {
+    "scenario": "Neutropenic patient with hypotension and lactate 3.",
+    "answer": "Septic shock — Sepsis Six, aggressive fluids, early senior/ICU involvement."
+   }
   ],
   "keyValues": [
    [
     "Neutropenia",
-    "Neutrophils < 0.5 × 10^9/L"
+    "Neutrophils <0.5 × 10^9/L"
    ],
    [
     "Fever threshold",
-    "≥38°C (or any sepsis signs)"
+    "≥38°C (or any sepsis sign)"
    ],
    [
     "Antibiotics within",
@@ -1230,24 +1810,75 @@
   "redFlags": [
    "Any fever in a neutropenic patient — treat as sepsis immediately.",
    "Hypotension/shock — aggressive resuscitation + antibiotics.",
-   "Persistent fever despite 48-72h antibiotics — consider fungal infection."
+   "Persistent fever despite 48-72 h of antibiotics — consider fungal infection."
   ],
   "management": [
    "Sepsis Six + blood cultures, FBC, lactate, then IV antibiotics within 1 hour.",
    "Look for and treat the source (line, chest, urine, skin).",
-   "Monitor response; add antifungal if persistent fever.",
-   "Involve haematology/oncology team early."
+   "Monitor response; add antifungal if fever persists.",
+   "Involve the haematology/oncology team early."
+  ],
+  "pitfalls": [
+   "A well-looking neutropenic patient can be profoundly septic — do not be reassured.",
+   "Never delay antibiotics to wait for cultures or imaging.",
+   "Remember line sepsis as a source — examine the central line site."
   ]
  },
  "congenital-bleeding": {
   "name": "Congenital bleeding disorders",
   "group": "Haematology & acute oncology",
+  "overview": "Haemophilia and von Willebrand disease present with bleeding into joints/muscles or mucocutaneous bleeding. The exam tests recognising the pattern and replacing the missing factor.",
   "essentials": [
-   "Haemophilia A (factor VIII deficiency) and B (factor IX deficiency): X-linked, bleeding into joints (haemarthrosis) and muscles. Severity by factor level.",
-   "von Willebrand disease: most common inherited bleeding disorder; mucocutaneous bleeding (epistaxis, menorrhagia, easy bruising); prolonged bleeding time, low vWF.",
-   "Acute bleeding in haemophilia: replace the missing factor (factor VIII/IX concentrate) urgently. Avoid IM injections, aspirin, NSAIDs.",
+   "Haemophilia A (factor VIII deficiency) and B (factor IX deficiency): X-linked, bleeding into joints (haemarthrosis) and muscles; severity by factor level.",
+   "von Willebrand disease: the most common inherited bleeding disorder — mucocutaneous bleeding (epistaxis, menorrhagia, easy bruising), prolonged bleeding time, low vWF.",
+   "Acute bleeding in haemophilia: replace the missing factor urgently. Avoid IM injections, aspirin and NSAIDs.",
    "Haemarthrosis: factor replacement + analgesia + rest; avoid joint aspiration unless tense.",
-   "Carrier/affected patients need specialist haematology input for surgery, dental work, and major bleeding."
+   "Carriers/affected patients need specialist haematology input for surgery, dental work and major bleeding."
+  ],
+  "drugs": [
+   {
+    "name": "Factor VIII concentrate",
+    "when": "Haemophilia A bleeding",
+    "notes": "Urgent replacement; dose by severity/weight"
+   },
+   {
+    "name": "Factor IX concentrate",
+    "when": "Haemophilia B bleeding",
+    "notes": "Urgent replacement"
+   },
+   {
+    "name": "Desmopressin (DDAVP)",
+    "when": "Mild haemophilia A / mild von Willebrand disease",
+    "notes": "Releases stored factor VIII/vWF; not for severe disease"
+   },
+   {
+    "name": "Tranexamic acid",
+    "when": "Mucosal bleeding (e.g. epistaxis, dental, menorrhagia)",
+    "notes": "Antifibrinolytic; adjunct"
+   },
+   {
+    "name": "Tranexamic acid / von Willebrand factor concentrate",
+    "when": "vWD bleeding (major)",
+    "notes": "vWF-containing factor concentrate for severe bleeding"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Known haemophilia A with a swollen, painful knee after minor trauma.",
+    "answer": "Haemarthrosis — factor VIII replacement + analgesia + rest (avoid aspirin/NSAIDs)."
+   },
+   {
+    "scenario": "Haemophiliac with a head injury after a fall.",
+    "answer": "Urgent factor replacement and imaging — intracranial bleed is life-threatening."
+   },
+   {
+    "scenario": "Young woman with heavy periods, easy bruising and epistaxis; prolonged bleeding time.",
+    "answer": "von Willebrand disease — check vWF antigen/activity; desmopressin or vWF concentrate for bleeding."
+   },
+   {
+    "scenario": "Patient with vWD needing a dental extraction.",
+    "answer": "Plan with haematology — tranexamic acid ± desmopressin/factor cover."
+   }
   ],
   "keyValues": [
    [
@@ -1263,31 +1894,73 @@
     "vWF deficiency; mucocutaneous bleeding"
    ],
    [
-    "Haemarthrosis Rx",
+    "Haemarthrosis treatment",
     "Factor replacement + analgesia + rest"
    ]
   ],
   "redFlags": [
    "Major bleeding or head injury in a haemophiliac — urgent factor replacement.",
    "Intracranial bleed — factor replacement + urgent imaging.",
-   "Bleeding not controlled by factor — check for inhibitors."
+   "Bleeding not controlled by factor — consider inhibitors."
   ],
   "management": [
    "Acute bleed: replace the deficient factor urgently.",
-   "Haemarthrosis: factor + analgesia + rest, avoid aspiration.",
+   "Haemarthrosis: factor + analgesia + rest; avoid aspiration.",
    "Avoid aspirin/NSAIDs/IM injections.",
    "Involve haematology for all significant bleeds and procedures."
+  ],
+  "pitfalls": [
+   "Do not give IM injections or NSAIDs in haemophilia.",
+   "Desmopressin works only in mild haemophilia A and mild vWD — not severe disease.",
+   "Always consider an intracranial bleed after head injury in a bleeding disorder."
   ]
  },
  "spinal-cord-compression": {
   "name": "Spinal cord compression",
   "group": "Haematology & acute oncology",
+  "overview": "An oncological emergency where outcome depends on how early you act. The exam tests recognising the red flags and starting dexamethasone before imaging.",
   "essentials": [
-   "Malignant spinal cord compression (MSCC) is an oncological emergency: cord/cauda equina compression by tumour (metastatic, especially prostate, breast, lung, myeloma).",
+   "Malignant spinal cord compression (MSCC): cord/cauda equina compression by tumour (metastatic — prostate, breast, lung, myeloma).",
    "Red flags: new back pain (especially thoracic), progressive neurological deficit, sensory level, bladder/bowel dysfunction, gait disturbance. Back pain + neurological symptoms in a cancer patient = MSCC until proven otherwise.",
-   "Immediate: high-dose dexamethasone (reduces oedema), urgent MRI whole spine (within 24h), oncology/neurosurgery referral.",
-   "Do not delay imaging for the diagnosis — treat empirically if high suspicion.",
+   "Immediate: high-dose dexamethasone (reduces oedema), urgent MRI whole spine (within 24 h), oncology/neurosurgery referral.",
+   "Do not delay treatment for the diagnosis — treat empirically if suspicion is high.",
    "Outcome depends on pre-treatment neurological status — early recognition is critical."
+  ],
+  "drugs": [
+   {
+    "name": "Dexamethasone",
+    "when": "Suspected MSCC — start immediately",
+    "notes": "High-dose (e.g. 16 mg/day) with gastric protection; reduces cord oedema"
+   },
+   {
+    "name": "Analgesia",
+    "when": "Pain control",
+    "notes": "Regular paracetamol/opioid; avoid NSAIDs if thrombocytopenia"
+   },
+   {
+    "name": "LMWH",
+    "when": "VTE prophylaxis (unless bleeding risk)",
+    "notes": "Immobility risk"
+   },
+   {
+    "name": "Bisphosphonate / denosumab",
+    "when": "Bone metastases (specialist)",
+    "notes": "Reduces skeletal events"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Patient with metastatic prostate cancer develops new thoracic back pain and leg weakness.",
+    "answer": "MSCC — high-dose dexamethasone + urgent MRI whole spine (within 24 h), oncology/neurosurgery referral."
+   },
+   {
+    "scenario": "Cancer patient with saddle anaesthesia and urinary retention.",
+    "answer": "Cauda equina syndrome — emergency MRI and urgent surgical referral."
+   },
+   {
+    "scenario": "Known lung cancer with a sensory level and gait disturbance.",
+    "answer": "MSCC — dexamethasone, urgent MRI, radiotherapy/surgery per team."
+   }
   ],
   "keyValues": [
    [
@@ -1296,7 +1969,7 @@
    ],
    [
     "MRI whole spine",
-    "Within 24h of suspicion"
+    "Within 24 h of suspicion"
    ],
    [
     "Common primaries",
@@ -1314,72 +1987,169 @@
   ],
   "management": [
    "High-dose dexamethasone immediately.",
-   "Urgent MRI whole spine (within 24h).",
+   "Urgent MRI whole spine (within 24 h).",
    "Oncology/neurosurgery referral; treat the primary malignancy.",
    "Analgesia, log-roll care, monitor neurology."
+  ],
+  "pitfalls": [
+   "Do not wait for imaging to start dexamethasone if suspicion is high.",
+   "A normal plain X-ray does not exclude MSCC — it needs MRI.",
+   "Bladder/bowel dysfunction is a late sign — act on back pain + neurology earlier."
   ]
  },
  "diabetes-control": {
   "name": "Diabetes control",
   "group": "Endocrine & metabolic",
+  "overview": "Diabetic emergencies (DKA, HHS) and inpatient glycaemic control are heavily examined. The exam tests safe management — especially potassium handling in DKA.",
   "essentials": [
-   "Diabetes: type 1 (insulin deficiency, autoimmune) vs type 2 (insulin resistance + relative deficiency). Acute complications: DKA, HHS, hypoglycaemia.",
+   "Type 1 (insulin deficiency, autoimmune) vs type 2 (insulin resistance + relative deficiency). Acute complications: DKA, HHS, hypoglycaemia.",
    "DKA (type 1): hyperglycaemia + ketonaemia + acidosis. Precipitants: infection, missed insulin, MI, stress. Treat: IV fluids, fixed-rate insulin infusion, potassium replacement, treat precipitant.",
-   "HHS (type 2): severe hyperglycaemia without significant ketosis/acidosis, marked dehydration. Treat: fluids (often large volumes), insulin cautiously, correct electrolytes.",
-   "Inpatient glycaemic control: monitor glucose, adjust insulin (basal-bolus), avoid prolonged hypoglycaemia/hyperglycaemia, involve diabetes team.",
+   "HHS (type 2): severe hyperglycaemia without significant ketosis/acidosis, marked dehydration. Treat: large-volume fluids, cautious insulin, correct electrolytes.",
+   "Inpatient glycaemic control: monitor glucose, basal-bolus insulin, avoid prolonged hypo/hyperglycaemia; involve the diabetes team.",
    "Sick-day rules: never stop insulin in type 1, increase monitoring, seek help if vomiting/unwell."
+  ],
+  "drugs": [
+   {
+    "name": "Fixed-rate IV insulin",
+    "when": "DKA / HHS",
+    "notes": "0.1 unit/kg/h (DKA); monitor glucose and K+ hourly"
+   },
+   {
+    "name": "IV fluids (0.9% saline)",
+    "when": "DKA/HHS resuscitation",
+    "notes": "Rapid initial resuscitation, then guided by status"
+   },
+   {
+    "name": "Potassium replacement",
+    "when": "DKA — replace if K+ <5.5",
+    "notes": "Insulin drives K+ down; replace before/with insulin if low"
+   },
+   {
+    "name": "Basal-bolus insulin",
+    "when": "Inpatient glycaemic control",
+    "notes": "Long-acting basal + short-acting mealtime doses"
+   },
+   {
+    "name": "Metformin",
+    "when": "Type 2 diabetes (not in DKA/renal failure)",
+    "notes": "Hold in acute illness/contrast (lactic acidosis risk)"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Type 1 diabetes with DKA and K+ 3.2.",
+    "answer": "Replace potassium before/with insulin — insulin shifts K+ intracellularly and can cause dangerous hypokalaemia."
+   },
+   {
+    "scenario": "Type 2 diabetes, glucose 38 mmol/L, marked dehydration, no significant ketosis.",
+    "answer": "HHS — aggressive fluids, cautious insulin, correct electrolytes."
+   },
+   {
+    "scenario": "Type 1 diabetic vomiting with high glucose and ketones.",
+    "answer": "Sick-day rules — never stop insulin, monitor glucose/ketones, seek help; treat as DKA if severe."
+   },
+   {
+    "scenario": "Inpatient with erratic glucose on the ward.",
+    "answer": "Basal-bolus insulin regimen + monitor + diabetes team input."
+   }
   ],
   "keyValues": [
    [
     "DKA",
-    "Glucose + ketones + acidosis (pH < 7.3, HCO3 < 18)"
+    "Glucose + ketones + acidosis (pH <7.3, HCO3 <18)"
    ],
    [
     "HHS",
-    "Glucose often > 30 mmol/L, no significant ketosis"
+    "Glucose often >30 mmol/L, no significant ketosis"
    ],
    [
-    "DKA Rx",
+    "DKA treatment",
     "IV fluids, fixed-rate insulin, K+ replacement"
    ],
    [
-    "Glucose target (inpatient)",
+    "Inpatient glucose target",
     "6-10 mmol/L"
    ]
   ],
   "redFlags": [
-   "DKA with K+ < 3.5 — replace K+ before insulin (insulin drops K+).",
-   "HHS with severe dehydration — large fluid resuscitation.",
-   "Recurrent hypoglycaemia — review insulin regimen."
+   "DKA with K+ <3.5 — replace K+ before insulin.",
+   "HHS with severe dehydration — large-volume fluid resuscitation.",
+   "Recurrent hypoglycaemia — review the insulin regimen."
   ],
   "management": [
    "DKA: fluids, fixed-rate insulin, K+ replacement, treat precipitant, monitor glucose/ketones/K+.",
    "HHS: aggressive fluids, cautious insulin, correct electrolytes.",
    "Inpatient: basal-bolus insulin, monitor glucose, diabetes team input.",
    "Educate on sick-day rules and never stopping insulin in type 1."
+  ],
+  "pitfalls": [
+   "Insulin without potassium replacement in DKA can cause fatal hypokalaemia.",
+   "HHS needs much larger fluid volumes than DKA.",
+   "Do not stop a type 1 diabetic's insulin because they are 'not eating'."
   ]
  },
  "hypoglycaemia": {
   "name": "Hypoglycaemia",
   "group": "Endocrine & metabolic",
+  "overview": "A common inpatient emergency where the treatment depends on whether the patient can swallow. The exam tests the conscious vs unconscious pathway.",
   "essentials": [
-   "Hypoglycaemia = glucose < 4.0 mmol/L (in diabetics) with symptoms. Causes: excess insulin/oral hypoglycaemics, missed meals, exercise, alcohol, sepsis, renal/hepatic failure.",
+   "Hypoglycaemia = glucose <4.0 mmol/L (in diabetics) with symptoms. Causes: excess insulin/oral hypoglycaemics, missed meals, exercise, alcohol, sepsis, renal/hepatic failure.",
    "Symptoms: autonomic (sweating, tremor, palpitations, hunger) and neuroglycopenic (confusion, drowsiness, seizures, coma).",
-   "Treatment: if conscious and able to swallow → oral fast-acting carbohydrate (glucose tablets, sugary drink), then long-acting (starchy food). If unconscious/unable → IV glucose (10%) or IM glucagon.",
-   "Recheck glucose after treatment; repeat if still low. Identify and treat the cause.",
-   "Inpatients: review insulin regimen, consider reducing doses, monitor glucose, involve diabetes team."
+   "Treatment: if conscious and able to swallow → oral fast-acting carbohydrate, then long-acting starchy food. If unconscious/unable → IV glucose (10%) or IM glucagon.",
+   "Recheck glucose 10-15 min after treatment; repeat if still low; identify and treat the cause.",
+   "Inpatients: review the insulin regimen, monitor glucose, involve the diabetes team."
+  ],
+  "drugs": [
+   {
+    "name": "Oral glucose (glucose tablets/sugary drink)",
+    "when": "Conscious, able to swallow",
+    "notes": "Follow with long-acting carbohydrate"
+   },
+   {
+    "name": "IV glucose 10%",
+    "when": "Unconscious / unable to swallow / severe",
+    "notes": "100-200 mL bolus, then monitor; protect the airway"
+   },
+   {
+    "name": "IM glucagon",
+    "when": "No IV access / unconscious (first aid)",
+    "notes": "1 mg IM; works only with stored glycogen (less effective in alcohol/fasting)"
+   },
+   {
+    "name": "Long-acting carbohydrate",
+    "when": "After acute correction",
+    "notes": "Prevents recurrence (e.g. toast, biscuit)"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Diabetic found unconscious with glucose 1.8 mmol/L.",
+    "answer": "IV 10% glucose (or IM glucagon) with airway protection; recheck 10-15 min later."
+   },
+   {
+    "scenario": "Diabetic patient conscious with a glucose of 3.2 after a missed meal.",
+    "answer": "Oral fast-acting carbohydrate then long-acting starchy food; review the regimen."
+   },
+   {
+    "scenario": "Non-diabetic patient with recurrent hypoglycaemia.",
+    "answer": "Investigate — insulinoma, adrenal insufficiency, sepsis, alcohol; check insulin/C-peptide levels."
+   },
+   {
+    "scenario": "Recurrent hypoglycaemia in a hospital patient on insulin.",
+    "answer": "Review the insulin dose and regimen; consider causes and involve the diabetes team."
+   }
   ],
   "keyValues": [
    [
     "Hypoglycaemia",
-    "Glucose < 4.0 mmol/L"
+    "Glucose <4.0 mmol/L"
    ],
    [
-    "Conscious Rx",
+    "Conscious treatment",
     "Oral fast-acting carbohydrate"
    ],
    [
-    "Unconscious Rx",
+    "Unconscious treatment",
     "IV 10% glucose or IM glucagon"
    ],
    [
@@ -1388,26 +2158,72 @@
    ]
   ],
   "redFlags": [
-   "Unconscious/seizuring — IV glucose/glucagon, protect airway.",
-   "Recurrent hypoglycaemia — review medication, look for cause.",
+   "Unconscious/seizing — IV glucose/glucagon, protect the airway.",
+   "Recurrent hypoglycaemia — review medication and look for the cause.",
    "Hypoglycaemia in a non-diabetic — investigate (insulinoma, adrenal, sepsis)."
   ],
   "management": [
    "Conscious: oral glucose, then long-acting carbohydrate.",
    "Unconscious: IV 10% glucose or IM glucagon, recheck.",
    "Identify and treat the cause (insulin dose, missed meal, sepsis).",
-   "Review and adjust the diabetes regimen; involve diabetes team."
+   "Review and adjust the diabetes regimen; involve the diabetes team."
+  ],
+  "pitfalls": [
+   "Oral treatment for an unconscious patient risks aspiration — use IV glucose/glucagon.",
+   "Glucagon is less effective in alcohol-related or prolonged fasting hypoglycaemia (low glycogen).",
+   "Always recheck glucose — a single treatment may not be enough."
   ]
  },
  "diabetic-foot": {
   "name": "Diabetic foot complications + sepsis",
   "group": "Endocrine & metabolic",
+  "overview": "A common and dangerous problem where neuropathy, ischaemia and infection combine. The exam tests recognising the infected foot and escalating to surgery.",
   "essentials": [
-   "Diabetic foot disease results from neuropathy (loss of protective sensation) + ischaemia (PAD) + infection. Ulcers are often painless and on pressure points.",
+   "Diabetic foot disease = neuropathy (loss of protective sensation) + ischaemia (PAD) + infection. Ulcers are often painless and on pressure points.",
    "Assess: neurovascular status (monofilament, pulses, ABPI), ulcer depth, signs of infection (erythema, discharge, odour, crepitus), systemic sepsis.",
-   "Infected diabetic foot is a surgical emergency — deep infection, osteomyelitis, and gangrene can progress rapidly. IV antibiotics + urgent surgical debridement.",
-   "Classify severity (e.g. Wagner, IDSA/IWGDF) to guide management. Osteomyelitis: probe-to-bone, MRI, prolonged antibiotics.",
-   "Prevention: foot examination at every diabetes review, podiatry, offloading, tight glycaemic control, smoking cessation."
+   "Infected diabetic foot is a surgical emergency — deep infection, osteomyelitis and gangrene progress rapidly. IV antibiotics + urgent surgical debridement.",
+   "Classify severity (Wagner / IDSA / IWGDF) to guide management; osteomyelitis via probe-to-bone, MRI, prolonged antibiotics.",
+   "Prevention: foot examination at every diabetes review, podiatry, offloading, glycaemic control, smoking cessation."
+  ],
+  "drugs": [
+   {
+    "name": "IV antibiotics",
+    "when": "Infected diabetic foot / systemic sepsis",
+    "notes": "Broad-spectrum per local policy; guided by wound swabs"
+   },
+   {
+    "name": "Analgesia",
+    "when": "Painful ulcer/ischaemia",
+    "notes": "Regular; neuropathy may mask pain"
+   },
+   {
+    "name": "Antiplatelet + statin",
+    "when": "Associated peripheral arterial disease",
+    "notes": "Secondary prevention"
+   },
+   {
+    "name": "Insulin optimisation",
+    "when": "Poor glycaemic control",
+    "notes": "Aids wound healing"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Diabetic foot ulcer with crepitus, spreading infection and fever.",
+    "answer": "Necrotising infection — IV antibiotics + urgent surgical debridement."
+   },
+   {
+    "scenario": "Deep ulcer with positive probe-to-bone.",
+    "answer": "Suspect osteomyelitis — MRI, prolonged antibiotics, consider amputation."
+   },
+   {
+    "scenario": "Painless plantar ulcer with loss of monofilament sensation.",
+    "answer": "Neuropathic ulcer — offloading, podiatry, glycaemic control, foot care."
+   },
+   {
+    "scenario": "Diabetic with rest pain and an ABPI of 0.4.",
+    "answer": "Ischaemic component — vascular review for revascularisation; best medical therapy."
+   }
   ],
   "keyValues": [
    [
@@ -1424,7 +2240,7 @@
    ],
    [
     "ABPI",
-    "Assess ischaemia (caution: calcified vessels in diabetes)"
+    "Assess ischaemia (calcified vessels may over-read in diabetes)"
    ]
   ],
   "redFlags": [
@@ -1437,17 +2253,58 @@
    "Infected: wound swab, IV antibiotics, urgent surgical debridement.",
    "Osteomyelitis: MRI, prolonged antibiotics, consider amputation.",
    "Prevention: podiatry, offloading, glycaemic control, smoking cessation."
+  ],
+  "pitfalls": [
+   "A painless foot ulcer is not benign — neuropathy hides severe infection.",
+   "An ABPI >1.3 in diabetes is falsely reassuring (calcified vessels).",
+   "Never delay surgery in a foot with spreading infection or gas."
   ]
  },
  "acute-confusional-states": {
   "name": "Acute confusional states",
   "group": "Neurology & elderly",
+  "overview": "Delirium is common, serious and usually reversible. The exam tests recognising it, hunting for the cause (PINCH ME), and avoiding sedation.",
   "essentials": [
    "Delirium = acute, fluctuating disturbance of consciousness/attention, common in the elderly and acutely ill. Distinguish from dementia (chronic, progressive) and psychiatric illness.",
    "Causes (PINCH ME / DIMS): infection, drugs, metabolic (electrolytes, glucose, hypoxia), constipation, urinary retention, pain, dehydration, sensory impairment, sleep deprivation.",
-   "Assess: history (onset, fluctuation), cognitive testing (AMT4/6-CIT), observations, bloods (FBC, U&E, glucose, LFT, TFT, CRP), urine, ECG, consider sepsis screen.",
-   "Management: treat the underlying cause, non-pharmacological (reorientation, family, sensory aids, mobilisation, sleep), avoid sedatives unless severe distress/risk.",
+   "Assess: history (onset, fluctuation), cognitive testing (AMT4/6-CIT), observations, bloods (FBC, U&E, glucose, LFT, TFT, CRP), urine, ECG, sepsis screen.",
+   "Management: treat the underlying cause, non-pharmacological measures first (reorientation, family, sensory aids, mobilisation, sleep), avoid sedatives.",
    "Prevent: early mobilisation, hydration, avoid unnecessary catheters/drugs, good sleep hygiene."
+  ],
+  "drugs": [
+   {
+    "name": "Treat the cause (antibiotics etc.)",
+    "when": "Always — delirium is a symptom",
+    "notes": "Infection, dehydration, constipation, retention are common"
+   },
+   {
+    "name": "Haloperidol (cautious)",
+    "when": "Severe distress/risk not controlled by non-drug measures",
+    "notes": "Low dose; avoid in Parkinson's/dementia with Lewy bodies (use quetiapine); ECG monitoring"
+   },
+   {
+    "name": "Avoid benzodiazepines",
+    "when": "Generally",
+    "notes": "Worsen delirium; except in alcohol withdrawal"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Elderly patient with acute fluctuating confusion and inattention.",
+    "answer": "Delirium — hunt for the cause (PINCH ME); treat the underlying problem."
+   },
+   {
+    "scenario": "Confused patient with a raised WCC and fever.",
+    "answer": "Delirium from infection — treat sepsis, reorient, avoid sedation."
+   },
+   {
+    "scenario": "Confused elderly patient with a palpable bladder.",
+    "answer": "Urinary retention — catheterise; retention is a common reversible cause of delirium."
+   },
+   {
+    "scenario": "Agitated delirious patient at risk of falling.",
+    "answer": "Non-pharmacological measures first; use a low-dose antipsychotic only if severe distress/risk persists."
+   }
   ],
   "keyValues": [
    [
@@ -1460,7 +2317,7 @@
    ],
    [
     "AMT4",
-    "Age, DOB, place, year"
+    "Age, date of birth, place, year"
    ],
    [
     "Avoid",
@@ -1477,17 +2334,67 @@
    "Non-pharmacological measures first (reorientation, family, sensory aids).",
    "Avoid sedatives; use cautiously only for severe distress/risk.",
    "Prevent: mobilisation, hydration, avoid catheters, good sleep."
+  ],
+  "pitfalls": [
+   "Delirium is a symptom — always find and treat the cause.",
+   "Do not sedate a delirious patient as a first response.",
+   "Avoid antipsychotics in Parkinson's disease and Lewy body dementia."
   ]
  },
  "falls-elderly": {
   "name": "Falls in elderly persons",
   "group": "Neurology & elderly",
+  "overview": "Falls are multifactorial and often a marker of serious underlying disease. The exam tests the causes (including cardiac and drug-related) and the injury/complication screen.",
   "essentials": [
-   "Falls in the elderly are common and multifactorial: intrinsic (postural hypotension, gait/balance, visual, cognitive, medication, cardiac syncope) + extrinsic (environmental hazards).",
-   "Assess the cause: circumstances of the fall, loss of consciousness, prodrome, medications (antihypertensives, sedatives), mobility, vision, cognition, cardiac (arrhythmia, syncope).",
+   "Falls in the elderly are multifactorial: intrinsic (postural hypotension, gait/balance, visual, cognitive, medication, cardiac syncope) + extrinsic (environmental hazards).",
+   "Assess the cause: circumstances, loss of consciousness, prodrome, medications (antihypertensives, sedatives), mobility, vision, cognition, cardiac causes.",
    "Examine for injury: head injury, fracture (hip, wrist, pelvis), soft tissue. Check for 'long lie' (rhabdomyolysis, hypothermia, pressure injury).",
-   "Investigations: FBC, U&E, glucose, ECG, lying/standing BP, consider cardiac monitoring if syncope suspected.",
+   "Investigations: FBC, U&E, glucose, ECG, lying/standing BP; cardiac monitoring if syncope suspected.",
    "Prevention: multifactorial intervention — medication review, strength/balance exercise, vision, home hazard reduction, treat postural hypotension."
+  ],
+  "drugs": [
+   {
+    "name": "Review culprit drugs",
+    "when": "All falls",
+    "notes": "Antihypertensives, sedatives, anticholinergics, hypoglycaemics"
+   },
+   {
+    "name": "Analgesia",
+    "when": "Injury/pain",
+    "notes": "Regular; avoid over-sedation"
+   },
+   {
+    "name": "Calcium/vitamin D",
+    "when": "Osteoporosis risk",
+    "notes": "Bone health; assess fracture risk (FRAX)"
+   },
+   {
+    "name": "Treatment of postural hypotension",
+    "when": "Confirmed on lying/standing BP",
+    "notes": "Fludrocortisone/midodrine (specialist) + lifestyle measures"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Elderly patient found on the floor several hours later.",
+    "answer": "Look for 'long lie' complications — rhabdomyolysis, hypothermia, pressure injury; check CK and renal function."
+   },
+   {
+    "scenario": "Elderly patient on an antihypertensive with recurrent falls and a 25 mmHg BP drop on standing.",
+    "answer": "Postural hypotension — review the drug, hydration, and lying/standing BP."
+   },
+   {
+    "scenario": "Fall with a head injury in a patient on anticoagulation.",
+    "answer": "CT head and reverse anticoagulation — high risk of intracranial bleed."
+   },
+   {
+    "scenario": "Fall with hip pain and inability to weight-bear.",
+    "answer": "X-ray to exclude hip fracture; analgesia and orthopaedic referral."
+   },
+   {
+    "scenario": "Recurrent unexplained falls with no prodrome.",
+    "answer": "Consider cardiac cause (arrhythmia) — ECG and cardiac monitoring."
+   }
   ],
   "keyValues": [
    [
@@ -1496,7 +2403,7 @@
    ],
    [
     "Long lie",
-    ">1h on floor — rhabdo, hypothermia, pressure injury"
+    ">1 h on floor — rhabdo, hypothermia, pressure injury"
    ],
    [
     "Common fractures",
@@ -1516,18 +2423,83 @@
    "Assess and treat any injury (fracture, head injury).",
    "Identify the cause (postural hypotension, medication, cardiac, gait).",
    "Multifactorial prevention: medication review, exercise, vision, home safety.",
-   "Check for long-lie complications (rhabdo, hypothermia)."
+   "Check for long-lie complications."
+  ],
+  "pitfalls": [
+   "Always check lying/standing BP — postural hypotension is a common, treatable cause.",
+   "Do not dismiss a fall as 'mechanical' — look for syncope and cardiac causes.",
+   "In the elderly, a fall may be the presenting sign of sepsis, MI or a new medication effect."
   ]
  },
  "obs-gynae-emergencies": {
   "name": "Gynaecology and Obstetric emergencies",
   "group": "Obstetrics & gynaecology",
+  "overview": "Bleeding in pregnancy, ectopic pregnancy and postpartum haemorrhage are the key emergencies. The exam tests thinking of pregnancy in any woman of reproductive age with abdominal pain.",
   "essentials": [
-   "Ectopic pregnancy: pregnancy + abdominal pain/bleeding/collapse. Ruptured ectopic is a surgical emergency (haemorrhagic shock). Always consider in any woman of reproductive age with abdominal pain — do a pregnancy test.",
-   "Miscarriage: vaginal bleeding in early pregnancy; threatened, inevitable, missed, complete. USS confirms. Manage expectantly/medically/surgically (ERPC).",
-   "Antepartum haemorrhage (APH): bleeding after 24 weeks — placenta praevia (painless) vs placental abruption (painful, rigid uterus, fetal distress). Both are emergencies.",
-   "Postpartum haemorrhage (PPH): >500 mL (vaginal) or >1000 mL (CS) blood loss. Treat: call for help, IV access, fluids/blood, uterotonics (oxytocin, ergometrine), massage, identify cause (4 Ts: tone, trauma, tissue, thrombin).",
-   "Pre-eclampsia/eclampsia: hypertension + proteinuria after 20 weeks; headache, visual disturbance, epigastric pain are red flags. Treat with magnesium sulfate (eclampsia), control BP, deliver."
+   "Ectopic pregnancy: pregnancy + abdominal pain/bleeding/collapse. Ruptured ectopic is a surgical emergency (haemorrhagic shock). Always do a pregnancy test in any woman of reproductive age with abdominal pain.",
+   "Miscarriage: vaginal bleeding in early pregnancy — threatened, inevitable, missed, complete. USS confirms; manage expectantly/medically/surgically (ERPC).",
+   "Antepartum haemorrhage (APH): bleeding after 24 weeks — placenta praevia (painless) vs placental abruption (painful, rigid uterus, fetal distress). Both emergencies.",
+   "Postpartum haemorrhage (PPH): >500 mL (vaginal) or >1000 mL (CS). Treat: call for help, IV access, fluids/blood, uterotonics, identify cause (4 Ts: tone, trauma, tissue, thrombin).",
+   "Pre-eclampsia/eclampsia: hypertension + proteinuria after 20 weeks; headache, visual disturbance, epigastric pain are red flags."
+  ],
+  "drugs": [
+   {
+    "name": "Oxytocin",
+    "when": "PPH (first-line uterotonic)",
+    "notes": "IV/IM; also used for induction/augmentation"
+   },
+   {
+    "name": "Ergometrine",
+    "when": "PPH (if not hypertensive/pre-eclamptic)",
+    "notes": "Contraindicated in hypertension/pre-eclampsia"
+   },
+   {
+    "name": "Carboprost (prostaglandin)",
+    "when": "PPH refractory to first-line",
+    "notes": "Contraindicated in asthma"
+   },
+   {
+    "name": "Magnesium sulfate",
+    "when": "Eclampsia / severe pre-eclampsia",
+    "notes": "IV; prevents/treats seizures; monitor reflexes and respiratory rate"
+   },
+   {
+    "name": "Antihypertensives (labetalol/nifedipine)",
+    "when": "Severe hypertension in pre-eclampsia",
+    "notes": "Control BP; hydralazine IV in crisis"
+   },
+   {
+    "name": "Anti-D immunoglobulin",
+    "when": "Rh-negative women with bleeding/sensitising events",
+    "notes": "Prevents haemolytic disease of the newborn"
+   },
+   {
+    "name": "Methotrexate",
+    "when": "Selected stable ectopic pregnancies",
+    "notes": "Specialist; not for ruptured ectopic"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Woman of reproductive age with lower abdominal pain, PV bleeding and collapse.",
+    "answer": "Ruptured ectopic pregnancy — pregnancy test, resuscitate, urgent gynae/surgery."
+   },
+   {
+    "scenario": "PPH of 1200 mL after delivery.",
+    "answer": "Call for help, IV access, fluids/blood, oxytocin, identify the cause (4 Ts)."
+   },
+   {
+    "scenario": "Painless PV bleeding at 34 weeks with placenta praevia on USS.",
+    "answer": "Antepartum haemorrhage — admit, monitor mother and fetus, plan delivery; avoid PV examination."
+   },
+   {
+    "scenario": "Painful bleeding with a rigid uterus and fetal distress.",
+    "answer": "Placental abruption — emergency, resuscitate and arrange urgent delivery."
+   },
+   {
+    "scenario": "34-week pregnant patient with headache, visual disturbance and BP 170/110.",
+    "answer": "Severe pre-eclampsia — control BP, magnesium sulfate, urgent obstetric review/delivery."
+   }
   ],
   "keyValues": [
    [
@@ -1547,7 +2519,7 @@
     "HTN + proteinuria after 20 weeks"
    ],
    [
-    "Eclampsia Rx",
+    "Eclampsia treatment",
     "Magnesium sulfate"
    ]
   ],
@@ -1561,17 +2533,77 @@
    "Ectopic: IV access, crossmatch, urgent gynae/surgery.",
    "PPH: call for help, fluids/blood, uterotonics, massage, treat the cause.",
    "Pre-eclampsia: monitor BP, magnesium for eclampsia, control BP, deliver."
+  ],
+  "pitfalls": [
+   "Never miss an ectopic — always check a pregnancy test.",
+   "Do not perform a PV examination in suspected placenta praevia.",
+   "Ergometrine is contraindicated in hypertension/pre-eclampsia."
   ]
  },
  "skin-rashes": {
   "name": "Skin rashes in the acute setting",
   "group": "Dermatology",
+  "overview": "Most rashes are benign, but a few are emergencies. The exam tests recognising the life-threatening rashes first (meningococcal, SJS/TEN, necrotising fasciitis).",
   "essentials": [
-   "Identify life-threatening rashes first: meningococcal septicaemia (non-blanching purpura, fever, ill), toxic epidermal necrolysis/Stevens-Johnson (blistering, mucosal involvement, drug-induced), necrotising fasciitis (severe pain, rapidly spreading), anaphylaxis (urticaria + systemic).",
+   "Identify life-threatening rashes first: meningococcal septicaemia (non-blanching purpura, fever, ill), SJS/TEN (blistering, mucosal involvement, drug-induced), necrotising fasciitis (severe pain, rapidly spreading), anaphylaxis (urticaria + systemic).",
    "Non-blanching purpura + fever = meningococcal until proven otherwise — IV antibiotics immediately.",
    "Common rashes: urticaria (allergic, itchy, blanch), cellulitis (erythema, warmth, pain, fever), shingles (vesicular, dermatomal, painful), scabies (itchy, burrows), drug eruptions.",
    "Assess: distribution, morphology (macule, papule, vesicle, bulla, purpura), mucosal involvement, systemic symptoms, drug history.",
    "Cellulitis: IV/oral antibiotics, mark the edge, monitor. Erysipelas: superficial, well-demarcated."
+  ],
+  "drugs": [
+   {
+    "name": "IV antibiotics (e.g. ceftriaxone)",
+    "when": "Suspected meningococcal sepsis",
+    "notes": "Immediately — do not wait for confirmation"
+   },
+   {
+    "name": "Antihistamines",
+    "when": "Urticaria/allergic rash",
+    "notes": "Symptomatic; remove the trigger"
+   },
+   {
+    "name": "Antibiotics (flucloxacillin/penicillin)",
+    "when": "Cellulitis",
+    "notes": "Per local policy; mark the edge and monitor"
+   },
+   {
+    "name": "Aciclovir",
+    "when": "Shingles (within 72 h, or severe)",
+    "notes": "Antiviral; analgesia important"
+   },
+   {
+    "name": "Stop the culprit drug",
+    "when": "SJS/TEN / drug eruption",
+    "notes": "Immediate drug withdrawal is the key step"
+   },
+   {
+    "name": "Adrenaline (IM)",
+    "when": "Anaphylaxis with urticaria",
+    "notes": "500 mcg IM; first-line"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Febrile, unwell child with a non-blanching purpuric rash.",
+    "answer": "Meningococcal sepsis — IV antibiotics immediately."
+   },
+   {
+    "scenario": "Patient on a new drug with widespread blistering and oral mucosal involvement.",
+    "answer": "SJS/TEN — stop the culprit drug and seek urgent specialist care."
+   },
+   {
+    "scenario": "Rapidly spreading painful erythema with crepitus.",
+    "answer": "Necrotising fasciitis — urgent surgical debridement + IV antibiotics."
+   },
+   {
+    "scenario": "Unilateral painful vesicular rash in a dermatomal distribution.",
+    "answer": "Shingles — aciclovir (± within 72 h) and analgesia."
+   },
+   {
+    "scenario": "Well patient with itchy blanching wheals after a new food.",
+    "answer": "Urticaria — antihistamines, remove the trigger; treat anaphylaxis if systemic."
+   }
   ],
   "keyValues": [
    [
@@ -1579,7 +2611,7 @@
     "Non-blanching purpura + fever → IV antibiotics"
    ],
    [
-    "TEN/SJS",
+    "SJS/TEN",
     "Blistering + mucosal involvement, drug-induced"
    ],
    [
@@ -1592,26 +2624,76 @@
    ]
   ],
   "redFlags": [
-   "Non-blanching rash + fever/ill — meningococcal, treat immediately.",
+   "Non-blanching rash + fever/illness — meningococcal, treat immediately.",
    "Rapidly spreading painful erythema — necrotising fasciitis.",
-   "Blistering + mucosal involvement — SJS/TEN, stop culprit drug."
+   "Blistering + mucosal involvement — SJS/TEN, stop the culprit drug."
   ],
   "management": [
    "ABC; treat life-threatening rashes immediately (meningococcal antibiotics).",
-   "Cellulitis: antibiotics, mark edge, monitor response.",
-   "Urticaria: antihistamines, remove trigger, treat anaphylaxis if systemic.",
+   "Cellulitis: antibiotics, mark the edge, monitor response.",
+   "Urticaria: antihistamines, remove the trigger, treat anaphylaxis if systemic.",
    "Identify and stop culprit drugs in drug eruptions."
+  ],
+  "pitfalls": [
+   "A non-blanching rash in a febrile patient is an emergency — act before the diagnosis is confirmed.",
+   "Do not miss mucosal involvement in a blistering rash — it suggests SJS/TEN.",
+   "Always take a drug history — many acute rashes are drug-induced."
   ]
  },
  "febrile-patient": {
   "name": "The febrile patient",
   "group": "Infection & sepsis",
+  "overview": "Fever plus organ dysfunction is sepsis, and sepsis is time-critical. The exam tests the Sepsis Six and finding the source within the first hour.",
   "essentials": [
    "Fever = temperature ≥38°C. Assess for sepsis (infection + organ dysfunction) using NEWS2 and clinical judgement. Sepsis is time-critical — treat within 1 hour.",
    "Sepsis Six: oxygen, blood cultures, IV antibiotics, IV fluids, lactate, urine output. Give antibiotics within 1 hour of suspected sepsis.",
    "Find the source: respiratory (cough, sputum, chest signs), urinary (dysuria, loin pain), skin/soft tissue, line, abdominal, CNS (meningitis), endocarditis.",
    "Risk factors for poor outcome: elderly, immunocompromised (neutropenia, steroids, HIV), malignancy, diabetes, pregnancy, indwelling devices.",
    "Monitor: observations (NEWS2), lactate, cultures, response to antibiotics. Escalate if deteriorating or not improving."
+  ],
+  "drugs": [
+   {
+    "name": "IV broad-spectrum antibiotics",
+    "when": "Suspected sepsis — within 1 hour",
+    "notes": "Per local policy; do not delay for cultures"
+   },
+   {
+    "name": "IV crystalloid",
+    "when": "Sepsis with hypoperfusion (lactate >2, hypotension)",
+    "notes": "Fluid boluses, reassess; noradrenaline if MAP <65"
+   },
+   {
+    "name": "Oxygen",
+    "when": "Hypoxia / as part of Sepsis Six",
+    "notes": "Target 94-98% (88-92% if hypercapnia risk)"
+   },
+   {
+    "name": "Paracetamol",
+    "when": "Symptomatic fever/comfort",
+    "notes": "Does not treat the cause; avoid masking deterioration"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Temperature 38.5°C, NEWS2 6, lactate 3.5.",
+    "answer": "Suspected sepsis — Sepsis Six within 1 hour (cultures, IV antibiotics, fluids, oxygen, lactate, urine output)."
+   },
+   {
+    "scenario": "Fever with cough, sputum and focal chest signs.",
+    "answer": "Pneumonia — assess severity (CURB-65), antibiotics, oxygen; find the organism where possible."
+   },
+   {
+    "scenario": "Fever with dysuria and loin pain.",
+    "answer": "Pyelonephritis/UTI — urine culture, antibiotics; consider obstruction with USS if not improving."
+   },
+   {
+    "scenario": "Fever in a patient with a central line.",
+    "answer": "Consider line sepsis — cultures (peripheral + line), antibiotics, consider line removal."
+   },
+   {
+    "scenario": "Fever with neck stiffness and photophobia.",
+    "answer": "Meningitis — immediate IV antibiotics + consider dexamethasone; do not delay for LP."
+   }
   ],
   "keyValues": [
    [
@@ -1632,7 +2714,7 @@
    ]
   ],
   "redFlags": [
-   "NEWS2 ≥ 5 or lactate > 2 — sepsis, treat urgently.",
+   "NEWS2 ≥5 or lactate >2 — sepsis, treat urgently.",
    "Hypotension/shock — aggressive resuscitation + antibiotics.",
    "Fever in neutropenic/immunocompromised — treat as sepsis immediately."
   ],
@@ -1641,17 +2723,58 @@
    "Identify and treat the source.",
    "Monitor response; escalate if deteriorating.",
    "Consider immunocompromise and adjust accordingly."
+  ],
+  "pitfalls": [
+   "Never delay antibiotics in sepsis to wait for cultures or imaging.",
+   "A normal temperature does not exclude sepsis — the elderly and immunocompromised may be afebrile.",
+   "Always look for and treat the source, not just the fever."
   ]
  },
  "infection-control": {
   "name": "Infection control on the ward",
   "group": "Infection & sepsis",
+  "overview": "Preventing healthcare-associated infection is tested through hand hygiene and precautions. The exam tests matching the right precautions to the right organism.",
   "essentials": [
-   "Hand hygiene is the single most important measure — 'bare below the elbows', alcohol hand rub, wash with soap/water for C. difficile and norovirus.",
-   "Standard precautions: gloves, aprons, safe sharps disposal, correct waste segregation, respiratory hygiene (cough etiquette).",
+   "Hand hygiene is the single most important measure — 'bare below the elbows', alcohol rub, soap/water for C. difficile and norovirus.",
+   "Standard precautions: gloves, aprons, safe sharps disposal, correct waste segregation, respiratory hygiene.",
    "Transmission-based precautions: contact (MRSA, C. difficile, ESBL — gloves/aprons, isolation), droplet (influenza, meningococcal — surgical mask), airborne (TB, measles, chickenpox — negative pressure, FFP3).",
    "Isolate patients with suspected/confirmed transmissible infections; notify infection control.",
-   "Antimicrobial stewardship: prescribe antibiotics appropriately, review at 48h, use narrow-spectrum where possible, document indication and duration."
+   "Antimicrobial stewardship: prescribe appropriately, review at 48 h, use narrow-spectrum where possible, document indication and duration."
+  ],
+  "drugs": [
+   {
+    "name": "Alcohol hand rub / soap & water",
+    "when": "Hand hygiene",
+    "notes": "Soap and water for C. difficile and norovirus (spores not killed by alcohol)"
+   },
+   {
+    "name": "PPE (gloves, apron, mask, FFP3)",
+    "when": "Per precautions",
+    "notes": "FFP3 for airborne (TB, measles); surgical mask for droplet"
+   },
+   {
+    "name": "Antimicrobials (appropriate)",
+    "when": "Confirmed/probable infection",
+    "notes": "Stewardship — narrow spectrum, documented indication, review at 48 h"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Patient with Clostridium difficile diarrhoea.",
+    "answer": "Contact precautions + soap/water handwashing, isolate; review/stop culprit antibiotics."
+   },
+   {
+    "scenario": "Patient with suspected pulmonary TB.",
+    "answer": "Airborne precautions (negative pressure, FFP3) and isolation; notify infection control."
+   },
+   {
+    "scenario": "Patient with meningococcal sepsis.",
+    "answer": "Droplet precautions + urgent antibiotics; provide prophylaxis for close contacts."
+   },
+   {
+    "scenario": "MRSA-colonised patient on the ward.",
+    "answer": "Contact precautions (gloves/apron, isolation), hand hygiene, decolonisation per policy."
+   }
   ],
   "keyValues": [
    [
@@ -1674,24 +2797,70 @@
   "redFlags": [
    "Suspected TB/measles/chickenpox — airborne precautions + isolation immediately.",
    "C. difficile — isolate, soap/water handwashing, stop culprit antibiotics.",
-   "Meningococcal — droplet precautions + urgent antibiotics + prophylaxis for contacts."
+   "Meningococcal — droplet precautions + urgent antibiotics + contact prophylaxis."
   ],
   "management": [
    "Hand hygiene and standard precautions always.",
    "Isolate and apply appropriate precautions for transmissible infections.",
    "Notify infection control; follow local policy.",
-   "Antimicrobial stewardship: document indication, review at 48h."
+   "Antimicrobial stewardship: document indication, review at 48 h."
+  ],
+  "pitfalls": [
+   "Alcohol rub does not kill C. difficile spores — use soap and water.",
+   "Airborne precautions need FFP3 and a negative-pressure room, not a surgical mask.",
+   "Do not forget contact prophylaxis for meningococcal contacts."
   ]
  },
  "cpr": {
   "name": "Cardiopulmonary resuscitation",
   "group": "Resuscitation & emergencies",
+  "overview": "ALS is a core competency. The exam tests the arrest sequence, the shockable vs non-shockable algorithm, and the reversible causes (4 Hs and 4 Ts).",
   "essentials": [
    "Recognise cardiac arrest: unresponsive + not breathing normally (agonal gasps count as not breathing). Call for help, start CPR immediately.",
-   "Adult CPR: 30:2 compressions:ventilation, rate 100-120/min, depth 5-6 cm, minimise interruptions. Use AED/defibrillator as soon as available.",
-   "Shockable rhythms (VF/pulseless VT): defibrillate, then CPR, adrenaline 1 mg after 2nd shock, repeat adrenaline every 3-5 min, amiodarone after 3rd shock.",
-   "Non-shockable (PEA/asystole): adrenaline 1 mg immediately, then every 3-5 min. Find and treat reversible causes (4 Hs and 4 Ts).",
-   "4 Hs: hypoxia, hypovolaemia, hyper/hypokalaemia, hypothermia. 4 Ts: tension pneumothorax, tamponade, toxins, thrombosis (PE/MI)."
+   "Adult CPR: 30:2 compressions:ventilations, rate 100-120/min, depth 5-6 cm, minimise interruptions. Attach AED/defibrillator as soon as available.",
+   "Shockable rhythms (VF/pulseless VT): defibrillate, then CPR; adrenaline 1 mg after 2nd shock; repeat adrenaline every 3-5 min; amiodarone after 3rd shock.",
+   "Non-shockable (PEA/asystole): adrenaline 1 mg immediately, then every 3-5 min. Find and treat reversible causes.",
+   "4 Hs: hypoxia, hypovolaemia, hypo/hyperkalaemia, hypothermia. 4 Ts: tension pneumothorax, tamponade, toxins, thrombosis (PE/MI)."
+  ],
+  "drugs": [
+   {
+    "name": "Adrenaline",
+    "when": "All cardiac arrests (ALS)",
+    "notes": "1 mg IV every 3-5 min; after 2nd shock in shockable, immediately in non-shockable"
+   },
+   {
+    "name": "Amiodarone",
+    "when": "Refractory VF/pulseless VT",
+    "notes": "300 mg IV after 3rd shock, then 150 mg after 5th"
+   },
+   {
+    "name": "Defibrillation",
+    "when": "VF/pulseless VT",
+    "notes": "Biphasic 150-200 J; minimise interruption"
+   },
+   {
+    "name": "Reversible-cause treatments",
+    "when": "Per cause",
+    "notes": "Fluids/blood (hypovolaemia), calcium (hyperkalaemia), needle decompression (tension pneumothorax), thrombolysis (PE)"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Patient in pulseless VT on the monitor.",
+    "answer": "Shockable — defibrillate immediately, then CPR; adrenaline after the 2nd shock."
+   },
+   {
+    "scenario": "PEA arrest with distended neck veins and muffled heart sounds.",
+    "answer": "Consider tamponade as a reversible cause — pericardiocentesis if suspected; continue ALS."
+   },
+   {
+    "scenario": "PEA arrest in a patient post-op with signs of bleeding.",
+    "answer": "Hypovolaemia — resuscitate with fluids/blood alongside ALS."
+   },
+   {
+    "scenario": "Arrest in a patient with severe hyperkalaemia.",
+    "answer": "Treat the reversible cause — calcium gluconate, insulin+dextrose alongside ALS."
+   }
   ],
   "keyValues": [
    [
@@ -1712,7 +2881,7 @@
    ]
   ],
   "redFlags": [
-   "VF/pulseless VT — defibrillate immediately, don't delay for drugs.",
+   "VF/pulseless VT — defibrillate immediately, do not delay for drugs.",
    "Tension pneumothorax during arrest — needle decompression.",
    "Reversible causes — treat them (the only way to achieve ROSC in PEA)."
   ],
@@ -1721,17 +2890,73 @@
    "Follow the ALS algorithm (shockable vs non-shockable).",
    "Give adrenaline per protocol; treat reversible causes.",
    "Post-ROSC: ABC, targeted temperature management, treat the cause, ICU."
+  ],
+  "pitfalls": [
+   "In shockable rhythms, defibrillation comes before drugs.",
+   "In PEA, ROSC is only achieved by treating the reversible cause.",
+   "Do not forget agonal gasps count as 'not breathing normally' — start CPR."
   ]
  },
  "anaphylaxis": {
   "name": "Anaphylaxis",
   "group": "Resuscitation & emergencies",
+  "overview": "A life-threatening emergency where adrenaline is first-line and must not be delayed. The exam tests the immediate response and the post-event observation.",
   "essentials": [
    "Anaphylaxis = severe, life-threatening systemic hypersensitivity reaction. Rapid onset: airway (stridor, swelling), breathing (wheeze, dyspnoea), circulation (hypotension, collapse), plus skin (urticaria, angioedema).",
-   "Immediate: remove trigger, call for help, IM adrenaline 500 mcg (0.5 mL of 1:1000) anterolateral thigh, repeat after 5 min if no improvement.",
+   "Immediate: remove the trigger, call for help, IM adrenaline 500 mcg (0.5 mL of 1:1000) anterolateral thigh, repeat after 5 min if no improvement.",
    "Adjunctive: high-flow oxygen, IV fluids (for hypotension), antihistamine (chlorphenamine), steroid (hydrocortisone) — but adrenaline is first-line and life-saving.",
    "Position: lie flat with legs raised (unless breathing difficulty — sit up); do not sit/stand a hypotensive patient abruptly.",
-   "Observe for biphasic reaction (recurrence hours later) — monitor for at least 6-12h. Arrange follow-up and an adrenaline auto-injector."
+   "Observe for biphasic reaction (recurrence hours later) — monitor ≥6-12 h; arrange follow-up and an adrenaline auto-injector."
+  ],
+  "drugs": [
+   {
+    "name": "Adrenaline (IM)",
+    "when": "Anaphylaxis — first-line, immediately",
+    "notes": "500 mcg (0.5 mL 1:1000) anterolateral thigh; repeat after 5 min"
+   },
+   {
+    "name": "High-flow oxygen",
+    "when": "All anaphylaxis",
+    "notes": "15 L/min via non-rebreathe"
+   },
+   {
+    "name": "IV fluids",
+    "when": "Hypotension",
+    "notes": "Rapid crystalloid bolus"
+   },
+   {
+    "name": "Chlorphenamine (antihistamine)",
+    "when": "Adjunct (skin symptoms)",
+    "notes": "IV/IM 10 mg; does not treat airway/circulation"
+   },
+   {
+    "name": "Hydrocortisone",
+    "when": "Adjunct",
+    "notes": "IV 200 mg; does not replace adrenaline"
+   },
+   {
+    "name": "IV adrenaline infusion",
+    "when": "Refractory anaphylaxis (specialist)",
+    "notes": "After 2 IM doses with no response; senior/ICU"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Stridor, wheeze and hypotension after a bee sting.",
+    "answer": "Anaphylaxis — IM adrenaline 500 mcg, high-flow oxygen, IV fluids; repeat adrenaline if no improvement."
+   },
+   {
+    "scenario": "Only urticaria with no airway or circulatory involvement after an allergen.",
+    "answer": "Allergic reaction (not anaphylaxis) — antihistamine, monitor; be ready with adrenaline if it progresses."
+   },
+   {
+    "scenario": "No response to 2 doses of IM adrenaline.",
+    "answer": "Refractory anaphylaxis — escalate for IV adrenaline infusion and airway support (ICU)."
+   },
+   {
+    "scenario": "Anaphylaxis patient improves but you are unsure when to discharge.",
+    "answer": "Observe ≥6-12 h for a biphasic reaction; arrange follow-up and an adrenaline auto-injector."
+   }
   ],
   "keyValues": [
    [
@@ -1743,12 +2968,12 @@
     "Anterolateral thigh"
    ],
    [
-    "Adjunctive",
+    "Adjuncts",
     "O2, IV fluids, chlorphenamine, hydrocortisone"
    ],
    [
     "Observation",
-    "≥6-12h for biphasic reaction"
+    "≥6-12 h for biphasic reaction"
    ]
   ],
   "redFlags": [
@@ -1761,22 +2986,77 @@
    "High-flow oxygen, IV fluids, position appropriately.",
    "Repeat adrenaline if no improvement; adjuncts (antihistamine, steroid).",
    "Observe for biphasic reaction; arrange auto-injector and follow-up."
+  ],
+  "pitfalls": [
+   "Antihistamines and steroids do not replace adrenaline — give adrenaline first.",
+   "Do not stand a hypotensive anaphylaxis patient up — keep them flat.",
+   "Remember the biphasic reaction — observe for hours."
   ]
  },
  "overdoses": {
   "name": "Overdoses",
   "group": "Resuscitation & emergencies",
+  "overview": "Treat the patient, not the poison. The exam tests recognising toxidromes and giving the correct antidote (NAC, naloxone, bicarbonate).",
   "essentials": [
    "Assess ABC and treat the patient, not just the poison. Identify the substance, dose, time, and co-ingestants (paracetamol + alcohol common).",
-   "Paracetamol overdose: hepatotoxic. Treat with N-acetylcysteine (NAC) if levels above the treatment line or staggered/late presentation. Check paracetamol level at 4h.",
-   "Opioid overdose: respiratory depression, pinpoint pupils. Treat with naloxone (IV/IM), repeat as needed (shorter than opioid).",
+   "Paracetamol overdose: hepatotoxic. Treat with N-acetylcysteine (NAC) if levels are above the treatment line, or if staggered/late presentation. Check the paracetamol level at 4 h.",
+   "Opioid overdose: respiratory depression, pinpoint pupils. Treat with naloxone, repeat as needed (shorter acting than most opioids).",
    "Benzodiazepine overdose: sedation, respiratory depression. Supportive care; flumazenil only in specific cases (risk of seizures).",
-   "Tricyclic antidepressants: arrhythmias, seizures, anticholinergic. Sodium bicarbonate for wide QRS. Serotonin syndrome: hyperthermia, agitation, clonus."
+   "Tricyclic antidepressants: arrhythmias, seizures, anticholinergic features — sodium bicarbonate for a wide QRS. Serotonin syndrome: hyperthermia, agitation, clonus."
+  ],
+  "drugs": [
+   {
+    "name": "N-acetylcysteine (NAC)",
+    "when": "Paracetamol overdose above the treatment line (or staggered/late)",
+    "notes": "IV (or oral); most effective early; replenishes glutathione"
+   },
+   {
+    "name": "Naloxone",
+    "when": "Opioid overdose with respiratory depression",
+    "notes": "IV/IM; short-acting — may need repeat/infusion"
+   },
+   {
+    "name": "Sodium bicarbonate",
+    "when": "TCA overdose with wide QRS/arrhythmia",
+    "notes": "IV boluses; monitor pH and potassium"
+   },
+   {
+    "name": "Flumazenil",
+    "when": "Selected benzodiazepine toxicity",
+    "notes": "Risk of seizures in chronic users/mixed overdose — rarely used"
+   },
+   {
+    "name": "Activated charcoal",
+    "when": "Early (<1 h) significant ingestion (specialist advice)",
+    "notes": "Not for corrosives/hydrocarbons or impaired airway"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "5 hours after a paracetamol overdose.",
+    "answer": "Check the paracetamol level and give NAC if above the treatment line (or if staggered/late)."
+   },
+   {
+    "scenario": "Opioid overdose with respiratory depression and pinpoint pupils.",
+    "answer": "Naloxone IV/IM + airway support; repeat as naloxone is short-acting."
+   },
+   {
+    "scenario": "TCA overdose with a widened QRS.",
+    "answer": "Sodium bicarbonate boluses for cardiac protection; monitor for arrhythmia/seizures."
+   },
+   {
+    "scenario": "Agitated, hyperthermic patient with clonus on serotonergic drugs.",
+    "answer": "Serotonin syndrome — stop the offending drugs, supportive care, consider cyproheptadine (specialist)."
+   },
+   {
+    "scenario": "Patient who took mixed drugs and is drowsy.",
+    "answer": "Support the airway and breathing; avoid flumazenil; treat specific toxidromes; involve toxicology."
+   }
   ],
   "keyValues": [
    [
     "Paracetamol",
-    "NAC if level above treatment line (4h level)"
+    "NAC if above the treatment line (4 h level)"
    ],
    [
     "Opioid",
@@ -1788,7 +3068,7 @@
    ],
    [
     "Activated charcoal",
-    "Within 1h of ingestion (if indicated)"
+    "Within 1 h of ingestion (if indicated)"
    ]
   ],
   "redFlags": [
@@ -1802,17 +3082,72 @@
    "Opioid: naloxone, airway support.",
    "TCA: sodium bicarbonate for arrhythmia, treat seizures.",
    "Psychiatric assessment after medical stabilisation."
+  ],
+  "pitfalls": [
+   "Paracetamol overdose can be asymptomatic early — always check the level.",
+   "Avoid flumazenil in mixed overdoses and chronic benzodiazepine users (seizure risk).",
+   "Naloxone's effect can wear off before the opioid does — watch for re-sedation."
   ]
  },
  "post-op-complications": {
   "name": "Post-operative complications",
   "group": "Surgery & peri-operative",
+  "overview": "A deteriorating post-op patient has a defined differential (bleeding, infection, leak, PE, cardiac). The exam tests the systematic assessment and the red flags for return to theatre.",
   "essentials": [
-   "Common early post-op complications: bleeding, infection (wound, chest, urine, line), VTE, urinary retention, ileus, anastomotic leak, cardiac (MI, arrhythmia, AF), respiratory (atelectasis, pneumonia, PE).",
+   "Common early post-op complications: bleeding, infection (wound/chest/urine/line), VTE, urinary retention, ileus, anastomotic leak, cardiac (MI/arrhythmia/AF), respiratory (atelectasis, pneumonia, PE).",
    "Assess the deteriorating post-op patient systematically: ABC, observations (NEWS2), wound, drains, urine output, pain, fluid balance.",
    "Bleeding: falling Hb, hypotension, tachycardia, distended abdomen, bloody drains — resuscitate, consider return to theatre.",
    "Anastomotic leak: fever, peritonitis, rising inflammatory markers, usually days 3-7 — urgent CT/surgery.",
    "Ileus: abdominal distension, no bowel sounds, nausea — NBM, NG tube, correct electrolytes, mobilise. Distinguish from obstruction."
+  ],
+  "drugs": [
+   {
+    "name": "IV fluids/blood",
+    "when": "Bleeding/hypovolaemia",
+    "notes": "Resuscitate; crossmatch"
+   },
+   {
+    "name": "IV antibiotics",
+    "when": "Infection/leak",
+    "notes": "Broad-spectrum; per local policy"
+   },
+   {
+    "name": "LMWH (VTE prophylaxis)",
+    "when": "All post-op patients unless contraindicated",
+    "notes": "With TEDs and early mobilisation"
+   },
+   {
+    "name": "Analgesia",
+    "when": "Pain",
+    "notes": "Multimodal; effective analgesia aids mobilisation and prevents ileus"
+   },
+   {
+    "name": "Antiemetics",
+    "when": "Nausea (ileus)",
+    "notes": "With NG decompression and electrolyte correction"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Day 5 post-bowel surgery: fever, peritonism, rising CRP.",
+    "answer": "Anastomotic leak — NBM, IV antibiotics, urgent CT/surgical review."
+   },
+   {
+    "scenario": "Post-op hypotension, tachycardia and falling Hb with a distended abdomen.",
+    "answer": "Post-operative bleeding — resuscitate, correct coagulopathy, consider return to theatre."
+   },
+   {
+    "scenario": "Post-op distension, nausea and absent bowel sounds.",
+    "answer": "Ileus — NBM, NG tube, correct electrolytes, mobilise; exclude obstruction."
+   },
+   {
+    "scenario": "Sudden dyspnoea and hypoxia on day 3 post-op.",
+    "answer": "Consider PE — assess and image (CTPA); also consider atelectasis/pneumonia."
+   },
+   {
+    "scenario": "Post-op patient with new AF and tachycardia.",
+    "answer": "Common after thoracic/cardiac surgery — treat the cause, rate-control, correct electrolytes."
+   }
   ],
   "keyValues": [
    [
@@ -1842,17 +3177,63 @@
    "Bleeding: resuscitate, correct coagulopathy, consider re-operation.",
    "Leak: NBM, IV antibiotics, urgent CT/surgery.",
    "Ileus: NBM, NG, electrolytes, mobilise; VTE prophylaxis."
+  ],
+  "pitfalls": [
+   "A falling Hb and tachycardia are more reliable than BP for occult bleeding.",
+   "Post-op fever has a differential — don't assume it is just a wound infection.",
+   "Ileus can be prolonged — correct electrolytes and mobilise rather than simply starving."
   ]
  },
  "urine-retention": {
   "name": "Urine retention",
   "group": "Surgery & peri-operative",
+  "overview": "A common ward problem that is usually easy to fix but can hide serious pathology. The exam tests recognising acute vs chronic retention and the dangers of high-pressure retention.",
   "essentials": [
-   "Acute urinary retention = painful inability to pass urine, usually with a palpable bladder. Common causes: BPH, post-op (anaesthesia, analgesia), constipation, drugs (anticholinergics), neurological, urethral stricture.",
+   "Acute urinary retention = painful inability to pass urine with a palpable bladder. Causes: BPH, post-op (anaesthesia, analgesia), constipation, drugs (anticholinergics), neurological, urethral stricture.",
    "Chronic retention: painless, often with overflow incontinence and renal impairment (high-pressure retention is dangerous).",
    "Management: catheterise (urethral or suprapubic if urethral route fails), drain the bladder, measure residual volume, send urine for analysis.",
    "After catheterisation: monitor for post-obstructive diuresis and haematuria; check renal function.",
    "Investigate the cause: PSA, renal USS, flow studies, urology referral. Trial without catheter after treating the cause."
+  ],
+  "drugs": [
+   {
+    "name": "Urethral catheter / suprapubic catheter",
+    "when": "Acute retention",
+    "notes": "Drain <1 L at first to avoid decompression haematuria/haemodynamic shifts (protocol-dependent)"
+   },
+   {
+    "name": "Tamsulosin (alpha-blocker)",
+    "when": "BPH-related retention",
+    "notes": "Relaxes prostatic smooth muscle; aids trial without catheter"
+   },
+   {
+    "name": "Finasteride (5-alpha reductase inhibitor)",
+    "when": "BPH (longer-term)",
+    "notes": "Reduces prostate size over months"
+   },
+   {
+    "name": "Treat constipation",
+    "when": "Contributing cause",
+    "notes": "Laxatives; constipation precipitates retention"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Post-op patient with a painful, palpable bladder unable to pass urine.",
+    "answer": "Acute retention — catheterise and drain; measure residual; investigate the cause."
+   },
+   {
+    "scenario": "Painless chronic retention with overflow incontinence and raised creatinine.",
+    "answer": "High-pressure retention causing renal impairment — urgent drainage and renal assessment."
+   },
+   {
+    "scenario": "Patient with retention and new neurological signs.",
+    "answer": "Consider spinal cord cause (cauda equina) — urgent assessment and imaging."
+   },
+   {
+    "scenario": "Elderly man with BPH in retention after a trial without catheter fails.",
+    "answer": "Start an alpha-blocker (± 5-ARI), treat constipation, retry TWOC or plan urology review."
+   }
   ],
   "keyValues": [
    [
@@ -1882,17 +3263,58 @@
    "Monitor for post-obstructive diuresis and haematuria.",
    "Investigate the cause (PSA, renal USS, urology).",
    "Trial without catheter after treating the cause."
+  ],
+  "pitfalls": [
+   "Rapidly draining a chronically distended bladder can cause decompression haematuria/haemodynamic shifts — follow local volume guidance.",
+   "Chronic retention can silently damage kidneys — always check renal function.",
+   "Retention with back pain/neurology is a spinal emergency, not a simple catheter problem."
   ]
  },
  "medication-errors": {
   "name": "Medication administration errors",
   "group": "Ward systems & patient safety",
+  "overview": "A patient-safety topic where the exam tests prevention (the 5 rights) and the correct response when an error happens (assess, treat, inform, report).",
   "essentials": [
-   "Medication errors are common and preventable. Common types: wrong drug, wrong dose, wrong route, wrong patient, wrong time, omission, prescribing errors, drug interactions.",
-   "Prevent: check the '5 rights' (patient, drug, dose, route, time), use the BNF/formulary, check allergies, double-check high-risk drugs (insulin, opiates, anticoagulants, chemotherapy), use electronic prescribing where available.",
-   "If an error occurs: assess the patient immediately (harm?), stop the drug, treat any adverse effects, inform the patient, report the incident (datix), document.",
-   "High-risk situations: look-alike/sound-alike drugs, decimal point errors, abbreviations, verbal orders, handover.",
+   "Common error types: wrong drug, wrong dose, wrong route, wrong patient, wrong time, omission, prescribing errors, drug interactions.",
+   "Prevent: check the '5 rights' (patient, drug, dose, route, time), use the BNF/formulary, check allergies, double-check high-risk drugs (insulin, opiates, anticoagulants, chemotherapy).",
+   "If an error occurs: assess the patient immediately, stop the drug, treat any harm, inform the patient, report the incident (datix), document.",
+   "High-risk situations: look-alike/sound-alike drugs, decimal-point errors, abbreviations, verbal orders, handover.",
    "Report and learn from errors — a 'no blame' culture improves safety. Involve pharmacy and senior staff."
+  ],
+  "drugs": [
+   {
+    "name": "Stop the drug / antidote if available",
+    "when": "Error identified",
+    "notes": "e.g. naloxone for opioid error, glucose for insulin error"
+   },
+   {
+    "name": "Treat adverse effects",
+    "when": "Harm from the error",
+    "notes": "e.g. anaphylaxis protocol for a drug allergy given in error"
+   },
+   {
+    "name": "Reporting (datix)",
+    "when": "Every medication error",
+    "notes": "Not punitive — improves system safety"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "You gave a patient the wrong dose of insulin.",
+    "answer": "Assess and monitor the patient (hypoglycaemia), treat harm, inform the patient, report (datix), document."
+   },
+   {
+    "scenario": "A patient is given a drug they are allergic to.",
+    "answer": "Stop the drug, assess for anaphylaxis, treat (IM adrenaline if needed), inform patient, report."
+   },
+   {
+    "scenario": "You realise you prescribed a 10-fold overdose of an anticoagulant.",
+    "answer": "Assess bleeding risk, stop/reverse as needed, inform the patient and senior staff, report the incident."
+   },
+   {
+    "scenario": "Preventing errors during a busy drug round.",
+    "answer": "Use the 5 rights, check allergies, avoid interruptions, double-check high-risk drugs."
+   }
   ],
   "keyValues": [
    [
@@ -1919,20 +3341,66 @@
   ],
   "management": [
    "Prevent: 5 rights, check allergies, double-check high-risk drugs.",
-   "On error: assess patient, stop drug, treat harm, inform patient.",
+   "On error: assess the patient, stop the drug, treat harm, inform the patient.",
    "Report the incident and document.",
    "Review systems to prevent recurrence."
+  ],
+  "pitfalls": [
+   "Never hide a medication error — reporting protects future patients.",
+   "Decimal-point and look-alike/sound-alike drug errors are common — double-check high-risk drugs.",
+   "Always check allergies before administering any drug."
   ]
  },
  "early-warning-score": {
   "name": "The Early Warning Score",
   "group": "Ward systems & patient safety",
+  "overview": "NEWS2 is the backbone of recognising deterioration. The exam tests the scoring thresholds and the correct escalation response.",
   "essentials": [
-   "NEWS2 (National Early Warning Score) aggregates physiological parameters to identify deteriorating patients: respiratory rate, oxygen saturations, oxygen requirement, systolic BP, heart rate, consciousness (AVPU), temperature.",
-   "Each parameter scores 0-3; total score triggers a response: low (1-4) → increased monitoring; medium (5-6) → urgent review; high (≥7) → emergency response (often critical care outreach).",
-   "NEWS2 ≥5 is a trigger for sepsis screening. A single score of 3 in any parameter also warrants attention.",
+   "NEWS2 aggregates: respiratory rate, oxygen saturations, oxygen requirement, systolic BP, heart rate, consciousness (AVPU), temperature.",
+   "Each parameter scores 0-3; the total triggers a response: low (1-4) increased monitoring; medium (5-6) urgent review; high (≥7) emergency response.",
+   "NEWS2 ≥5 is a trigger for sepsis screening. A single parameter scoring 3 also warrants attention.",
    "Escalate promptly: call for help, use SBAR (Situation, Background, Assessment, Recommendation) to communicate.",
    "The score guides, but clinical judgement overrides — a patient who looks unwell needs review regardless of score."
+  ],
+  "drugs": [
+   {
+    "name": "Oxygen",
+    "when": "Hypoxia on the score",
+    "notes": "Titrate to target"
+   },
+   {
+    "name": "IV fluids",
+    "when": "Hypoperfusion/hypotension",
+    "notes": "Per assessment"
+   },
+   {
+    "name": "Sepsis Six",
+    "when": "NEWS2 ≥5 with suspected infection",
+    "notes": "Cultures, antibiotics, fluids, lactate, oxygen, urine output"
+   },
+   {
+    "name": "Escalation (SBAR)",
+    "when": "Score rises",
+    "notes": "Structured communication to the senior/outreach team"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "NEWS2 of 8.",
+    "answer": "Emergency response — call for help immediately (critical care outreach); assess and treat."
+   },
+   {
+    "scenario": "NEWS2 of 5 in a patient with a cough.",
+    "answer": "Urgent review + sepsis screening (Sepsis Six if criteria met)."
+   },
+   {
+    "scenario": "A single parameter (respiratory rate) scores 3.",
+    "answer": "Warrants attention even if the total is low — escalate and reassess."
+   },
+   {
+    "scenario": "A patient looks unwell but the NEWS2 is low.",
+    "answer": "Clinical judgement overrides the score — escalate for review."
+   }
   ],
   "keyValues": [
    [
@@ -1959,24 +3427,70 @@
   "redFlags": [
    "NEWS2 ≥7 — emergency response, call for help immediately.",
    "Single parameter score of 3 — warrants attention.",
-   "Deteriorating trend — escalate even if score not yet high."
+   "Deteriorating trend — escalate even if the score is not yet high."
   ],
   "management": [
    "Measure and record NEWS2 regularly.",
    "Escalate per the score using SBAR.",
    "Screen for sepsis if NEWS2 ≥5.",
    "Clinical judgement overrides the score."
+  ],
+  "pitfalls": [
+   "A rising trend matters even below the threshold — don't wait for a high score.",
+   "Incomplete observations invalidate the score — always record all parameters.",
+   "Don't let a 'normal' score override a patient who looks unwell."
   ]
  },
  "venous-access-lines": {
   "name": "Management of venous access lines",
   "group": "Ward systems & patient safety",
+  "overview": "Central lines, PICCs and cannulae cause infection and mechanical complications. The exam tests recognising line sepsis and the air embolism emergency.",
   "essentials": [
-   "Central venous catheters (CVC), PICC lines, and peripheral cannulae are sources of infection (line sepsis) and complications (thrombosis, air embolism, dislodgement).",
-   "Line sepsis: fever + line in situ → take blood cultures (peripheral + line), consider removing the line, treat with antibiotics. Exit-site infection: erythema, discharge.",
-   "Line thrombosis: arm/neck swelling, pain — USS, anticoagulation, consider line removal.",
+   "Central venous catheters, PICC lines and peripheral cannulae are sources of infection (line sepsis) and complications (thrombosis, air embolism, dislodgement).",
+   "Line sepsis: fever + line in situ — take blood cultures (peripheral + line), consider removing the line, treat with antibiotics.",
+   "Line thrombosis: arm/neck swelling/pain — USS, anticoagulation, consider line removal.",
    "Air embolism: sudden collapse, hypoxia — clamp the line, left lateral/head-down position, 100% oxygen.",
    "Care: aseptic technique for insertion and access, daily review of line necessity, remove when no longer needed, document."
+  ],
+  "drugs": [
+   {
+    "name": "IV antibiotics",
+    "when": "Line sepsis",
+    "notes": "After cultures; per local policy; consider line removal"
+   },
+   {
+    "name": "Anticoagulation",
+    "when": "Line-associated thrombosis",
+    "notes": "Per protocol; consider line removal"
+   },
+   {
+    "name": "Sexual/mucosal line locks (selected)",
+    "when": "Specific catheters (specialist)",
+    "notes": "e.g. taurolidine/ethanol locks for recurrent infection"
+   },
+   {
+    "name": "High-flow oxygen + left lateral positioning",
+    "when": "Air embolism",
+    "notes": "Clamp the line first"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "Fever in a patient with a central line.",
+    "answer": "Consider line sepsis — blood cultures (peripheral + line), antibiotics, consider line removal."
+   },
+   {
+    "scenario": "Sudden collapse with hypoxia while a central line is being used.",
+    "answer": "Air embolism — clamp the line, head-down/left lateral, 100% oxygen, call for help."
+   },
+   {
+    "scenario": "Arm swelling and pain in a patient with a PICC line.",
+    "answer": "Line-associated thrombosis — USS, anticoagulation, consider removal."
+   },
+   {
+    "scenario": "A cannula has been in situ for several days with no ongoing need.",
+    "answer": "Remove it — daily review of line necessity reduces infection."
+   }
   ],
   "keyValues": [
    [
@@ -2006,17 +3520,68 @@
    "Line sepsis: cultures, antibiotics, consider removal.",
    "Thrombosis: USS, anticoagulation.",
    "Daily review; remove lines when no longer needed."
+  ],
+  "pitfalls": [
+   "Air embolism is the classic 'clamp first, then position' emergency — act immediately.",
+   "Unnecessary lines cause infection — review daily and remove early.",
+   "Always culture both peripheral and line blood in suspected line sepsis."
   ]
  },
  "covid-19": {
   "name": "Issues around COVID-19",
   "group": "Miscellaneous",
+  "overview": "A systemic respiratory illness with thrombotic and secondary-infection complications. The exam tests severity assessment (silent hypoxia) and evidence-based treatment (dexamethasone when oxygen needed).",
   "essentials": [
-   "COVID-19: SARS-CoV-2 infection causing respiratory illness; spectrum from asymptomatic to severe pneumonia/ARDS. Risk factors: age, obesity, diabetes, cardiovascular disease, immunocompromise.",
-   "Presentation: fever, cough, dyspnoea, anosmia, fatigue. Severe: hypoxia, respiratory distress, bilateral infiltrates.",
+   "COVID-19: SARS-CoV-2 infection causing respiratory illness — spectrum from asymptomatic to severe pneumonia/ARDS. Risk factors: age, obesity, diabetes, cardiovascular disease, immunocompromise.",
+   "Presentation: fever, cough, dyspnoea, anosmia, fatigue. Severe: hypoxia, respiratory distress, bilateral infiltrates ('silent hypoxia' can occur).",
    "Assess severity: oxygen saturations, respiratory rate, NEWS2, chest X-ray, inflammatory markers (CRP, ferritin, D-dimer).",
-   "Management: oxygen to target, dexamethasone (for those needing oxygen), consider remdesivir/anticoagulation per protocol, treat complications (thrombosis, secondary infection).",
-   "Infection control: isolation, PPE, vaccination. Monitor for deterioration (silent hypoxia)."
+   "Management: oxygen to target, dexamethasone for those needing oxygen, antivirals/anticoagulation per protocol, treat complications (thrombosis, secondary infection).",
+   "Infection control: isolation, PPE, vaccination. Monitor for deterioration."
+  ],
+  "drugs": [
+   {
+    "name": "Dexamethasone",
+    "when": "COVID-19 requiring oxygen (or ventilated)",
+    "notes": "Reduces mortality; not for those not needing oxygen"
+   },
+   {
+    "name": "Remdesivir / other antivirals",
+    "when": "Selected patients (protocol)",
+    "notes": "Per local/national guidance"
+   },
+   {
+    "name": "Prophylactic/therapeutic anticoagulation",
+    "when": "COVID-19 (thrombotic risk)",
+    "notes": "Per protocol; higher dose if confirmed thrombosis"
+   },
+   {
+    "name": "Oxygen (escalating devices)",
+    "when": "Hypoxia",
+    "notes": "Target 94-98% (88-92% if hypercapnia risk); consider CPAP/HFNO, then NIV/ICU"
+   },
+   {
+    "name": "Antibiotics",
+    "when": "Secondary bacterial infection",
+    "notes": "Not routine in pure viral infection"
+   }
+  ],
+  "clinicalScenarios": [
+   {
+    "scenario": "COVID-19 patient with saturations 90% on air.",
+    "answer": "Oxygen to target 94-98%; start dexamethasone (needs oxygen); monitor and consider escalation."
+   },
+   {
+    "scenario": "COVID-19 patient with a rising oxygen requirement and tachypnoea.",
+    "answer": "Worsening ARDS — escalate (CPAP/HFNO/ICU); treat thrombosis risk; involve critical care."
+   },
+   {
+    "scenario": "COVID-19 patient with pleuritic pain and hypoxia beyond the pneumonia.",
+    "answer": "Consider PE (increased thrombotic risk) — assess and image per protocol."
+   },
+   {
+    "scenario": "COVID-19 patient with new fever and purulent sputum later in admission.",
+    "answer": "Consider secondary bacterial infection — cultures and targeted antibiotics."
+   }
   ],
   "keyValues": [
    [
@@ -2046,6 +3611,11 @@
    "Dexamethasone for those needing oxygen; other antivirals per protocol.",
    "Anticoagulation for thrombosis risk.",
    "Isolation + PPE; escalate to ICU if deteriorating."
+  ],
+  "pitfalls": [
+   "'Silent hypoxia' — patients can be profoundly hypoxic without feeling breathless; rely on saturations.",
+   "Dexamethasone only helps those needing oxygen — not for mild disease.",
+   "Remember the thrombotic risk — consider PE in a deteriorating COVID-19 patient."
   ]
  }
 }
