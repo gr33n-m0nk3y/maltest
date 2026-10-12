@@ -1,0 +1,234 @@
+/* Practice engine: renders one question at a time, scores, shows rationale. */
+"use strict";
+const Practice = (() => {
+  const RATE_LABELS = ["Very appropriate", "Somewhat appropriate", "Somewhat inappropriate", "Inappropriate"];
+  const RATE_IMPORT = ["Very important", "Important", "Of minor importance", "Not at all important"];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  function renderQuestion(q) {
+    const badges = [];
+    if (q.provisional) badges.push('<span class="badge provisional">provisional key</span>');
+    if (q.generated) badges.push('<span class="badge generated">AI-GENERATED</span>');
+    if (q.topic) badges.push(`<span class="badge topic">${esc(q.topic)}</span>`);
+    const badgeHtml = badges.join("");
+
+    let body = "";
+    if (q.type === "rank5") {
+      body = q.options.map((o, i) => `
+        <div class="option" data-i="${i}">
+          <span class="letter">${String.fromCharCode(65 + i)}</span>
+          <span class="text">${esc(o)}</span>
+          <select class="rank" data-i="${i}">
+            <option value="">Rank</option>
+            ${[1, 2, 3, 4, 5].map((r) => `<option value="${r}">${r}</option>`).join("")}
+          </select>
+        </div>`).join("");
+    } else if (q.type === "mcq3") {
+      body = q.options.map((o, i) => `
+        <div class="option" data-i="${i}">
+          <input type="checkbox" data-i="${i}">
+          <span class="letter">${String.fromCharCode(65 + i)}</span>
+          <span class="text">${esc(o)}</span>
+        </div>`).join("");
+    } else if (q.type === "tf") {
+      body = q.options.map((o, i) => `
+        <div class="option" data-i="${i}">
+          <span class="letter">${String.fromCharCode(65 + i)}</span>
+          <span class="text">${esc(o)}</span>
+          <span style="margin-left:auto;display:flex;gap:8px">
+            <label><input type="radio" name="tf${i}" value="T"> True</label>
+            <label><input type="radio" name="tf${i}" value="F"> False</label>
+          </span>
+        </div>`).join("");
+    } else if (q.type === "rate") {
+      const labels = /importance/i.test(q.scenario) ? RATE_IMPORT : RATE_LABELS;
+      body = q.options.map((o, i) => `
+        <div class="option" data-i="${i}">
+          <span class="letter">${String.fromCharCode(65 + i)}</span>
+          <span class="text">${esc(o)}</span>
+          <span style="margin-left:auto;display:flex;gap:6px">
+            ${[1, 2, 3, 4].map((r) => `<label title="${esc(labels[r - 1])}"><input type="radio" name="rate${i}" value="${r}"> ${r}</label>`).join("")}
+          </span>
+        </div>`).join("");
+    } else if (q.type === "sba") {
+      body = q.options.map((o, i) => `
+        <div class="option" data-i="${i}">
+          <input type="radio" name="sba" value="${String.fromCharCode(65 + i)}">
+          <span class="letter">${String.fromCharCode(65 + i)}</span>
+          <span class="text">${esc(o)}</span>
+        </div>`).join("");
+    }
+
+    return `
+      <div class="card">
+        <div class="scenario">${esc(q.scenario)}${badgeHtml}</div>
+        <div class="instruction">${instruction(q)}</div>
+        ${body}
+        <div class="controls">
+          <button id="checkBtn">Check answer</button>
+          <button id="nextBtn" class="ghost" style="display:none">Next question</button>
+        </div>
+        <div id="feedback"></div>
+      </div>`;
+  }
+
+  function instruction(q) {
+    switch (q.type) {
+      case "rank5": return "Rank in order of appropriateness (1 = most appropriate; 5 = least appropriate). Use each rank once.";
+      case "mcq3": return "Choose the THREE most appropriate options.";
+      case "tf": return "For each statement, indicate whether it is True or False.";
+      case "rate": return "Rate each option (1 = very appropriate/important; 4 = inappropriate/not at all important).";
+      case "sba": return "Choose the single best answer.";
+    }
+  }
+
+  function collectAnswer(q) {
+    if (q.type === "rank5") {
+      const ranks = {};
+      document.querySelectorAll(".rank").forEach((s) => { if (s.value) ranks[s.dataset.i] = parseInt(s.value); });
+      if (Object.keys(ranks).length !== 5) return { error: "Assign a rank to all 5 options." };
+      const vals = Object.values(ranks);
+      if (new Set(vals).size !== 5) return { error: "Each rank (1-5) must be used exactly once." };
+      const arr = new Array(5);
+      for (const [i, r] of Object.entries(ranks)) arr[r - 1] = String.fromCharCode(65 + parseInt(i));
+      return { answer: arr.join("") };
+    }
+    if (q.type === "mcq3") {
+      const chosen = [...document.querySelectorAll('input[type="checkbox"]:checked')].map((c) => String.fromCharCode(65 + parseInt(c.dataset.i)));
+      if (chosen.length !== 3) return { error: `Select exactly 3 options (you chose ${chosen.length}).` };
+      return { answer: chosen };
+    }
+    if (q.type === "tf") {
+      const ans = [];
+      for (let i = 0; i < q.options.length; i++) {
+        const r = document.querySelector(`input[name="tf${i}"]:checked`);
+        if (!r) return { error: "Answer all statements." };
+        ans.push(r.value);
+      }
+      return { answer: ans };
+    }
+    if (q.type === "rate") {
+      const ans = [];
+      for (let i = 0; i < q.options.length; i++) {
+        const r = document.querySelector(`input[name="rate${i}"]:checked`);
+        if (!r) return { error: "Rate all options." };
+        ans.push(parseInt(r.value));
+      }
+      return { answer: ans };
+    }
+    if (q.type === "sba") {
+      const r = document.querySelector('input[name="sba"]:checked');
+      if (!r) return { error: "Select an answer." };
+      return { answer: r.value };
+    }
+    return { error: "Unknown type" };
+  }
+
+  function showFeedback(q, result) {
+    const fb = document.getElementById("feedback");
+    const pct = Math.round((result.score / result.max) * 100);
+    const cls = pct >= 60 ? "good" : "bad";
+    let html = `<div class="feedback ${cls}">
+      <span class="score">${result.score} / ${result.max} (${pct}%)</span>`;
+    if (q.type === "rank5") {
+      html += `<div class="rationale">Correct order: ${q.key.split("").join(" → ")}</div>`;
+    } else if (q.type === "mcq3") {
+      html += `<div class="rationale">Correct: ${q.key.split("").join(", ")}</div>`;
+    } else if (q.type === "tf") {
+      html += `<div class="rationale">Correct: ${q.key.split("").map((c, i) => `${String.fromCharCode(65 + i)}: ${c === "T" ? "True" : "False"}`).join("; ")}</div>`;
+    } else if (q.type === "rate") {
+      html += `<div class="rationale">Correct ratings: ${q.key.map((k, i) => `${String.fromCharCode(65 + i)}: ${k}`).join("; ")}</div>`;
+    }
+    if (q.explanation) html += `<div class="rationale"><strong>Rationale:</strong> ${esc(q.explanation)}</div>`;
+    html += `</div>`;
+    fb.innerHTML = html;
+  }
+
+  function markOptions(q, result) {
+    if (q.type === "rank5") {
+      document.querySelectorAll(".option").forEach((el) => {
+        const i = parseInt(el.dataset.i);
+        const letter = String.fromCharCode(65 + i);
+        const idealPos = q.key.indexOf(letter);
+        const chosen = [...document.querySelectorAll(".rank")].find((s) => s.dataset.i == i).value;
+        if (chosen && parseInt(chosen) - 1 === idealPos) el.classList.add("correct");
+        else if (chosen) el.classList.add("wrong");
+      });
+    } else if (q.type === "mcq3") {
+      document.querySelectorAll('input[type="checkbox"]').forEach((c) => {
+        const letter = String.fromCharCode(65 + parseInt(c.dataset.i));
+        const el = c.closest(".option");
+        if (q.key.includes(letter)) el.classList.add("correct");
+        else if (c.checked) el.classList.add("wrong");
+      });
+    } else if (q.type === "tf") {
+      q.options.forEach((_, i) => {
+        const el = document.querySelector(`.option[data-i="${i}"]`);
+        const chosen = document.querySelector(`input[name="tf${i}"]:checked`);
+        if (chosen && chosen.value === q.key[i]) el.classList.add("correct");
+        else if (chosen) el.classList.add("wrong");
+      });
+    } else if (q.type === "rate") {
+      q.options.forEach((_, i) => {
+        const el = document.querySelector(`.option[data-i="${i}"]`);
+        const chosen = document.querySelector(`input[name="rate${i}"]:checked`);
+        if (chosen && parseInt(chosen.value) === q.key[i]) el.classList.add("correct");
+        else if (chosen) el.classList.add("wrong");
+      });
+    } else if (q.type === "sba") {
+      document.querySelectorAll('input[name="sba"]').forEach((r) => {
+        const el = r.closest(".option");
+        if (r.value === q.key) el.classList.add("correct");
+        else if (r.checked) el.classList.add("wrong");
+      });
+    }
+  }
+
+  function run(container, questions, opts = {}) {
+    let idx = 0;
+    let total = 0, max = 0, correct = 0;
+    const onFinish = opts.onFinish || (() => {});
+
+    function render() {
+      if (idx >= questions.length) return finish();
+      const q = questions[idx];
+      container.innerHTML = `
+        <div class="progress">Question ${idx + 1} of ${questions.length} — running score ${total}/${max}</div>
+        ${renderQuestion(q)}`;
+      document.getElementById("checkBtn").onclick = () => {
+        const { answer, error } = collectAnswer(q);
+        if (error) { document.getElementById("feedback").innerHTML = `<div class="feedback bad">${esc(error)}</div>`; return; }
+        const result = Engine.score(q, answer);
+        total += result.score; max += result.max;
+        if (result.score === result.max) correct++;
+        Progress.record(q.id, result.score === result.max);
+        if (opts.onQuestion) opts.onQuestion(q, result);
+        showFeedback(q, result);
+        markOptions(q, result);
+        document.getElementById("checkBtn").disabled = true;
+        document.getElementById("nextBtn").style.display = "";
+      };
+      document.getElementById("nextBtn").onclick = () => { idx++; render(); };
+    }
+
+    function finish() {
+      const pct = max ? Math.round((total / max) * 100) : 0;
+      container.innerHTML = `
+        <div class="card results">
+          <div class="big">${total} / ${max}</div>
+          <div class="detail">${pct}% — ${correct} of ${questions.length} questions fully correct</div>
+          <div class="controls" style="justify-content:center">
+            <button onclick="location.reload()">Practice again</button>
+          </div>
+        </div>`;
+      onFinish({ total, max, pct, correct });
+    }
+
+    render();
+  }
+
+  return { run };
+})();

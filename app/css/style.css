@@ -1,0 +1,89 @@
+:root {
+  --bg: #0f1115;
+  --card: #171a21;
+  --card2: #1e222b;
+  --fg: #e6e8ee;
+  --muted: #9aa3b2;
+  --accent: #4f8cff;
+  --accent2: #6ee7b7;
+  --border: #2a2f3a;
+  --danger: #f87171;
+  --ok: #34d399;
+  --warn: #fbbf24;
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+header.nav {
+  display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
+  padding: 12px 20px; border-bottom: 1px solid var(--border);
+  background: var(--card); position: sticky; top: 0; z-index: 10;
+}
+header.nav .brand { font-weight: 700; margin-right: 12px; color: var(--accent); }
+header.nav a {
+  color: var(--muted); text-decoration: none; padding: 6px 12px;
+  border-radius: 8px; font-size: 14px;
+}
+header.nav a:hover { background: var(--card2); color: var(--fg); }
+header.nav a.active { background: var(--accent); color: #fff; }
+main { max-width: 860px; margin: 0 auto; padding: 24px 20px 80px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; }
+.sub { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 20px; margin-bottom: 16px;
+}
+.scenario { font-size: 15px; margin-bottom: 16px; }
+.instruction { color: var(--muted); font-size: 13px; font-style: italic; margin-bottom: 12px; }
+.option {
+  display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px;
+  border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px;
+  background: var(--card2); cursor: pointer;
+}
+.option:hover { border-color: var(--accent); }
+.option .letter { font-weight: 700; color: var(--accent); min-width: 20px; }
+.option .text { flex: 1; font-size: 14px; }
+.option select, .option input[type="radio"] { margin-top: 2px; }
+.option.selected { border-color: var(--accent); background: rgba(79,140,255,0.08); }
+.option.correct { border-color: var(--ok); background: rgba(52,211,153,0.10); }
+.option.wrong { border-color: var(--danger); background: rgba(248,113,113,0.08); }
+.option .rank { width: 64px; }
+.controls { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+button {
+  background: var(--accent); color: #fff; border: none; padding: 10px 18px;
+  border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.ghost { background: var(--card2); color: var(--fg); border: 1px solid var(--border); }
+button.ghost:hover { border-color: var(--accent); }
+.feedback { margin-top: 16px; padding: 14px 16px; border-radius: 8px; font-size: 14px; }
+.feedback.good { background: rgba(52,211,153,0.12); border: 1px solid var(--ok); }
+.feedback.bad { background: rgba(248,113,113,0.10); border: 1px solid var(--danger); }
+.feedback .score { font-weight: 700; font-size: 16px; }
+.rationale { margin-top: 10px; color: var(--muted); font-size: 13px; white-space: pre-wrap; }
+.progress { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px;
+  font-weight: 600; margin-left: 6px;
+}
+.badge.provisional { background: rgba(251,191,36,0.15); color: var(--warn); }
+.badge.generated { background: rgba(110,231,183,0.15); color: var(--accent2); }
+.badge.topic { background: var(--card2); color: var(--muted); }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.filters select, .filters button {
+  background: var(--card2); color: var(--fg); border: 1px solid var(--border);
+  padding: 8px 12px; border-radius: 8px; font-size: 14px;
+}
+.filters button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.results { text-align: center; padding: 30px 20px; }
+.results .big { font-size: 40px; font-weight: 800; color: var(--accent); }
+.results .detail { color: var(--muted); margin-top: 8px; }
+table.stats { width: 100%; border-collapse: collapse; margin-top: 16px; }
+table.stats th, table.stats td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: left; font-size: 14px; }
+table.stats th { color: var(--muted); font-weight: 600; }

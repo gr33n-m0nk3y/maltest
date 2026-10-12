@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Situational Judgement — Malta Foundation Training 1</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav">
+  <span class="brand">Malta F1 Prep</span>
+  <a href="index.html">Learn</a>
+  <a href="self-test.html">Self-Test</a>
+  <a href="situational.html" class="active">Situational</a>
+  <a href="mock.html">Mock Exam</a>
+  <a href="generate.html">Generate</a>
+</header>
+<main>
+  <h1>Situational Judgement</h1>
+  <div class="sub">FY1-role scenarios from the 350-question SJT book, organised by theme. Near-miss scoring.</div>
+  <div class="filters" id="filters">
+    <button data-f="all" class="active">All themes</button>
+    <button data-f="Commitment to Professionalism">Professionalism</button>
+    <button data-f="Coping with Pressure">Coping with Pressure</button>
+    <button data-f="Effective Communication">Communication</button>
+    <button data-f="Patient Focus">Patient Focus</button>
+    <button data-f="Working Effectively as Part of a Team">Teamwork</button>
+  </div>
+  <div id="container"></div>
+</main>
+<script src="js/engine.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/practice.js"></script>
+<script>
+(async () => {
+  const all = await Bank.load();
+  const pool = all.filter((q) => q.source === "book");
+  let current = pool;
+  const container = document.getElementById("container");
+  document.getElementById("filters").addEventListener("click", (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+    document.querySelectorAll("#filters button").forEach((b) => b.classList.remove("active"));
+    e.target.classList.add("active");
+    const f = e.target.dataset.f;
+    current = f === "all" ? pool : pool.filter((q) => q.topic === f);
+    Practice.run(container, current);
+  });
+  Practice.run(container, current);
+})();
+</script>
+</body>
+</html>

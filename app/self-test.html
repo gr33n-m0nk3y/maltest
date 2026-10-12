@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Test — Malta Foundation Training 1</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav">
+  <span class="brand">Malta F1 Prep</span>
+  <a href="index.html">Learn</a>
+  <a href="self-test.html" class="active">Self-Test</a>
+  <a href="situational.html">Situational</a>
+  <a href="mock.html">Mock Exam</a>
+  <a href="generate.html">Generate</a>
+</header>
+<main>
+  <h1>Self-Test</h1>
+  <div class="sub">Official sample questions from the source papers — scored against the official answer keys, with rationales.</div>
+  <div class="filters" id="filters">
+    <button data-f="all" class="active">All</button>
+    <button data-f="rank5">Ranking</button>
+    <button data-f="mcq3">Choose 3 of 8</button>
+    <button data-f="rate">Rating</button>
+    <button data-f="tf">True/False</button>
+  </div>
+  <div id="container"></div>
+</main>
+<script src="js/engine.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/practice.js"></script>
+<script>
+(async () => {
+  const all = await Bank.load();
+  // self-test = official source bank (30q + worked + malta), not the book
+  const pool = all.filter((q) => ["30q", "worked", "malta"].includes(q.source));
+  let current = pool;
+  const container = document.getElementById("container");
+  document.getElementById("filters").addEventListener("click", (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+    document.querySelectorAll("#filters button").forEach((b) => b.classList.remove("active"));
+    e.target.classList.add("active");
+    const f = e.target.dataset.f;
+    current = f === "all" ? pool : pool.filter((q) => q.type === f);
+    Practice.run(container, current);
+  });
+  Practice.run(container, current);
+})();
+</script>
+</body>
+</html>

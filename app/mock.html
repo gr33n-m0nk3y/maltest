@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mock Exam — Malta Foundation Training 1</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav">
+  <span class="brand">Malta F1 Prep</span>
+  <a href="index.html">Learn</a>
+  <a href="self-test.html">Self-Test</a>
+  <a href="situational.html">Situational</a>
+  <a href="mock.html" class="active">Mock Exam</a>
+  <a href="generate.html">Generate</a>
+</header>
+<main>
+  <h1>Mock Exam</h1>
+  <div class="sub">Full Malta-format mock: 60 questions in 140 minutes. Section A = situational judgement, Section B = situational clinical.</div>
+  <div id="setup">
+    <div class="card">
+      <h2>Exam format</h2>
+      <table class="stats">
+        <tr><th>Section</th><th>Content</th><th>Questions</th><th>Max marks</th></tr>
+        <tr><td>A1</td><td>Situational Judgement — Ranking</td><td>25</td><td>100</td></tr>
+        <tr><td>A2</td><td>Situational Judgement — MCQ (3 of 8)</td><td>15</td><td>60</td></tr>
+        <tr><td>B1</td><td>Situational Clinical — MCQ (3 of 8)</td><td>10</td><td>40</td></tr>
+        <tr><td>B2</td><td>Situational Clinical — True/False</td><td>10</td><td>20</td></tr>
+      </table>
+      <p class="sub" style="margin-top:12px">Note: the bank has limited clinical (Section B) items, so B1/B2 are partly filled with AI-generated questions (flagged).</p>
+      <div class="controls">
+        <button id="startBtn">Start mock exam</button>
+      </div>
+    </div>
+  </div>
+  <div id="timer" style="display:none;position:sticky;top:56px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 16px;margin-bottom:12px;font-weight:700;z-index:5"></div>
+  <div id="container"></div>
+</main>
+<script src="js/engine.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/practice.js"></script>
+<script>
+(async () => {
+  const all = await Bank.load();
+  const setup = document.getElementById("setup");
+  const timerEl = document.getElementById("timer");
+  const container = document.getElementById("container");
+  let timer = null, remaining = 0;
+
+  function fmt(s) {
+    const m = Math.floor(s / 60), sec = s % 60;
+    return `${m}:${String(sec).padStart(2, "0")}`;
+  }
+
+  document.getElementById("startBtn").onclick = () => {
+    const mock = Engine.buildMock(all);
+    setup.style.display = "none";
+    timerEl.style.display = "";
+    remaining = mock.durationMin * 60;
+    const short = Object.entries(mock.shortfall);
+    if (short.length) {
+      const note = short.map(([id, n]) => `${id}: ${n} missing`).join(", ");
+      timerEl.textContent = `Time remaining: ${fmt(remaining)} — note: ${note} (AI generation pending)`;
+    } else {
+      timerEl.textContent = `Time remaining: ${fmt(remaining)}`;
+    }
+    timer = setInterval(() => {
+      remaining--;
+      timerEl.textContent = `Time remaining: ${fmt(remaining)}`;
+      if (remaining <= 0) { clearInterval(timer); timerEl.textContent = "Time up!"; }
+    }, 1000);
+
+    const secScores = {};
+    mock.questions.forEach((q) => { secScores[q._section] = { score: 0, max: 0 }; });
+    Practice.run(container, mock.questions, {
+      onQuestion: (q, r) => {
+        const s = secScores[q._section];
+        s.score += r.score; s.max += r.max;
+      },
+      onFinish: (res) => {
+        clearInterval(timer);
+        timerEl.style.display = "none";
+        let rows = "";
+        for (const [id, s] of Object.entries(secScores)) {
+          rows += `<tr><td>${id}</td><td>${s.score} / ${s.max}</td><td>${s.max ? Math.round(s.score / s.max * 100) : 0}%</td></tr>`;
+        }
+        container.innerHTML = `
+          <div class="card results">
+            <div class="big">${res.total} / ${res.max}</div>
+            <div class="detail">${res.pct}% overall — ${res.correct} of ${mock.questions.length} questions fully correct</div>
+            <table class="stats"><tr><th>Section</th><th>Score</th><th>%</th></tr>${rows}</table>
+            <div class="controls" style="justify-content:center">
+              <button onclick="location.reload()">Take another mock</button>
+            </div>
+          </div>`;
+      }
+    });
+  };
+})();
+</script>
+</body>
+</html>

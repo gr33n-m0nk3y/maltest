@@ -18,7 +18,6 @@ const Engine = (() => {
   }
 
   // ideal: "BADCE" (option at position 0 is rank 1). given: candidate permutation.
-  // Returns {score, max, perOption:[...]}.
   function scoreRank5(ideal, given) {
     if (!ideal || !given || ideal.length !== 5 || given.length !== 5) {
       return { score: 0, max: 20, perOption: [], valid: false };
@@ -26,8 +25,8 @@ const Engine = (() => {
     const perOption = [];
     let score = 0;
     for (let i = 0; i < 5; i++) {
-      const idealRank = i + 1;                 // ideal[i] is the option that should be rank i+1
-      const candRank = given.indexOf(ideal[i]) + 1; // where the candidate put that option
+      const idealRank = i + 1;
+      const candRank = given.indexOf(ideal[i]) + 1;
       const pts = rank5Matrix(idealRank, candRank);
       perOption.push({ option: ideal[i], idealRank, candRank, pts });
       score += pts;
@@ -36,7 +35,6 @@ const Engine = (() => {
   }
 
   // --- mcq3: choose 3 of 8 ---
-  // key: "BGH". chosen: array of letters. Over-select (>3) -> 0.
   function scoreMcq3(key, chosen) {
     const max = 12;
     if (!key || !chosen) return { score: 0, max, valid: false };
@@ -91,7 +89,6 @@ const Engine = (() => {
   // --- mock assembler: Malta format 60 Q / 140 min ---
   // Section A (situational): A1 = 25 rank5, A2 = 15 mcq3
   // Section B (clinical):   B1 = 10 mcq3, B2 = 10 tf
-  // Fills from bank by type; returns {sections, questions, durationMin}.
   function buildMock(bank, opts = {}) {
     const durationMin = opts.durationMin || 140;
     const byType = (t) => bank.filter((q) => q.type === t);
@@ -107,13 +104,15 @@ const Engine = (() => {
     ];
     const questions = [];
     const used = new Set();
+    const shortfall = {};
     for (const s of sections) {
       const pool = byType(s.type).filter((q) => !used.has(q.id));
       const chosen = pick(pool, s.count);
       chosen.forEach((q) => used.add(q.id));
       questions.push(...chosen.map((q) => ({ ...q, _section: s.id })));
+      if (chosen.length < s.count) shortfall[s.id] = s.count - chosen.length;
     }
-    return { sections, questions, durationMin };
+    return { sections, questions, durationMin, shortfall };
   }
 
   return { scoreRank5, scoreMcq3, scoreTf, scoreRate, scoreSba, score, buildMock };
